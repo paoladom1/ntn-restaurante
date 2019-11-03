@@ -5,8 +5,7 @@ import styles from './Footer.module.css';
 const Footer = () => {
     return (
         <footer>
-            <Button type='primary' className={styles.primary}> Prueba </Button>
-            <Icon type="twitter" theme="filled" />
+            <Icon type="twitter" />
             <Icon type="facebook" theme="filled" />
             <Icon type="instagram" theme="filled" />
             
