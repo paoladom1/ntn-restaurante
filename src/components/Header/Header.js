@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Icon } from "antd";
+import { Layout} from "antd";
 import NavMenu from "../NavMenu/NavMenu";
 import styles from "./Header.module.css";
 
@@ -8,7 +8,11 @@ const { Header: AntdHeader } = Layout;
 const Header = () => {
   return (
     <AntdHeader className={styles.header}>
-      <Icon type="appstore" /> {/*cambiar por logo de la aplicacion*/}
+      <a className={styles.logo} href="#">
+        <strong>NTN</strong>
+        <span>Restaurant</span>
+      </a>
+
       <NavMenu className={styles.navmenu} />
     </AntdHeader>
   );

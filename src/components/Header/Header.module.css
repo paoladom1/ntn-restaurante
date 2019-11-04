@@ -2,4 +2,20 @@
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
+    padding: 0px 10px;
+}
+
+.header .logo span{
+    text-decoration: none;
+    margin: 0 0 5px 20px;
+    color: white;
+    display: none;
+}
+
+
+.header .logo strong{
+    background: white;
+    color:#242943;
+    padding: 0.20em;
+    font-size: 1.2em;
 }
