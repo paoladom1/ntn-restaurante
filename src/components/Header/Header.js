@@ -13,7 +13,6 @@ const Header = () => {
         <strong>NTN</strong>
         <span>Restaurant</span>
       </Link>
-
       <NavMenu className={styles.navmenu} />
     </AntdHeader>
   );
