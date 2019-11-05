@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Icon } from 'antd';
-import styles from './Footer.module.css';
+import { Icon } from 'antd';
+//import styles from './Footer.module.scss';
 
 const Footer = () => {
     return (

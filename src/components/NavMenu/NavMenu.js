@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Menu, Button, Icon } from "antd";
-import styles from "./NavMenu.module.css";
+import styles from "./NavMenu.module.scss";
 
 class NavMenu extends React.Component {
   constructor(props) {

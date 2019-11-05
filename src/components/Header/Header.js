@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Icon } from "antd";
 import NavMenu from "../NavMenu/NavMenu";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 const { Header: AntdHeader } = Layout;
 
