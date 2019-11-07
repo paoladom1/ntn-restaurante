@@ -1,0 +1,33 @@
+@import "./../../variables.scss";
+
+.menu .submenu {
+    transition: transform 0.25s ease, opacity 0.25s ease, filter 1s ease, -webkit-filter 1s ease;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: default;
+    overflow: hidden;
+    position: relative;
+}
+
+.submenu::before {
+    background-color: black;
+}
+
+.img {
+    width: 100%;
+    min-height: 350px;
+    max-height: 350px;
+    &:hover {
+        background-color: black;
+        cursor: pointer;
+    }
+}
+
+.submenu {
+    z-index: 100;
+    &:hover {
+        background-color: black;
+        cursor: pointer;
+    }
+}
