@@ -1,25 +1,25 @@
 @import "./../../variables.scss";
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
-    padding: 0px 10px;
-    background-color: $primary-color;
-}
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  padding: 0px 10px;
+  background-color: $primary-color;
 
-.header .logo {
+  .logo {
     span {
       text-decoration: none;
       margin: 0 0 5px 20px;
       color: $surface-color;
       display: none;
     }
-  
+
     strong {
       background: $surface-color;
       color: $primary-color-text;
-      padding: 0.20em;
+      padding: 0.2em;
       font-size: 1.2em;
     }
   }
+}

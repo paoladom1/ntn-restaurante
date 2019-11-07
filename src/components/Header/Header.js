@@ -8,7 +8,7 @@ const { Header: AntdHeader } = Layout;
 
 const Header = () => {
   return (
-    <AntdHeader className={styles.header}>
+    <AntdHeader style={{position: "fixed", zIndex: 1, width: "100%"}} className={styles.header}>
       <Link className={styles.logo} to="/">
         <strong>NTN</strong>
         <span>Restaurant</span>

@@ -11,7 +11,7 @@ const Layout = (props) => {
     return (
         <AntdLayout>
             <Header />
-            <Content>
+            <Content style={{paddingTop: 64}}>
                 {children}
             </Content>
             <Footer />
