@@ -4,92 +4,122 @@ import styles from "./MenuList.module.scss";
 import { Link } from "react-router-dom";
 import { Image, Transformation } from "cloudinary-react";
 
+const menuListInfo = [
+  {
+    name: "ENTRADAS",
+    link: "/menu/entrees",
+    grid: {
+      xs: 24,
+      md: 13
+    },
+    image: "samples/food/spices",
+    transformations: {
+      crop: "fill",
+      fontSize: 120
+    }
+  },
+  {
+    name: "DESAYUNOS",
+    link: "/menu/breakfast",
+    grid: {
+      xs: 24,
+      md: 11
+    },
+    image: "samples/food/breakfast",
+    transformations: {
+      crop: "fill",
+      fontSize: 75
+    }
+  },
+  {
+    name: "ALMUERZOS",
+    link: "/menu/lunch",
+    grid: {
+      xs: 24,
+      md: 11
+    },
+    image: "samples/food/fish-vegetables",
+    transformations: {
+      crop: "fill",
+      fontSize: 75
+    }
+  },
+  {
+    name: "CENAS",
+    link: "/menu/dinner",
+    grid: {
+      xs: 24,
+      md: 13
+    },
+    image: "samples/food/pot-mussels",
+    transformations: {
+      crop: "fill",
+      fontSize: 75
+    }
+  },
+  {
+    name: "POSTRES",
+    link: "/menu/dessert",
+    grid: {
+      xs: 24,
+      md: 13
+    },
+    image: "samples/food/dessert",
+    transformations: {
+      crop: "fill",
+      fontSize: 75
+    }
+  },
+  {
+    name: "BEBIDAS",
+    link: "/menu/drinks",
+    grid: {
+      xs: 24,
+      md: 11
+    },
+    image: "samples/food/drinks",
+    transformations: {
+      crop: "fill",
+      fontSize: 40
+    }
+  }
+];
+
 const MenuList = () => {
   return (
-    <>
-      <Row>
-        <Col className={styles.menu} xs={24} md={13}>
-          <Link className={styles.submenu} to="/menu/entrees">
-            <Image publicId="samples/food/spices" className={styles.img}>
-            <Transformation fetchFormat="auto"
-                  crop="fill"
-                  aspectRatio="16:9"/>
-            <Transformation 
-                  color="#FFFFFF"
-                  overlay={{fontFamily: "Roboto", fontSize: 75, fontAntialias: "good", fontWeight: "bold", textDecoration: "underline", letterSpacing: 12, text: "ENTREES"}} 
-            />
+    <Row>
+      {menuListInfo.map((submenu, index) => (
+        <Col
+          key={index}
+          className={styles.menu}
+          xs={submenu.grid.xs}
+          md={submenu.grid.md}
+        >
+          <Link className={styles.submenu} to={submenu.link}>
+            <Image publicId={submenu.image} className={styles.img}>
+              <Transformation
+                fetchFormat="auto"
+                crop={submenu.transformations.crop}
+                aspectRatio="16:9"
+              />
+              <Transformation
+                color="#FFFFFF"
+                overlay={{
+                  fontFamily: "Roboto",
+                  fontSize: submenu.transformations.fontSize,
+                  fontAntialias: "good",
+                  fontWeight: "bold",
+                  textDecoration: "underline",
+                  letterSpacing: 12,
+                  text: submenu.name
+                }}
+              />
             </Image>
+            <div className={styles.imageOverlay} />
           </Link>
         </Col>
-        <Col className={styles.menu} xs={24} md={11}>
-          <Link className={styles.submenu} to="/menu/breakfast">
-            <Image publicId="samples/food/breakfast" className={styles.img}>
-            <Transformation fetchFormat="auto"
-                  crop="fill"
-                  aspectRatio="16:9"/>
-            <Transformation 
-                  color="#FFFFFF"
-                  overlay={{fontFamily: "Roboto", fontSize: 75, fontAntialias: "good", fontWeight: "bold", textDecoration: "underline", letterSpacing: 12, text: "ENTREES"}} 
-            />
-            </Image>
-          </Link>
-        </Col>
-      </Row>
-      <Row>
-        <Col className={styles.menu} xs={24} md={11}>
-          <Link className={styles.submenu} to="/menu/lunch"></Link>
-          <Image publicId="samples/food/fish-vegetables" className={styles.img}>
-          <Transformation fetchFormat="auto"
-                  crop="fill"
-                  aspectRatio="16:9"/>
-            <Transformation 
-                  color="#FFFFFF"
-                  overlay={{fontFamily: "Roboto", fontSize: 75, fontAntialias: "good", fontWeight: "bold", textDecoration: "underline", letterSpacing: 12, text: "ENTREES"}} 
-            />
-          </Image>
-        </Col>
-        <Col className={styles.menu} xs={24} md={13}>
-          <Link className={styles.submenu} to="/menu/dinner"></Link>
-          <Image publicId="samples/food/pot-mussels" className={styles.img}>
-          <Transformation fetchFormat="auto"
-                  crop="fill"
-                  aspectRatio="16:9"/>
-            <Transformation 
-                  color="#FFFFFF"
-                  overlay={{fontFamily: "Roboto", fontSize: 75, fontAntialias: "good", fontWeight: "bold", textDecoration: "underline", letterSpacing: 12, text: "ENTREES"}} 
-            />
-          </Image>
-        </Col>
-      </Row>
-      <Row>
-        <Col className={styles.menu} xs={24} md={13}>
-          <Link className={styles.submenu} to="/menu/desserts">
-            <Image publicId="samples/food/dessert" className={styles.img}>
-            <Transformation fetchFormat="auto"
-                  crop="fill"
-                  aspectRatio="16:9"/>
-            <Transformation 
-                  color="#FFFFFF"
-                  overlay={{fontFamily: "Roboto", fontSize: 75, fontAntialias: "good", fontWeight: "bold", textDecoration: "underline", letterSpacing: 12, text: "ENTREES"}} 
-            />
-            </Image>
-          </Link>
-        </Col>
-        <Col className={styles.menu} xs={24} md={11}>
-          <Link className={styles.submenu} to="/menu/drinks">
-            <Image publicId="samples/food/drinks" className={styles.img}>
-            <Transformation fetchFormat="auto"
-                  crop="fill"
-                  aspectRatio="16:9"/>
-            <Transformation 
-                  color="#FFFFFF"
-                  overlay={{fontFamily: "Roboto", fontSize: 55, fontAntialias: "good", fontWeight: "bold", textDecoration: "underline", letterSpacing: 12, text: "ENTREES"}} 
-            />
-            </Image>
-          </Link>
-        </Col>
-      </Row>
-    </>
+      ))}
+    </Row>
   );
 };
 

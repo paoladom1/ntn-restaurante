@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <Layout>
             <BigHero />
-            {/*<RestaurantInfoList />*/}
+            <RestaurantInfoList />
         </Layout>
     );
 }
