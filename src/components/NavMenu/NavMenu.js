@@ -39,8 +39,8 @@ class NavMenu extends React.Component {
           <Menu
             className={styles.overlayContent}
             mode="vertical"
-            theme="dark"
             selectedKeys={[this.state.currentPage]}
+            onClick={this.toggle}
           >
             <Menu.Item className={`${this.state.currentPage === "/" ? styles.selected : " "}`} key="/">
               <Link to="/">Home</Link>
