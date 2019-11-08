@@ -7,7 +7,7 @@ import { Image, Transformation } from "cloudinary-react";
 const menuListInfo = [
   {
     name: "ENTRADAS",
-    link: "/menu/entrees",
+    link: "/menu/entradas",
     grid: {
       xs: 24,
       md: 13
@@ -20,7 +20,7 @@ const menuListInfo = [
   },
   {
     name: "DESAYUNOS",
-    link: "/menu/breakfast",
+    link: "/menu/desayunos",
     grid: {
       xs: 24,
       md: 11
@@ -33,7 +33,7 @@ const menuListInfo = [
   },
   {
     name: "ALMUERZOS",
-    link: "/menu/lunch",
+    link: "/menu/almuerzos",
     grid: {
       xs: 24,
       md: 11
@@ -46,7 +46,7 @@ const menuListInfo = [
   },
   {
     name: "CENAS",
-    link: "/menu/dinner",
+    link: "/menu/cenas",
     grid: {
       xs: 24,
       md: 13
@@ -59,7 +59,7 @@ const menuListInfo = [
   },
   {
     name: "POSTRES",
-    link: "/menu/dessert",
+    link: "/menu/postres",
     grid: {
       xs: 24,
       md: 13
@@ -72,7 +72,7 @@ const menuListInfo = [
   },
   {
     name: "BEBIDAS",
-    link: "/menu/drinks",
+    link: "/menu/bebidas",
     grid: {
       xs: 24,
       md: 11
