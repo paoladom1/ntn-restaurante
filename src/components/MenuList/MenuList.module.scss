@@ -4,16 +4,32 @@
     width: 100%;
     min-height: 350px;
     max-height: 350px;
-    &:hover {
-        background-color: black;
-        cursor: pointer;
-    }
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
 }
 
 .submenu {
-    z-index: 100;
+    display: block;
+    position: relative;
+    min-height: 350px;
+    max-height: 350px;
     &:hover {
-        background-color: black;
         cursor: pointer;
+    }
+
+    .imageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: $secondary-color-dark;
+        opacity: 0.3;
+    }
+
+    &:hover {
+        & .imageOverlay{
+            display: none;
+        }
     }
 }

@@ -1,0 +1,52 @@
+@import "./../../variables.scss";
+
+.card {
+  width: 90%;
+  margin: 12px auto;
+  box-shadow: black 0.5px 0.5px 0.5px 0px;
+}
+
+.cardMenu {
+  border: solid 2px $complementary-color;
+}
+
+.cardContent {
+    .img {
+        margin: 50px 50px;
+        max-width: 400px;
+        min-width: 400px;
+        height: auto;
+    }
+}
+
+.listContent {
+  margin: 15px 30px;
+  color: $complementary-color;
+  .foodName {
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: underline;
+      text-transform: uppercase;
+      margin-bottom: 1px;
+  }
+  .foodDescription {
+      margin-bottom: 12px;
+  }
+}
+
+.cardTitle {
+  background-color: $complementary-color;
+  border-bottom: $secondary-color-dark;
+  height: 45px;
+  .title {
+    padding-top: 8px;
+    margin: auto 30px;
+    color: $surface-color;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    .icon {
+        color: $surface-color;
+    }
+  }
+}
