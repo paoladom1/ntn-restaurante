@@ -1,25 +1,31 @@
-.social{
-    list-style: none;
-    padding: 10px;
-    margin-top: 0em;
-    margin-bottom: 0em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-top: 1px solid  #242943;
+@import "./../../variables";
 
-    li{ 
-        a{
-        font-size: 1.5em;
-        text-decoration: none;
-        margin: 10px;
-        color:  #242943;
+
+
+.fot{
+    background-color:$primary-color;
+    .social{
+        list-style-type: none;
+        padding: 10px;
+        margin-top: 0em;
+        margin-bottom: 0em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-top: 1px solid $color-social-links;
+
+        li{
+            a{
+                font-size: 1.5em;
+                text-decoration: none;
+                margin: 10px;
+                color: $color-social-links;
+            }
         }
     }
-}
-
-.down{
-    display: flex;
-    justify-content: center;
-    margin: 0px;
+    .down{
+        display: flex;
+        justify-content: center;
+        margin: 0px;
+    }
 }

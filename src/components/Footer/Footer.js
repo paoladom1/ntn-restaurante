@@ -6,7 +6,7 @@ const { Footer: AntFooter } = Layout;
 
 const Footer = () => {
     return (
-        <AntFooter>
+        <AntFooter className={styles.fot}>
             <nav>
                 <ul className={styles.social}>
                     <li>
