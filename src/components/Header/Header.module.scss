@@ -6,7 +6,7 @@
   flex-flow: row wrap;
   padding: 0px 10px;
   background-color: $primary-color;
-  border-bottom: 1px ridge white;
+  border-bottom: 1px ridge $surface-color;
 
   .logo {
     span {
