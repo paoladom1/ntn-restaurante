@@ -5,13 +5,13 @@ import About from "./pages/About/About";
 import Menu from "./pages/Menu/Menu";
 
 export default function AppRouter() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/about" component={About} />
-        <Route path="/menu" component={Menu} />
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </Router>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route path="/about" component={About} />
+                <Route path="/menu" component={Menu} />
+                <Route exact path="/" component={Home} />
+            </Switch>
+        </Router>
+    );
 }
