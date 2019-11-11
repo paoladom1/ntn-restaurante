@@ -8,9 +8,11 @@
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
+  right: 0;
+  bottom: 100%;
   background-color: $primary-color;
   overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  transition: 0.5s ease; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
 /* Position the content inside the overlay */
@@ -64,13 +66,7 @@
     font-size: 1.2rem;
     background-color: transparent;
     border-color: transparent;
-    color: white;
-
-    &:hover {
-      background-color: transparent;
-      border-color: transparent;
-      color: #9bf1ff;
-    }
+    color: $surface-color;
   }
 }
 
@@ -89,14 +85,14 @@
 .menuBtn {
   background-color: transparent;
   border-color: transparent;
-  color: white;
+  color: $surface-color;
   font-size: 1.2rem;
 
   &:hover,
   &:focus {
     border-color: transparent;
     background-color: transparent;
-    color: #9bf1ff;
+    color: $secondary-color;
   }
 }
 
