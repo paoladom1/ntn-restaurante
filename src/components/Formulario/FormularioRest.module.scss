@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+@import "./../../variables";
+.content{
+    border-bottom: 1px solid white;
+    background-color: #ff8f00;
+    padding: 50px 50px 50px 50px;
+    font-family: "Roboto Slab", serif;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    .inner{
+        h2{
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        form{
+            margin: 0 0 2em 0;
+            padding-top: 2.5em;
+            .fields{
+
+                .field{
+                    margin-bottom: 2em;
+
+                    label{
+                        color: $secondary-color-text;
+                        display: block;
+                        font-size: 0.95em;
+                        font-weight: 600;
+                        letter-spacing: 0.25em;
+                        margin: 0 0 1em 0;
+                        text-transform: uppercase;
+                    }
+                    input[type="text"]{
+                        height: 3em;
+                        width: 20em;
+                        background:$primary-color-light;
+                        border: none;
+                        color: $secondary-color-text;
+                        border-color: $secondary-color-text;
+                        
+
+                    }
+                    input[type="email"]{
+                        height: 2.5em;
+                        width: 20em;
+                        background:$primary-color-light;
+                        border: none;
+                    }
+                    input[type="tel"]{
+                        height: 2.5em;
+                        width: 10em;
+                        background:$primary-color-light;
+                        border: none;
+                    }
+                    input[type="number"]{
+                        background: $primary-color-light;
+                        border: none;
+                    }
+                    .select{
+                        background-color:red;
+                        color: red;
+                    }
+                    input:focus { 
+                       
+                        border-color: $secondary-color-text;
+                        box-shadow: 0px 0px 5px $secondary-color-text;
+                    }
+                }   
+            }   
+                ul{
+                    list-style: none;   
+                    li{
+                       input[type="submit"]{
+                        background:#ffc046;
+                        border: 1px solid$secondary-color-text;
+                        color: $secondary-color-text;
+                        border-radius: 25px;
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        
+                       }
+                    }
+                }
+            }
+        
+            .information{
+                section{
+                    border-top: 1px solid white;
+                    padding: 1em;
+                    .first{
+                        font-size: 1.2em;
+                        font-weight: 600;
+                        letter-spacing: 0.2em;
+                        text-align: center;
+                        a{
+                            color: black;
+                            font-size: 0.8  em;
+                        }
+                        span{
+                            color: black;
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
