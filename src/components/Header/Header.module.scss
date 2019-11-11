@@ -7,19 +7,46 @@
   padding: 0px 10px;
   background-color: $primary-color;
 
-  .logo {
-    span {
-      text-decoration: none;
-      margin: 0 0 5px 20px;
+  .icons {
+    display: inherit;
+    .icon {
+      margin-right: 40px;
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 1.2rem;
+      background-color: transparent;
+      border-color: transparent;
       color: $surface-color;
-      display: none;
+    }
+  }
+
+  .logo {
+    margin-left: 40px;
+    span {
+      font-weight: lighter;
+      font-size: 0.8rem;
+      text-decoration: none;
+      margin: 0 0 5px 5px;
+      color: $surface-color;
+      text-transform: uppercase;
     }
 
     strong {
-      background: $surface-color;
+      background-color: $surface-color;
+      opacity: 0.9;
       color: $primary-color-text;
       padding: 0.2em;
-      font-size: 1.2em;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .logo {
+    span {
+      display: none;
     }
   }
 }
