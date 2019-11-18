@@ -1,0 +1,205 @@
+@import "./../../variables";
+
+.wrapper{
+    position: relative;
+
+    .acercade{  
+        background-color: $primary-color-dark;
+        .contenedor{
+          padding: 2em;
+          .sobrenosotros{
+              color: white;
+              text-align: right;
+              margin-bottom: 0;
+          }
+          hr{
+            color: white;
+            width: 50%;
+            margin-top: 0;
+            margin-right: 0;
+          }
+          p{
+            padding: 0.5em;
+            margin: 1em;
+            color: white;
+          }
+        }
+    }
+    .acercadeother{
+        background-color: blue;
+        .sesgootro{
+            z-index: 10;
+            position: static;
+            left: 0;
+            border-width: 5vh 100vw 0 0;
+            border-style: solid;
+            border-color:  $primary-color-dark transparent transparent  transparent;
+        }
+        .contenedor{
+            padding: 2em;
+            .sobrenosotros{
+                color: white;
+                text-align: right;
+                margin-bottom: 0;
+            }
+            hr{
+              color: white;
+              width: 50%;
+              margin-top: 0;
+              margin-right: 0;
+            }
+            p{
+              padding: 0.5em;
+              margin: 1em;
+              color: white;
+            }
+          }
+    }
+
+    .acercaUs{
+        background-color: coral;
+        .sesgo{
+            z-index: 10;
+            position: static;
+            bottom: 0;
+            left: 0;
+            border-width: 5vh 100vw 0 0;
+            border-style: solid;
+            border-color:  blue transparent transparent transparent;
+        }
+        .contenedor{
+            padding: 2em;
+            .sobrenosotros{
+                color: white;
+                text-align: right;
+                margin-bottom: 0;
+            }
+            hr{
+              color: white;
+              width: 50%;
+              margin-top: 0;
+              margin-right: 0;
+            }
+            p{
+              padding: 0.5em;
+              margin: 1em;
+              color: white;
+            }
+          }
+        }
+
+        .acerca{
+          background-color: saddlebrown;
+          .sesguito{
+              z-index: 10;
+              position: static;
+              left: 0;
+              border-width: 5vh 100vw 0 0;
+              border-style: solid;
+              border-color:  coral transparent transparent transparent;
+          }
+          .contenedor{
+              padding: 2em;
+              .sobrenosotros{
+                  color: white;
+                  text-align: right;
+                  margin-bottom: 0;
+              }
+              hr{
+                color: white;
+                width: 50%;
+                margin-top: 0;
+                margin-right: 0;
+              }
+              p{
+                padding: 0.5em;
+                margin: 1em;
+                color: white;
+              }
+            }
+          }
+          .informacion{
+            background-color: #f0f2f5;
+            .sesguitoU{
+                z-index: 10;
+                position: static;
+                left: 0;
+                border-width: 5vh 100vw 0 0;
+                border-style: solid;
+                border-color:  saddlebrown transparent transparent transparent;
+            }
+            .contenedor{
+                padding: 2em;
+                .sobrenosotros{
+                    color: white;
+                    text-align: right;
+                    margin-bottom: 0;
+                }
+                hr{
+                  color: white;
+                  width: 50%;
+                  margin-top: 0;
+                  margin-right: 0;
+                }
+                p{
+                  padding: 0.5em;
+                  margin: 1em;
+                  color: white;
+                }
+              }
+            }
+    }
+    
+    @media only screen and (min-width: 768px){
+      .wrapper{
+        position: relative;
+        .acercade{  
+            min-height: 35vh;
+            padding: 0em 3em 3em 3em;
+        }
+        .acercadeother{
+            min-height: 35vh;
+            padding: 0em 3em 3em 0em;
+        }
+        .acercaUs{
+            min-height: 35vh;
+            padding: 0em 3em 3em 0em;
+         }
+        .acerca{
+          min-height: 30vh;
+          padding: 0em 3em 3em 0em;
+        }
+        .informacion{
+          background-color: #f0f2f5;
+        }
+      }
+}
+
+@media only screen and (min-width: 1024px){
+  .wrapper{
+    position: relative;
+    .acercade{  
+        min-height: 35vh;
+        padding: 0em 3em 3em 3em;
+    }
+    .acercadeother{
+        min-height: 35vh;
+        padding: 0em 3em 3em 0em;
+    }
+    .acercaUs{
+        min-height: 35vh;
+        padding: 0em 3em 3em 0em;
+     }
+    .acerca{
+      min-height: 30vh;
+      padding: 0em 3em 3em 0em;
+    }
+    .informacion{
+      background-color: #f0f2f5;
+    }
+  }
+}
+
+
+
+
