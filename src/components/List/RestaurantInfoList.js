@@ -1,6 +1,5 @@
 import React from "react";
 import { List, Card } from "antd";
-import CardInfo from "../Card/CardInfo";
 import styles from "./RestaurantInfoList.module.scss";
 
 const data = [
@@ -17,7 +16,7 @@ const data = [
 
 const ListInfo = () => {
     return (
-        <div className={styles.inner}>
+        <div className={styles.container} id="locations">
             <h1>SUCURSALES</h1>
             <List
                 className={styles.ls}
