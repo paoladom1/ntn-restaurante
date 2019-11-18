@@ -1,6 +1,14 @@
 @import "./../../variables.scss";
 
 .Sucur{
-    background-color:$primary-color-light;
-    height: 80vh;
+    background-color: white;
+    min-height: 80vh;
+    padding-bottom:0.5em ;
+}
+
+@media only screen and (min-width: 768px){
+    .Sucur{
+       display: grid;
+        min-height: 40vh;
+    }
 }
