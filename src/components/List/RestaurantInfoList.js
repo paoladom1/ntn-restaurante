@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Row, Col, List,} from "antd";
-import CardInfo from "../Card/CardInfo";
 import { Image, Transformation } from "cloudinary-react";
 import styles from "./RestaurantInfoList.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
