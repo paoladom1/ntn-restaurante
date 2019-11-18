@@ -25,6 +25,7 @@
         display: block;
         background: $secondary-color-dark;
         opacity: 0.3;
+        transition: transform 0.25s ease, opacity 0.25s ease, filter 1s ease, -webkit-filter 1s ease;
     }
 
     &:hover {

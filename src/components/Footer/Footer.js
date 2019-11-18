@@ -1,32 +1,23 @@
-import React from 'react';
-import { Icon, Layout } from 'antd';
-import styles from './Footer.module.scss';
+import React from "react";
+import { Icon, Layout } from "antd";
+import styles from "./Footer.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const { Footer: AntFooter } = Layout;
 
 const Footer = () => {
     return (
-        <AntFooter className={styles.fot}>
-            <nav>
-                <ul className={styles.social}>
-                    <li>
-                        <a href="https://www.facebook.com">
-                            <Icon type="facebook" theme="filled" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com">
-                            <Icon type="twitter-circle" theme="filled" />
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <AntFooter className={styles.footer}>
             <div className={styles.down}>
-                <strong>NTN Restaurant 2019</strong>    <Icon type="copyright-circle" theme="filled" />
+                <p>NTN Restaurant 2019</p>
+                <Icon
+                    className={styles.icon}
+                    type="copyright"
+                    theme="outlined"
+                />
             </div>
         </AntFooter>
     );
-}
-
+};
 
 export default Footer;
