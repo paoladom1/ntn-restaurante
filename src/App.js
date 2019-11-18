@@ -4,9 +4,9 @@ import { CloudinaryContext } from "cloudinary-react";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faShoppingCart, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faUtensils, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faShoppingCart, faUtensils);
+library.add(fab, faShoppingCart, faUtensils, faChevronDown);
 
 export default function App() {
     return (
