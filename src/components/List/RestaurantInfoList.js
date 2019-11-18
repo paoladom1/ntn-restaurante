@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Icon, List, Carousel} from "antd";
+import { Card, Row, Col, List,} from "antd";
 import CardInfo from "../Card/CardInfo";
 import { Image, Transformation } from "cloudinary-react";
 import styles from "./RestaurantInfoList.module.scss";
