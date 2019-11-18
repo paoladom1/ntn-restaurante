@@ -41,7 +41,7 @@ const FormularioRest = () => {
                         </div>
                         <ul className={styles.actions}>
                             <li>
-                                <input type="submit" value="Send Information" classname={styles.primary}></input>
+                                <input type="submit" value="Send Information" className={styles.primary}></input>
                             </li>
                         </ul>
                     </form>
