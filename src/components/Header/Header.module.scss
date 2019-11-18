@@ -5,8 +5,8 @@
     justify-content: space-between;
     flex-flow: row wrap;
     padding: 0px 10px;
-    background-color: $primary-color;
-    border-bottom: 1px ridge $surface-color;
+    background-color: $primary-color-text;
+    border-bottom: 3px ridge $surface-color;
 
     .icons {
         display: inherit;
@@ -25,20 +25,22 @@
     .logo {
         margin-left: 40px;
         span {
-            font-weight: lighter;
+            font-weight: 400;
             font-size: 0.8rem;
             text-decoration: none;
             margin: 0 0 5px 5px;
             color: $surface-color;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         strong {
-            background-color: $surface-color;
-            opacity: 0.9;
-            color: $primary-color-text;
+            border: 2px solid $surface-color;
+            //background-color: $surface-color;
+            color: $surface-color;
             padding: 0.2em;
             font-size: 1.2rem;
+            letter-spacing: 2px;
         }
     }
 }
