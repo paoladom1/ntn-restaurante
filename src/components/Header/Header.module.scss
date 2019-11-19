@@ -10,16 +10,15 @@
 
     .icons {
         display: inherit;
-        .icon {
-            margin-right: 40px;
-            position: absolute;
-            top: 20px;
-            right: 45px;
-            font-size: 1.2rem;
-            background-color: transparent;
-            border-color: transparent;
-            color: $surface-color;
-        }
+
+        margin-right: 20px;
+        position: absolute;
+        top: 3px;
+        right: 0;
+        font-size: 1.2rem;
+        background-color: transparent;
+        border-color: transparent;
+        color: $surface-color;
     }
 
     .logo {
@@ -46,9 +45,23 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .logo {
-        span {
-            display: none;
+    .header {
+        .icons {
+            margin-right: 80px;
+            position: absolute;
+            top: 2px;
+            right: 0;
+            font-size: 1.2rem;
+            background-color: transparent;
+            border-color: transparent;
+            color: $surface-color;
+        }
+
+        .logo {
+            margin-left: 20px;
+            span {
+                display: none;
+            }
         }
     }
 }

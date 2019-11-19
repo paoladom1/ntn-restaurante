@@ -8,6 +8,23 @@ const BigHero = () => {
     return (
         <section className={styles.big}>
             <Image
+                publicId={"/proyecto/big-hero-mobile"}
+                className={styles.imgHide}
+            >
+                <Transformation
+                    fetchFormat="auto"
+                    crop="fill"
+                    gravity="north"
+                    height="600"
+                    width="480"
+                />
+                <Transformation
+                    background="#060505"
+                    color="#ffffff"
+                    effect="contrast:75"
+                />
+            </Image>
+            <Image
                 publicId={"/proyecto/big-hero/big-hero"}
                 className={styles.img}
             >
@@ -25,6 +42,7 @@ const BigHero = () => {
                 />
             </Image>
             <div className={styles.inner}>
+                <span className={styles.restaurant}>restaurant</span>
                 <header className={styles.head}>
                     <h1>¡Bienvenido!</h1>
                 </header>
@@ -38,7 +56,9 @@ const BigHero = () => {
             </div>
             <HashLink
                 to="/#locations"
-                scroll={el => el.scrollIntoView({ behavior: "smooth", block: "center" })}
+                scroll={el =>
+                    el.scrollIntoView({ behavior: "smooth", block: "center" })
+                }
             >
                 <FontAwesomeIcon className={styles.icon} icon="chevron-down" />
             </HashLink>
