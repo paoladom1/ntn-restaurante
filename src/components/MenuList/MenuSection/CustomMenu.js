@@ -5,25 +5,6 @@ import { Image, Transformation } from "cloudinary-react";
 
 import styles from "./CustomMenu.module.scss";
 
-const foodList = [
-    {
-        name: "pizza",
-        description: "pizza con pepperoni",
-        price: "$12",
-        img: "/samples/food/food"
-    },
-    {
-        name: "comidita",
-        description: "platanito",
-        price: "$20"
-    },
-    {
-        name: "frijolitos",
-        description: "frijolitos fritos",
-        price: "$5"
-    }
-];
-
 class CustomMenu extends React.Component {
     constructor(props) {
         super(props);
@@ -33,7 +14,7 @@ class CustomMenu extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:5000/api/foods/${this.props.category}`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/foods/${this.props.category}`, {
             method: "GET",
             headers: { "Content-Type": "application/json" }
         })
@@ -90,7 +71,7 @@ class CustomMenu extends React.Component {
                                                 </p>
                                             </Col>
                                             <Col xs={4} md={2}>
-                                                <p>{food.price}</p>
+                                                <span className={styles.foodPrice}>${food.price}</span>
                                             </Col>
                                             <Col xs={2} md={1}>
                                                 <Icon
@@ -114,11 +95,12 @@ class CustomMenu extends React.Component {
                     <Col xs={24} md={11}>
                         <div>
                             <Image
-                                publicId={foodList[0].img}
+                                publicId={this.props.image}
                                 className={styles.img}
                             >
                                 <Transformation
                                     crop="fill"
+                                    quality="80"
                                     fetchFormat="auto"
                                 />
                             </Image>
