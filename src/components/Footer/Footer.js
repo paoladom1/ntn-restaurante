@@ -1,7 +1,6 @@
 import React from "react";
 import { Icon, Layout } from "antd";
 import styles from "./Footer.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const { Footer: AntFooter } = Layout;
 
