@@ -147,12 +147,8 @@
                }
            }
         }
-
         .information{
            text-align: center;
-            .first{
-            
-            }
         }
     }
  }
@@ -178,7 +174,7 @@
                       grid-template-columns: 1fr 1fr;
                       margin: 10px;
                       justify-content: center;
-
+                        .field{
                       input[type="text"]{
                         height: 3em;
                         width: 15em;
@@ -187,6 +183,11 @@
                         height: 2.5em;
                         width: 15em;
                     }
+                    input[type="tel"]{
+                        height: 2.5em;
+                        width: 15em;
+                    }
+                }
                   }
                   .figth{
                       text-align: center;
