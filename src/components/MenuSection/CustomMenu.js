@@ -15,16 +15,12 @@ const foodList = [
     {
         name: "comidita",
         description: "platanito",
-        price: "$20",
-        imgURL:
-            "https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic3.elcorreo.com%2Fwww%2Fmultimedia%2F201903%2F01%2Fmedia%2Fcortadas%2Fplatano-k4KD-U70794395930sIE-624x385%40El%2520Correo.jpg&imgrefurl=https%3A%2F%2Fwww.elcorreo.com%2Fjantour%2Fdespensa%2Ftemporada-platanos-20190301170527-nt.html&docid=W65R1T2RTx959M&tbnid=nQFPKwcS7gQ6PM%3A&vet=10ahUKEwji0ILA5NblAhXqUN8KHefVAwMQMwjmASgGMAY..i&w=513&h=371&bih=665&biw=1366&q=platano&ved=0ahUKEwji0ILA5NblAhXqUN8KHefVAwMQMwjmASgGMAY&iact=mrc&uact=8"
+        price: "$20"
     },
     {
         name: "frijolitos",
         description: "frijolitos fritos",
-        price: "$5",
-        imgURL:
-            "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.gob.mx%2Fcms%2Fuploads%2Farticle%2Fmain_image%2F82784%2Ffrijol.jpg&imgrefurl=https%3A%2F%2Fwww.gob.mx%2Fagricultura%2Fes%2Farticulos%2Fla-importancia-del-frijol-en-mexico%3Fidiom%3Des&docid=MK8XKg10Xf12DM&tbnid=y_C5YntK6WPhuM%3A&vet=10ahUKEwi49YPb5NblAhVMxVkKHRCdC7kQMwiwASgBMAE..i&w=385&h=227&bih=665&biw=1366&q=frijol&ved=0ahUKEwi49YPb5NblAhVMxVkKHRCdC7kQMwiwASgBMAE&iact=mrc&uact=8"
+        price: "$5"
     }
 ];
 
@@ -32,17 +28,19 @@ class CustomMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            foodList: foodList
+            foodList: []
         };
     }
 
     componentDidMount() {
-        fetch("http://localhost:5000/api/client")
+        fetch(`http://localhost:5000/api/foods/${this.props.category}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json())
             .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                console.log(data);
+                console.log(res);
+                this.setState({ foodList: res.data });
             })
             .catch(error => {
                 console.log(error);
@@ -122,7 +120,6 @@ class CustomMenu extends React.Component {
                                 <Transformation
                                     crop="fill"
                                     fetchFormat="auto"
-                                    aspectRatio="16:9"
                                 />
                             </Image>
                         </div>

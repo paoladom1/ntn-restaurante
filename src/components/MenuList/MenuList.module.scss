@@ -4,7 +4,7 @@
     width: 100%;
     min-height: 350px;
     max-height: 350px;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 }
 
 .submenu {
@@ -25,11 +25,25 @@
         display: block;
         background: $secondary-color-dark;
         opacity: 0.3;
-        transition: transform 0.25s ease, opacity 0.25s ease, filter 1s ease, -webkit-filter 1s ease;
+    }
+
+    .name {
+        position: absolute;
+        width: 300px;
+        top: 150px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        color: $primary-color-text;
+        background-color: $opaque-surface-color;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 500;
+
     }
 
     &:hover {
-        & .imageOverlay{
+        & .imageOverlay {
             display: none;
         }
     }

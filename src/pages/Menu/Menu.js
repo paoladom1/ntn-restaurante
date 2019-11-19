@@ -7,27 +7,33 @@ import CustomMenu from "../../components/MenuSection/CustomMenu";
 const list = [
   {
     name: "Entradas",
-    route: "/entradas"
+    route: "/entradas",
+    category: "entrees",
   },
   {
     name: "Desayunos",
-    route: "/desayunos"
+    route: "/desayunos",
+    category: "breakfast",
   },
   {
-    name: "Almuerzos",
-    route: "/almuerzos"
+    name: "Platos Fuertes",
+    route: "/principales",
+    category: "main",
   },
   {
-    name: "Cenas",
-    route: "/cenas"
+    name: "Antojitos",
+    route: "/antojitos",
+    category: "snacks",
   },
   {
     name: "Postres",
-    route: "/postres"
+    route: "/postres",
+    category: "dessert",
   },
   {
     name: "Bebidas",
-    route: "/bebidas"
+    route: "/bebidas",
+    category: "beverages",
   }
 ];
 
@@ -46,7 +52,7 @@ const Menu = ({ match }) => {
           key={item.name}
           path={`${match.path}${item.route}`}
           component={() => {
-            return <CustomMenu name={item.name} />;
+            return <CustomMenu category={item.category} name={item.name}  />;
           }}
         />
       ))}

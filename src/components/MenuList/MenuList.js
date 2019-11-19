@@ -12,7 +12,7 @@ const menuListInfo = [
             xs: 24,
             md: 13
         },
-        image: "samples/food/spices",
+        image: "proyecto/entrees",
         transformations: {
             crop: "fill",
             fontSize: 120
@@ -25,36 +25,36 @@ const menuListInfo = [
             xs: 24,
             md: 11
         },
-        image: "samples/food/breakfast",
+        image: "proyecto/breakfast",
         transformations: {
             crop: "fill",
-            fontSize: 75
+            fontSize: 120
         }
     },
     {
-        name: "ALMUERZOS",
-        link: "/menu/almuerzos",
+        name: "PRINCIPALES",
+        link: "/menu/principales",
         grid: {
             xs: 24,
             md: 11
         },
-        image: "samples/food/fish-vegetables",
+        image: "proyecto/main",
         transformations: {
             crop: "fill",
             fontSize: 75
         }
     },
     {
-        name: "CENAS",
-        link: "/menu/cenas",
+        name: "ANTOJITOS",
+        link: "/menu/antojitos",
         grid: {
             xs: 24,
             md: 13
         },
-        image: "samples/food/pot-mussels",
+        image: "proyecto/snacks",
         transformations: {
             crop: "fill",
-            fontSize: 75
+            fontSize: 120
         }
     },
     {
@@ -64,10 +64,10 @@ const menuListInfo = [
             xs: 24,
             md: 13
         },
-        image: "samples/food/dessert",
+        image: "proyecto/dessert",
         transformations: {
             crop: "fill",
-            fontSize: 75
+            fontSize: 120
         }
     },
     {
@@ -77,10 +77,10 @@ const menuListInfo = [
             xs: 24,
             md: 11
         },
-        image: "samples/food/drinks",
+        image: "proyecto/beverages",
         transformations: {
             crop: "fill",
-            fontSize: 40
+            fontSize: 120
         }
     }
 ];
@@ -102,7 +102,7 @@ const MenuList = () => {
                                 crop={submenu.transformations.crop}
                                 aspectRatio="16:9"
                             />
-                            <Transformation
+                            {/*<Transformation
                                 color="#FFFFFF"
                                 overlay={{
                                     fontFamily: "Roboto",
@@ -113,9 +113,10 @@ const MenuList = () => {
                                     letterSpacing: 12,
                                     text: submenu.name
                                 }}
-                            />
+                            />*/}
                         </Image>
                         <div className={styles.imageOverlay} />
+                        <span className={styles.name}>{submenu.name}</span>
                     </Link>
                 </Col>
             ))}
