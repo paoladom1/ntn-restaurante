@@ -1,16 +1,22 @@
 import React from "react";
-import { List, Card } from "antd";
+import { Card, Row, Col, List,} from "antd";
+import { Image, Transformation } from "cloudinary-react";
 import styles from "./RestaurantInfoList.module.scss";
-
 const data = [
     {
-        title: "Santa Tecla"
+        title: "Los Planes de Renderos",
+        info: "Carretera a Los Planes de Renderos Km 5 ½. Tel.: (503) 2270-0144 ",
+        img: "proyecto/home/img1"
     },
     {
-        title: "San Salvador"
+        title: "Lago de Coatepeque",
+        info: "Calle Los Planes, Km 2, Lago de Coatepeque, El Congo, Santa Ana. Tel.: (503) 2455-9718",
+        img: "proyecto/home/img2"
     },
     {
-        title: "Santa Ana"
+        title: "Paseo Gral. Escalon",
+        info: "Paseo General Escalón, 1000 mts. arriba de Redondel Masferrer, San Salvador. Tel. 2264-0892",
+        img: "  "
     }
 ];
 
@@ -23,17 +29,33 @@ const ListInfo = () => {
                 grid={{
                     gutter: 16,
                     xs: 1,
-                    sm: 2,
-                    md: 4,
-                    lg: 4,
+                    sm: 3,
+                    md: 3,
+                    lg: 3,
                     xl: 6,
                     xxl: 3
                 }}
                 dataSource={data}
                 renderItem={item => (
                     <List.Item>
-                        <Card className={styles.cardi} title={item.title}>
-                            Card content
+                        <Card className={styles.card}>
+                            <Row className={styles.cardContent}>
+                                <Col className={styles.cardInfo}>
+                                    <div className={styles.cardTitle}>
+                                        <h2>{item.title}</h2>
+                                    </div>
+                                    <div className={styles.information}>
+                                        <p>{item.info}</p>
+                                        <Image publicId={data[0].img}
+                                        className={styles.img}>
+                                            <Transformation 
+                                            crop="fill"
+                                            fetchFormat="auto"
+                                            aspectRati="16:9"/>
+                                        </Image>
+                                    </div>
+                                </Col>
+                            </Row>
                         </Card>
                     </List.Item>
                 )}
@@ -41,5 +63,6 @@ const ListInfo = () => {
         </div>
     );
 };
+
 
 export default ListInfo;

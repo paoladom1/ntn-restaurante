@@ -9,18 +9,19 @@
     font-weight: 600;
     letter-spacing: 0.25em;
     .inner{
+        .info{
+            border-bottom: 2px solid black;
         h2{
             font-weight: 600;
             text-transform: uppercase;
+            align-content: center;
         }
-        form{
+        .formPrincipal{
             margin: 0 0 2em 0;
             padding-top: 2.5em;
             .fields{
-
                 .field{
                     margin-bottom: 2em;
-
                     label{
                         color: $secondary-color-text;
                         display: block;
@@ -37,8 +38,6 @@
                         border: none;
                         color: $secondary-color-text;
                         border-color: $secondary-color-text;
-                        
-
                     }
                     input[type="email"]{
                         height: 2.5em;
@@ -55,53 +54,186 @@
                     input[type="number"]{
                         background: $primary-color-light;
                         border: none;
+                        width: 5em;
                     }
-                    .select{
-                        background-color:red;
+                    .selector{
                         color: red;
+                        width: 10em;
+                        background: $primary-color-light;
+                    }
+                    .selector:focus{
+                        border-color: $secondary-color-text;
+                        box-shadow: 0px 0px 5px $secondary-color-text;
                     }
                     input:focus { 
                        
                         border-color: $secondary-color-text;
                         box-shadow: 0px 0px 5px $secondary-color-text;
                     }
-                }   
-            }   
-                ul{
-                    list-style: none;   
-                    li{
-                       input[type="submit"]{
-                        background:#ffc046;
-                        border: 1px solid$secondary-color-text;
-                        color: $secondary-color-text;
-                        border-radius: 25px;
-                        font-size: 20px;
-                        text-transform: uppercase;
-                        
-                       }
-                    }
+                }  
+                
+                .btn{
+                    color: red;
+                    display: inline;
+                    justify-content: center;
                 }
-            }
+            }   
+        }       
+}
         
             .information{
-                section{
-                    border-top: 1px solid white;
-                    padding: 1em;
+                margin-top: 10px;   
                     .first{
-                        font-size: 1.2em;
-                        font-weight: 600;
-                        letter-spacing: 0.2em;
-                        text-align: center;
-                        a{
-                            color: black;
-                            font-size: 0.8  em;
+                        .icon{
+                            font-size: 2em;
+                        }
+                       a{
+                        color: black;
+                        font-size: 1em;
+                        }
+                        border-bottom: 1px solid black;
+                    }
+                    .second{
+                        padding: 0.5em;
+                        .icon{
+                            font-size: 2em;
                         }
                         span{
-                            color: black;
-                            font-size: 1em;
+                            font-size: 1.1em;
                         }
+                        border-bottom: 1px solid black;
                     }
+                    .third{
+                        padding: 0.5em;
+                        .icon{
+                            font-size: 2em;
+                        }
+                        span{
+                            font-size: 1.2em;
+                        }
+                        border-bottom: 1px solid black; 
+                    }
+                   .last{
+                    padding: 0.5em;
+                    .icon{
+                        font-size: 1em;
+                        margin: 5px;
+
+                    }
+                    span{
+                        font-size: 2em;
+                    }
+                   } 
                 }
+            }
+}
+        
+        
+@media only screen and (min-width: 768px){
+ .content{
+     .inner{
+        .info{
+            h2{
+                text-align: center;
+            }
+           .formPrincipal{
+               .fields{
+                   display: grid;
+                   grid-template-columns: 1fr 1fr;
+                   margin: 10px;
+               }
+               .figth{
+                   text-align: center;
+               }
+           }
+        }
+
+        .information{
+           text-align: center;
+            .first{
+            
             }
         }
     }
+ }
+}
+
+
+@media only screen and (min-width: 1024px){
+    .content{
+        .inner{
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            
+           .info{
+               border-bottom: none;
+            border-right: 2px solid black;  
+               h2{
+                   text-align: center;
+                }
+              .formPrincipal{
+                    justify-content: center;
+                  .fields{
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      margin: 10px;
+                      justify-content: center;
+
+                      input[type="text"]{
+                        height: 3em;
+                        width: 15em;
+                    }
+                    input[type="email"]{
+                        height: 2.5em;
+                        width: 15em;
+                    }
+                  }
+                  .figth{
+                      text-align: center;
+                  }
+              }
+           }
+   
+           .information{
+                display: grid;
+                justify-content: space-between;
+                .first{
+                    &:hover,
+                    &:focus{
+                        color: red;
+                    }
+                    border-bottom: none;
+                }
+                .second{
+                    &:hover,
+                        &:focus{
+                            color: red;
+    
+                        }
+                    border-bottom: none;
+                }
+                .third{
+                    &:hover,
+                        &:focus{
+                            color: red;
+    
+                        }
+                    border-bottom: none;
+                }
+               .last{
+                   .icon{
+                       font-size: 1.2em;
+                       margin:10px;
+                       &:hover,
+                        &:focus{
+                            color: red;
+    
+                        }
+                   }
+                   border-bottom: none;
+                   
+               }
+           }
+       }
+    }  
+}
