@@ -1,6 +1,6 @@
 @import "../../_variables.scss";
 
-  .inner{
+  .container{
       h1{
           font-size: 2em;
           font-weight: 900;
@@ -14,13 +14,11 @@
         width: 90%;
         height: 90%;
         margin: auto;
-        font-family: "Roboto Slab" serif;
         font-size: 1em;
         font-weight: 600;
         letter-spacing: 0.25em;
             .card{
                 border: $primary-color-light 10px groove;
-                font-family: "Roboto Slab" serif;
                 font-size: 1em;
                 font-weight: 600;
                 letter-spacing: 0.25em;
@@ -56,7 +54,7 @@
       }
   }
 
-  @media only screen and (min-width: 768px){
+  @media only screen and (max-width: 768px){
     .inner{
         h1{
         }
