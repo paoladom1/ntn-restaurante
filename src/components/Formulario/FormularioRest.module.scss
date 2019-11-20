@@ -2,19 +2,21 @@
 @import "./../../variables";
 .content{
     border-bottom: 1px solid white;
-    background-color: #ff8f00;
+    background-color: #282A2C;
     padding: 50px 50px 50px 50px;
     font-family: "Roboto Slab", serif;
     font-size: 1em;
     font-weight: 600;
     letter-spacing: 0.25em;
+    color: white;
     .inner{
         .info{
-            border-bottom: 2px solid black;
+            border-bottom: 2px solid white;
         h2{
             font-weight: 600;
             text-transform: uppercase;
             align-content: center;
+            color: white;
         }
         .formPrincipal{
             margin: 0 0 2em 0;
@@ -23,7 +25,7 @@
                 .field{
                     margin-bottom: 2em;
                     label{
-                        color: $secondary-color-text;
+                        color: white;
                         display: block;
                         font-size: 0.95em;
                         font-weight: 600;
@@ -34,95 +36,112 @@
                     input[type="text"]{
                         height: 3em;
                         width: 20em;
-                        background:$primary-color-light;
+                        background:$surface-color;
                         border: none;
-                        color: $secondary-color-text;
+                        color: white;
                         border-color: $secondary-color-text;
                     }
                     input[type="email"]{
                         height: 2.5em;
                         width: 20em;
-                        background:$primary-color-light;
+                        background:$surface-color;
                         border: none;
                     }
                     input[type="tel"]{
                         height: 2.5em;
-                        width: 10em;
-                        background:$primary-color-light;
+                        width: 20em;
+                        background:$surface-color;
                         border: none;
                     }
                     input[type="number"]{
-                        background: $primary-color-light;
+                        background: $surface-color;
                         border: none;
-                        width: 5em;
-                    }
-                    .selector{
-                        color: red;
-                        width: 10em;
-                        background: $primary-color-light;
-                    }
-                    .selector:focus{
-                        border-color: $secondary-color-text;
-                        box-shadow: 0px 0px 5px $secondary-color-text;
+                        width: 20em;
                     }
                     input:focus { 
                        
-                        border-color: $secondary-color-text;
-                        box-shadow: 0px 0px 5px $secondary-color-text;
+                        border-color: $surface-color;
+                        box-shadow: 0px 0px 10px $surface-color;
                     }
-                }  
-                
+                    .date{
+                        width: 20em;
+                    }
+                }
+            }   
+            .figth{
                 .btn{
-                    color: red;
-                    display: inline;
-                    justify-content: center;
+                    background-color: white;
+                    color: black;
+                    font-size: 1.5em;
                 }
             }   
         }       
 }
-        
             .information{
-                margin-top: 10px;   
+                margin-top: 10px;
                     .first{
+                        padding: 0.5em;
                         .icon{
                             font-size: 2em;
                         }
+                        .contact{
+                            padding-top: 10px;
+                            color: white;
+                        .email{
+                            color: white;
+                        }
+                    }
                        a{
-                        color: black;
+                        color: white;
                         font-size: 1em;
                         }
-                        border-bottom: 1px solid black;
+                        border-bottom: 1px solid white;
+                        title{
+                            color: white;
+                        }
                     }
                     .second{
                         padding: 0.5em;
                         .icon{
                             font-size: 2em;
+                            padding-bottom: 10px;
+                            padding-top: 10px;
                         }
                         span{
                             font-size: 1.1em;
+                            color: white;
                         }
-                        border-bottom: 1px solid black;
+                        border-bottom: 1px solid white;
                     }
                     .third{
                         padding: 0.5em;
+                        color: white;
                         .icon{
                             font-size: 2em;
+                            padding-bottom: 10px;
+                            padding-top: 10px;
                         }
                         span{
                             font-size: 1.2em;
+                            color: white;
                         }
-                        border-bottom: 1px solid black; 
+                        border-bottom: 1px solid white; 
                     }
                    .last{
                     padding: 0.5em;
-                    .icon{
-                        font-size: 1em;
-                        margin: 5px;
-
+                    color: white;
+                        .name{
+                            color: red;
+                        color: white;
+                        .icon{
+                            font-size: 1em;
+                            margin: 5px;
+                            color: white;
+                        }
                     }
-                    span{
-                        font-size: 2em;
-                    }
+                        span{
+                            font-size: 2em;
+                        }
                    } 
                 }
             }
@@ -159,16 +178,15 @@
     .content{
         .inner{
             display: grid;
-            grid-template-columns: 1fr 1fr; 
-            
+            grid-template-columns: 1fr 1fr;
            .info{
                border-bottom: none;
-            border-right: 2px solid black;  
+               border-right: 2px solid white;  
                h2{
                    text-align: center;
                 }
               .formPrincipal{
-                    justify-content: center;
+                    align-content: center;
                   .fields{
                       display: grid;
                       grid-template-columns: 1fr 1fr;
@@ -176,21 +194,31 @@
                       justify-content: center;
                         .field{
                       input[type="text"]{
-                        height: 3em;
-                        width: 15em;
-                    }
-                    input[type="email"]{
                         height: 2.5em;
-                        width: 15em;
+                        width: 13em;
                     }
-                    input[type="tel"]{
-                        height: 2.5em;
-                        width: 15em;
-                    }
+                            input[type="email"]{
+                                height: 2.5em;
+                                width: 13em;
+                            }
+                            input[type="tel"]{
+                            height: 2.5em;
+                            width: 13em;
+                        }
+                        input[type="number"]{
+                            width: 13em;
+                        }
+                        .date{
+                            width: 13em;
+                        }
+                        .selector{
+                            width: 13em;
+                        }
                 }
                   }
                   .figth{
                       text-align: center;
+                      margin-right: 40px;
                   }
               }
            }
@@ -201,23 +229,21 @@
                 .first{
                     &:hover,
                     &:focus{
-                        color: red;
+                        color: $primary-color-light;
                     }
                     border-bottom: none;
                 }
                 .second{
                     &:hover,
                         &:focus{
-                            color: red;
-    
+                            color: $primary-color-light;
                         }
                     border-bottom: none;
                 }
                 .third{
                     &:hover,
                         &:focus{
-                            color: red;
-    
+                            color: $primary-color-light;
                         }
                     border-bottom: none;
                 }
@@ -227,14 +253,49 @@
                        margin:10px;
                        &:hover,
                         &:focus{
-                            color: red;
-    
+                            color: $primary-color-light;
                         }
                    }
                    border-bottom: none;
-                   
                }
            }
        }
     }  
+}
+
+@media only screen and (min-width: 1440px){
+    .content{
+        .inner{
+            .info{
+                .formPrincipal{
+                    .fields{
+                        .field{
+                            input[type="text"]{
+                                width: 20em;
+                            }
+                            input[type="email"]{
+                                width: 20em;
+                            }
+                            input[type="tel"]{
+                                width: 20em;
+                            }
+                            input[type="number"]{
+                                width: 20em;
+                            }
+                            .date{
+                                width: 20em;
+                            }
+                            .selector{
+                                width: 20em;
+                            }
+                        }
+                    }
+                    .figth{
+                        text-align: center;
+                        margin-right: 100px;
+                    }
+                }
+            }
+        }
+    }
 }
