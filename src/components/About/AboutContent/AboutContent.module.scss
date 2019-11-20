@@ -4,7 +4,7 @@
     position: relative;
 
     .acercade{  
-        background-color: #2C3E4F;
+        background-color: #202224;
         .contenedor{
           padding: 2em;
           .sobrenosotros{
@@ -26,14 +26,14 @@
         }
     }
     .acercadeother{
-        background-color: #3D556C;
+        background-color: #282A2C;
         .sesgootro{
             z-index: 10;
             position: static;
             left: 0;
             border-width: 5vh 100vw 0 0;
             border-style: solid;
-            border-color:  #2C3E4F transparent transparent  transparent;
+            border-color:  #202224 transparent transparent  transparent;
         }
         .contenedor{
             padding: 2em;
@@ -69,7 +69,7 @@
     }
 
     .acercaUs{
-        background-color: #4C6E8E;
+        background-color: #343739;
         .sesgo{
             z-index: 10;
             position: static;
@@ -77,7 +77,7 @@
             left: 0;
             border-width: 5vh 100vw 0 0;
             border-style: solid;
-            border-color:  #3D556C transparent transparent transparent;
+            border-color:  #282A2C transparent transparent transparent;
         }
         .contenedor{
             padding: 2em;
@@ -136,7 +136,7 @@
                 left: 0;
                 border-width: 5vh 100vw 0 0;
                 border-style: solid;
-                border-color:  #4C6E8E transparent transparent transparent;
+                border-color:  #343739 transparent transparent transparent;
             }
             .contenedor{
                 padding: 2em;
@@ -212,14 +212,51 @@
     .acercade{  
         min-height: 20vh;
         padding: 0em 3em 3em 3em;
+        .contenedor{
+          .sobrenosotros{
+            font-size: 2em;
+            text-transform: uppercase;
+          }
+          hr{
+            width: 30%;
+          }
+          p{
+            margin-left: 120px;
+            margin-right: 0px;
+            padding-right: 0px;
+            font-size: 1.5em;
+          }
+        }
     }
     .acercadeother{
-        min-height: 35vh;
+        min-height: 45vh;
         padding: 0em 3em 3em 0em;
+        .contenedor{
+          .sobrenosotros{
+            font-size: 2em;
+            text-transform: uppercase;
+          }
+          font-size: 1.40em;
+        }
     }
     .acercaUs{
         min-height: 20vh;
         padding: 0em 3em 3em 0em;
+        .contenedor{
+          .sobrenosotros{
+            font-size: 2em;
+            text-transform: uppercase;
+          }
+          hr{
+            width: 37%;
+          }
+          p{
+            margin-left: 120px;
+            margin-right: 0px;
+            padding-right: 0px;
+            font-size: 1.5em;
+          }
+        }
      }
     .informacion{
       background-color: #f0f2f5;
@@ -227,6 +264,53 @@
   }
 }
 
+@media only screen and (min-width: 1440px){
+  .wrapper{
+    .acercade{
+      max-height: 50vh;
+      .contenedor{
+        p{
+          padding-bottom: 20px;
+          padding-right: 0px;
+          padding-left: 90px;
+          padding-top: 20px;
+          border-left-width: 90px;
+          margin-right: 0px;
+          margin-left: 150px;
+        }
+      }
+    }
+    .acercadeother{
+      .contenedor{
+        .mision{
+          hr{
+            margin-left: 165px;
+          }
+        }
+        .vision{
+          hr{
+            margin-left: 165px;
+          }
+        }
+      }
+    }
+    .acercaUs{
+      max-height: 50vh;
+      .contenedor{
+        p{
+          padding-bottom: 20px;
+          padding-right: 0px;
+          padding-left: 90px;
+          padding-top: 20px;
+          border-left-width: 90px;
+          margin-right: 0px;
+          margin-left: 150px;
+        }
+      }
+    }
+
+  }
+}
 
 
 
