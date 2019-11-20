@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Row, Col, Icon } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Image, Transformation } from "cloudinary-react";
+import notification from "./../../Notification/Notification";
 
 import styles from "./CustomMenu.module.scss";
 
@@ -14,10 +15,13 @@ class CustomMenu extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/foods/${this.props.category}`, {
-            method: "GET",
-            headers: { "Content-Type": "application/json" }
-        })
+        fetch(
+            `${process.env.REACT_APP_BACKEND_URL}/foods/${this.props.category}`,
+            {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            }
+        )
             .then(res => res.json())
             .then(res => {
                 console.log(res);
@@ -35,17 +39,18 @@ class CustomMenu extends React.Component {
         cart = cart.concat([this.state.foodList[index]]);
 
         localStorage.setItem("cart", JSON.stringify(cart));
+        console.log(cart);
     };
 
-    handleClick = name => {
-        this.addToOrder(name);
+    handleClick = index => {
+        this.addToOrder(index);
     };
 
     render() {
         return (
             <Card className={styles.card}>
                 <Row className={styles.cardContent}>
-                    <Col className={styles.cardMenu} xs={24} md={13}>
+                    <Col className={styles.cardMenu} xs={24} md={24} lg={13}>
                         <div className={styles.cardTitle}>
                             <FontAwesomeIcon
                                 className={styles.icon}
@@ -57,7 +62,7 @@ class CustomMenu extends React.Component {
                             {this.state.foodList.map((food, index) => {
                                 return (
                                     <div key={food.name}>
-                                        <Row>
+                                        <Row gutter={16}>
                                             <Col xs={18} md={21}>
                                                 <h3 className={styles.foodName}>
                                                     {food.name}
@@ -71,17 +76,33 @@ class CustomMenu extends React.Component {
                                                 </p>
                                             </Col>
                                             <Col xs={4} md={2}>
-                                                <span className={styles.foodPrice}>${food.price}</span>
+                                                <span
+                                                    className={styles.foodPrice}
+                                                >
+                                                    ${food.price}
+                                                </span>
                                             </Col>
-                                            <Col xs={2} md={1}>
+                                            <Col
+                                                xs={2}
+                                                md={1}
+                                                className={styles.addToCart}
+                                            >
                                                 <Icon
                                                     className={styles.icon}
                                                     type="plus-circle"
                                                     theme="filled"
                                                     onClick={() => {
                                                         this.handleClick(index);
-                                                        console.log(
+                                                        {
+                                                            /*console.log(
                                                             localStorage.cart
+                                                        );*/
+                                                        }
+                                                        notification(
+                                                            "Item agregado",
+                                                            food.description,
+                                                            "success",
+                                                            3
                                                         );
                                                     }}
                                                 />
@@ -92,7 +113,7 @@ class CustomMenu extends React.Component {
                             })}
                         </div>
                     </Col>
-                    <Col xs={24} md={11}>
+                    <Col xs={24} md={24} lg={11}>
                         <div>
                             <Image
                                 publicId={this.props.image}
