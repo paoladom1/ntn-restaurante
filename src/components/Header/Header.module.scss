@@ -10,7 +10,6 @@
 
     .icons {
         display: inherit;
-
         margin-right: 20px;
         position: absolute;
         top: 3px;
@@ -20,7 +19,6 @@
         border-color: transparent;
         color: $surface-color;
     }
-
     .logo {
         margin-left: 40px;
         span {
@@ -32,10 +30,8 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         strong {
             border: 2px solid $surface-color;
-            //background-color: $surface-color;
             color: $surface-color;
             padding: 0.2em;
             font-size: 1.2rem;
@@ -56,7 +52,6 @@
             border-color: transparent;
             color: $surface-color;
         }
-
         .logo {
             margin-left: 20px;
             span {
