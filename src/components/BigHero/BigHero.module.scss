@@ -62,6 +62,11 @@
 
 @media only screen and (max-width: 768px) {
     .big {
+        .img {
+            width: 100%;
+            max-width: 100%;
+        }
+
         .icon {
             display: none;
         }
@@ -79,7 +84,6 @@
                 border-bottom: 2px solid $surface-color;
                 margin-top: 0px;
                 margin-bottom: 10px;
-                font-family: "Roboto Slab", serif;
             }
 
             > .content {
@@ -88,7 +92,6 @@
                     padding: 0;
                     font-weight: 400;
                     letter-spacing: 0.15em;
-                    font-family: "Roboto Slab", serif;
                     color: $surface-color;
                     text-align: justify;
                 }
@@ -104,7 +107,11 @@
         }
 
         .imgHide {
-            display: inline;
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+
         }
 
         .inner {

@@ -10,9 +10,9 @@
     top: 0;
     right: 0;
     bottom: 100%;
-    background-color: $primary-color-text;
+    background-color: $primary-color;
     overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.3s ease; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    transition: 0.5s ease; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
 /* Position the content inside the overlay */
@@ -26,22 +26,20 @@
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
     background-color: transparent;
     border-right: none;
+
+    .selected {
+        background-color: $primary-color-light !important;
+    }
 }
 
 /* The navigation links inside the overlay */
 
 .overlay {
-    .selected {
-        a {
-            color: $primary-color-text;
-        }
-        background-color: $primary-color-light !important;
-    }
     a {
         height: 100%;
         width: 100%;
         text-decoration: none;
-        color: $surface-color;
+        color: $primary-color-text;
         display: block;
 
         /* Display block instead of inline */
@@ -50,7 +48,7 @@
         /* Transition effects on hover (color) */
         border-bottom: solid 1px $primary-color-light;
         font-size: 0.8em;
-        font-weight: 900;
+        font-weight: 600;
         letter-spacing: 0.25em;
         line-height: 4em;
         text-transform: uppercase;
@@ -68,7 +66,7 @@
         font-size: 1.2rem;
         background-color: transparent;
         border-color: transparent;
-        color: $primary-color-dark;
+        color: $surface-color;
     }
 }
 
@@ -84,18 +82,11 @@
     height: 100%;
 }
 
-.menuBtn,
-.shoppingCart {
+.menuBtn {
     background-color: transparent;
     border-color: transparent;
     color: $surface-color;
     font-size: 1.2rem;
-
-    .shoppingCartIcon {
-        font-size: 1.2rem;
-        margin-right: 6px;
-        margin-bottom: 2px;
-    }
 
     &:hover,
     &:focus {
