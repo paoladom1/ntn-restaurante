@@ -2,7 +2,7 @@
 @import "./../../variables";
 .content{
     border-bottom: 1px solid white;
-    background-color: $secondary-color-text;
+    background-color: #282A2C;
     padding: 50px 50px 50px 50px;
     font-family: "Roboto Slab", serif;
     font-size: 1em;
@@ -80,6 +80,7 @@
             .information{
                 margin-top: 10px;
                     .first{
+                        padding: 0.5em;
                         .icon{
                             font-size: 2em;
                         }
@@ -217,7 +218,7 @@
                   }
                   .figth{
                       text-align: center;
-                      margin-right: 100px;
+                      margin-right: 40px;
                   }
               }
            }
@@ -228,23 +229,21 @@
                 .first{
                     &:hover,
                     &:focus{
-                        color: red;
+                        color: $primary-color-light;
                     }
                     border-bottom: none;
                 }
                 .second{
                     &:hover,
                         &:focus{
-                            color: red;
-    
+                            color: $primary-color-light;
                         }
                     border-bottom: none;
                 }
                 .third{
                     &:hover,
                         &:focus{
-                            color: red;
-    
+                            color: $primary-color-light;
                         }
                     border-bottom: none;
                 }
@@ -254,8 +253,7 @@
                        margin:10px;
                        &:hover,
                         &:focus{
-                            color: red;
-    
+                            color: $primary-color-light;
                         }
                    }
                    border-bottom: none;
@@ -273,18 +271,28 @@
                     .fields{
                         .field{
                             input[type="text"]{
-                                width: 15em;
+                                width: 20em;
                             }
                             input[type="email"]{
-                                width: 15em;
+                                width: 20em;
                             }
                             input[type="tel"]{
-                                width: 15em;
+                                width: 20em;
+                            }
+                            input[type="number"]{
+                                width: 20em;
+                            }
+                            .date{
+                                width: 20em;
                             }
                             .selector{
-                                width: 15em;
+                                width: 20em;
                             }
                         }
+                    }
+                    .figth{
+                        text-align: center;
+                        margin-right: 100px;
                     }
                 }
             }
