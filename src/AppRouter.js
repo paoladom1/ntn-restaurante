@@ -12,9 +12,9 @@ export default function AppRouter() {
             <Switch>
                 <Route path="/about" component={About} />
                 <Route path="/menu" component={Menu} />
-                <Route path="/home" component={Home} />
-                <Route path="/register" component={Register} />
-                <Route exact path="/" component={Login} />
+                <Route exact path="/" component={Home} />
+                <Route path="/signup" component={Register} />
+                <Route exact path="/signin" component={Login} />
             </Switch>
         </Router>
     );

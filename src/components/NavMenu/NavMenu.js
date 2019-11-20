@@ -84,7 +84,7 @@ class NavMenu extends React.Component {
                             }`}
                             key="/"
                         >
-                            <Link to="/home">Home</Link>
+                            <Link to="/">Home</Link>
                         </Menu.Item>
                         <Menu.Item
                             className={`${

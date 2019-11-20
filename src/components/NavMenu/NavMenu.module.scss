@@ -95,13 +95,19 @@
         font-size: 1.2rem;
         margin-right: 6px;
         margin-bottom: 2px;
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+
+    &:focus {
+        color: $surface-color;
     }
 
     &:hover,
     &:focus {
         border-color: transparent;
         background-color: transparent;
-        color: $secondary-color;
     }
 }
 
