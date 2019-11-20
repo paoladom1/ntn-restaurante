@@ -1,11 +1,52 @@
 import React from "react";
 import styles from "./Register.module.scss";
-import { Icon, Form, Input, Button } from 'antd';
-import { Link, useHistory } from "react-router-dom";
-const Register = () => {
-    const history = useHistory();
-    return (
-        <div className={styles.over}>
+import { Icon, Form, Input, Button, Checkbox } from "antd";
+import { Link, withRouter } from "react-router-dom";
+
+class RegisterForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name:"",
+            dui: "",
+            email: "",
+            password: ""
+        };
+    }
+
+    handleChange = e =>{
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+  handleSubmit = e => {
+       
+       const { name, dui, email, password } = this.state;
+       e.preventDefault();
+
+       fetch(`${process.env.REACT_APP_BACKEND_URL}/users/signin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+                name,
+                dui,
+                email,
+                password
+            })
+        })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+            })
+            .catch(error => 
+                console.log(error));
+    };
+
+    render() {
+        const { history } = this.props;
+        
+        return (
+            <div className={styles.over}>
             <div className={styles.pop}>
                 <Button className={styles.logo} onClick={history.goBack}>
                     <div className={styles.icon}>
@@ -37,14 +78,16 @@ const Register = () => {
                             Cancel
                         </Button>
                         </Link>
-                        <Button type="primary" htmlType="submit" className={styles.btn2}>
+                        <Button type="primary" htmlType="submit" className={styles.btnSubmit}>
                             Submit
                         </Button>
                     </div>
                 </Form>
             </div>
         </div>
-    )
+        );
+    }
 }
 
-export default Register;
+export default withRouter(RegisterForm);
+

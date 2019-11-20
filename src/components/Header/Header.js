@@ -12,7 +12,7 @@ const Header = () => {
             style={{ position: "fixed", zIndex: 1, width: "100%" }}
             className={styles.header}
         >
-            <Link className={styles.logo} to="/">
+            <Link className={styles.logo} to="/home">
                 <strong>NTN</strong>
                 <span>Restaurant</span>
             </Link>
