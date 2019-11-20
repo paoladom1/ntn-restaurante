@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Row, Col, List,} from "antd";
-import { Image, Transformation } from "cloudinary-react";
 import styles from "./RestaurantInfoList.module.scss";
 const data = [
     {
@@ -46,13 +45,6 @@ const ListInfo = () => {
                                     </div>
                                     <div className={styles.information}>
                                         <p>{item.info}</p>
-                                        <Image publicId={data[0].img}
-                                        className={styles.img}>
-                                            <Transformation 
-                                            crop="fill"
-                                            fetchFormat="auto"
-                                            aspectRati="16:9"/>
-                                        </Image>
                                     </div>
                                 </Col>
                             </Row>

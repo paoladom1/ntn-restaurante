@@ -1,94 +1,93 @@
 @import "./../../variables";
 
 .big {
-    max-height: 800px;
-    width: 100%;
-    position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    overflow: hidden;
-    .icon {
-        position: absolute;
-        font-size: 2rem;
-        top: 500px;
-        color: $surface-color;
-        left: 0;
-        right: 0;
-        margin: auto;
+    .img {
+        display: none;
+    }
+    .imgHide {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
-    .imgHide {
+    .icon {
         display: none;
     }
 
-    .img {
-        max-width: 100%;
-        max-height: 100%;
-        position: relative;
-    }
-
     .inner {
-        width: 50%;
         position: absolute;
-        vertical-align: middle;
-        padding: 60px;
-        left: 40px;
-        top: 90px;
+        width: 100%;
+        top: 200px;
+        right: 0;
+        left: 0;
+        margin: auto;
         background-color: $opaque-color;
 
         .restaurant {
-            display: none;
+            display: block;
+            text-transform: uppercase;
+            border: 3px solid $surface-color;
+            color: $surface-color;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-align: center;
+            margin: 24px 16px 0px;
         }
 
         h1 {
-            font-weight: 700;
-            font-size: 2.5em;
+            margin-top: 12px;
+            border-bottom: none;
+            font-size: 1.2rem;
+            text-align: center;
             color: $surface-color;
-            border-bottom: 2px solid $surface-color;
-            margin-top: 0px;
-            margin-bottom: 30px;
+            font-weight: 600;
         }
 
         .content {
-            p {
-                font-size: 1em;
-                padding: 0;
-                font-weight: 600;
-                letter-spacing: 0.25em;
-                color: $surface-color;
-                text-align: justify;
-            }
+            display: none;
         }
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
     .big {
+        .imgHide {
+            display: none;
+        }
+
         .img {
+            display: block;
             width: 100%;
             max-width: 100%;
-        }
-        .icon {
-            display: none;
         }
 
         .inner {
             max-height: 150px;
-            padding: 20px;
-            left: 20px;
-            top: 50px;
+            width: 50%;
+            position: absolute;
+            left: 40px;
+            top: 150px;
+            margin-left: 0;
+            padding: 16px;
+            background-color: $opaque-color;
+
+            .restaurant {
+                display: none;
+            }
+
             h1 {
                 font-weight: 700;
                 font-size: 1rem;
                 color: $surface-color;
                 border-bottom: 2px solid $surface-color;
                 margin-top: 0px;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
+                text-align: left;
             }
 
-             .content {
+            > .content {
+                display: block;
                 p {
                     font-size: 0.75rem;
                     padding: 0;
@@ -102,44 +101,88 @@
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (min-width: 1024px) {
     .big {
-        .img {
-            display: none;
+        max-height: 800px;
+        width: 100%;
+        position: relative;
+
+        .icon {
+            display: block;
+            position: absolute;
+            font-size: 2.5rem;
+            bottom: 40px;
+            color: $surface-color;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: $opaque-color;
+            height: 60px;
+            width: 60px;
+            border-radius: 32px;
+            padding: 12px;
+
+            &:hover {
+                color: $primary-color;
+            }
         }
         .imgHide {
-            display: block;
-            width: 100%;
+            display: none;
+        }
+
+        .img {
             max-width: 100%;
-            overflow: hidden;
+            max-height: 100%;
+            position: relative;
         }
         .inner {
+            height: 220px;
+            max-height: 220px;
+            width: 50%;
             position: absolute;
-            width: 100%;
-            top: 200px;
-            right: 0;
-            left: 0;
-            margin: auto;
+            padding: 24px 40px;
+            left: 40px;
+            top: 60px;
+            background-color: $opaque-color;
+
             .restaurant {
-                display: block;
-                text-transform: uppercase;
-                border: 3px solid $surface-color;
-                color: $surface-color;
-                font-size: 2rem;
-                letter-spacing: 3px;
-                text-align: center;
-            }
-            h1 {
-                margin-top: 30px;
-                border-bottom: none;
-                font-size: 1.2rem;
-                text-align: center;
-            }
-            .content {
                 display: none;
             }
-            
+            h1 {
+                font-weight: 700;
+                font-size: 1.8em;
+                color: $surface-color;
+                border-bottom: 2px solid $surface-color;
+                margin-top: 0px;
+                margin-bottom: 30px;
+            }
+
+            > .content {
+                p {
+                    font-size: 1em;
+                    padding: 0;
+                    font-weight: 600;
+                    letter-spacing: 0.25em;
+                    color: $surface-color;
+                    text-align: justify;
+                }
+            }
         }
     }
+}
 
+@media only screen and (min-width: 1440px) {
+    .big {
+        .inner {
+            height: 50%;
+            max-height: 70%;
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            > .content {
+                font-size: 1.2rem;
+            }
+        }
+    }
 }

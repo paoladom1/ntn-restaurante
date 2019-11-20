@@ -1,16 +1,17 @@
 import React from "react";
 import styles from "./Register.module.scss";
 import { Icon, Form, Input, Button } from 'antd';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const Register = () => {
+    const history = useHistory();
     return (
         <div className={styles.over}>
             <div className={styles.pop}>
-                <Link className={styles.logo} to="/home">
+                <Button className={styles.logo} onClick={history.goBack}>
                     <div className={styles.icon}>
                         <Icon type="close-circle" theme="filled" />
                     </div>
-                </Link>
+                </Button>
                 <h3>SUSCRIBETE</h3>
                 <Form className={styles.formPrincipal}>
                     <div className={styles.fields}>

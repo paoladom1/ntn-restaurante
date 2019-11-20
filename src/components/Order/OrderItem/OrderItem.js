@@ -1,32 +1,28 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { Menu, Button } from "antd";
-import styles from "./Order.module.scss";
-
+import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { AppContext } from "../../../AppProvider";
 
-const OrderItem = () => {
-    return (
-        <div className="card" style={{ marginBottom: "10px" }}>
-            <div className="card-body">
-                <h4 className="card-title">{foodList.name}</h4>
-                <h5 className="card-text">
-                    <small>price: </small>${FoodList.price}
-                </h5>
-                <span className="card-text text-success">
-                    <small>Quantity: </small>
-                    {product.qty}
-                </span>
-                <button
-                    className="btn btn-sm btn-warning float-right"
-                    onClick={() => this.props.remove(product)}
-                >
-                    Remove from cart
-                </button>
+const OrderItem = ({ name, price, index }) => (
+    <AppContext.Consumer>
+        {({ cart, updateCart }) => (
+            <div className="card" style={{ marginBottom: "10px" }}>
+                <div className="card-body">
+                    <h4 className="card-title">{name}</h4>
+                    <h5 className="card-text">
+                        <small>precio: </small>${price}
+                    </h5>
+                    <Button
+                        className="btn btn-sm btn-warning float-right"
+                        onClick={() => updateCart(cart.filter((_, i) => i !== index))}
+                    >
+                        <FontAwesomeIcon icon="minus-circle" />
+                    </Button>
+                </div>
             </div>
-        </div>
-    );
-};
+        )}
+    </AppContext.Consumer>
+);
 
 export default OrderItem;

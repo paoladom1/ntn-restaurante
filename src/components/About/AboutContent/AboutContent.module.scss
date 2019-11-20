@@ -166,6 +166,11 @@
         .acercade{  
             max-height: 35vh;
             padding: 0em 3em 3em 3em;
+            .contenedor{
+              .sobrenosotros{
+                text-transform: uppercase;
+              }
+            }
         }
         .acercadeother{
             max-height: 35vh;
@@ -177,6 +182,7 @@
               .mision{
                 .sobrenosotros{
                   text-align: center;
+                  text-transform: uppercase;
                 }
                 hr{
                   margin-left: 70px;
@@ -185,6 +191,7 @@
               .vision{
                 .sobrenosotros{
                   text-align: center;
+                  text-transform: uppercase;
                 }
                 hr{
                   margin-left: 70px;
@@ -195,11 +202,12 @@
         .acercaUs{
             min-height: 35vh;
             padding: 0em 3em 3em 0em;
+            .contenedor{
+              .sobrenosotros{
+                text-transform: uppercase;
+              }
+            }
          }
-        .acerca{
-          min-height: 30vh;
-          padding: 0em 3em 3em 0em;
-        }
         .informacion{
           background-color: #f0f2f5;
         }
