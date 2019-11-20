@@ -10,7 +10,8 @@ const menuListInfo = [
         link: "/menu/entradas",
         grid: {
             xs: 24,
-            md: 13
+            md: 24,
+            lg: 13
         },
         image: "proyecto/entrees",
         transformations: {
@@ -23,7 +24,8 @@ const menuListInfo = [
         link: "/menu/desayunos",
         grid: {
             xs: 24,
-            md: 11
+            md: 24,
+            lg: 11
         },
         image: "proyecto/breakfast",
         transformations: {
@@ -36,7 +38,8 @@ const menuListInfo = [
         link: "/menu/principales",
         grid: {
             xs: 24,
-            md: 11
+            md: 24,
+            lg: 11
         },
         image: "proyecto/main",
         transformations: {
@@ -49,7 +52,8 @@ const menuListInfo = [
         link: "/menu/antojitos",
         grid: {
             xs: 24,
-            md: 13
+            md: 24,
+            lg: 13
         },
         image: "proyecto/snacks",
         transformations: {
@@ -62,7 +66,8 @@ const menuListInfo = [
         link: "/menu/postres",
         grid: {
             xs: 24,
-            md: 13
+            md: 24,
+            lg: 13
         },
         image: "proyecto/dessert",
         transformations: {
@@ -75,7 +80,8 @@ const menuListInfo = [
         link: "/menu/bebidas",
         grid: {
             xs: 24,
-            md: 11
+            md: 24,
+            lg: 11
         },
         image: "proyecto/beverages",
         transformations: {
@@ -94,6 +100,7 @@ const MenuList = () => {
                     className={styles.menu}
                     xs={submenu.grid.xs}
                     md={submenu.grid.md}
+                    lg={submenu.grid.lg}
                 >
                     <Link className={styles.submenu} to={submenu.link}>
                         <Image publicId={submenu.image} className={styles.img}>
@@ -102,18 +109,6 @@ const MenuList = () => {
                                 crop={submenu.transformations.crop}
                                 aspectRatio="16:9"
                             />
-                            {/*<Transformation
-                                color="#FFFFFF"
-                                overlay={{
-                                    fontFamily: "Roboto",
-                                    fontSize: submenu.transformations.fontSize,
-                                    fontAntialias: "good",
-                                    fontWeight: "bold",
-                                    textDecoration: "underline",
-                                    letterSpacing: 12,
-                                    text: submenu.name
-                                }}
-                            />*/}
                         </Image>
                         <div className={styles.imageOverlay} />
                         <span className={styles.name}>{submenu.name}</span>
