@@ -8,11 +8,12 @@ import {
     faShoppingCart,
     faUtensils,
     faChevronDown,
-    faMinusCircle
+    faMinusCircle,
+    faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import AppProvider from "./AppProvider";
 
-library.add(fab, faShoppingCart, faUtensils, faChevronDown, faMinusCircle);
+library.add(fab, faShoppingCart, faUtensils, faChevronDown, faMinusCircle, faArrowLeft);
 
 export default function App() {
     return (

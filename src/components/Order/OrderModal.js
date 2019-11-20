@@ -5,10 +5,10 @@ import { AppContext } from "../../AppProvider";
 
 const OrderModal = ({ visible, handleCancel }) => (
     <AppContext.Consumer>
-        {({ cart, updateCart }) => {
-            console.log(cart);
+        {({ user, cart, updateCart }) => {
             let total = cart ? cart.reduce((accumulator, { price }) => price + accumulator, 0) : 0;
             total = Number(total).toFixed(2);
+            console.log(user);
 
             return (
                 <Modal
