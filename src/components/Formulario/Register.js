@@ -14,14 +14,14 @@ const Register = () => {
                 <h3>SUSCRIBETE</h3>
                 <Form className={styles.formPrincipal}>
                     <div className={styles.fields}>
-                        <Form.Item label="Nombre" className={styles.field}>
-                            <Input type="text" placeholder="Primer Nombre" />
-                        </Form.Item>
-                        <Form.Item label="Apellido" className={styles.field}>
-                            <Input type="text" placeholder="Segundo Apellido" />
+                        <Form.Item label="Nombre Completo" className={styles.field}>
+                            <Input type="text" placeholder="Nombre Completo" />
                         </Form.Item>
                         <Form.Item label="Email" className={styles.field}>
                             <Input type="email" placeholder="example@example.com" />
+                        </Form.Item>
+                        <Form.Item label="Dui" className={styles.field}>
+                            <Input type="Dui" placeholder="12345678-9" />
                         </Form.Item>
                         <Form.Item label="Password" className={styles.field}>
                             <Input type="Password" placeholder="Password" />
