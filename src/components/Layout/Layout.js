@@ -9,9 +9,9 @@ const Layout = (props) => {
     const { children } = props;
 
     return (
-        <AntdLayout>
+        <AntdLayout style={{minHeight: "100vh"}}>
             <Header />
-            <Content>
+            <Content style={{paddingTop: 64}}>
                 {children}
             </Content>
             <Footer />

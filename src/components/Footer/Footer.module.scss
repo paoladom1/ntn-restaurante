@@ -1,0 +1,36 @@
+@import "./../../_variables";
+
+.footer {
+    .social {
+        list-style-type: none;
+        padding: 10px;
+        margin-top: 0em;
+        margin-bottom: 0em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-top: 1px solid $social-links;
+
+        li {
+            a {
+                font-size: 1.5em;
+                text-decoration: none;
+                margin: 10px;
+                color: $social-links;
+            }
+        }
+    }
+    .down {
+        display: flex;
+        justify-content: center;
+        margin: 0px;
+        p {
+            font-weight: 700;
+        }
+    }
+
+    .icon {
+        margin-top: 3px;
+        margin-left: 5px;
+    }
+}
