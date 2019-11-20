@@ -55,7 +55,7 @@ const BigHero = () => {
                 </div>
             </div>
             <HashLink
-                to="/#locations"
+                to="/home#locations"
                 scroll={el =>
                     el.scrollIntoView({ behavior: "smooth", block: "center" })
                 }

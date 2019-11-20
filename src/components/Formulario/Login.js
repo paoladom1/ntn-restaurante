@@ -28,9 +28,11 @@ const Login = () => {
                         <Button type="primary" htmlType="submit" className={styles.btn}>
                             <strong>Login</strong>  
                         </Button>
+                       <Link className={styles.Regist} to="/register">
                         <Button type="secundary" htmlType="submit" className={styles.register}>
                             Register now!
                         </Button>
+                        </Link>
                     </div>
                 </Form>
             </div>
