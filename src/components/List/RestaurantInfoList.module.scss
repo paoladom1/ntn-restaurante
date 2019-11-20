@@ -60,7 +60,7 @@
         }
         .ls{
               .card{
-                  height: 26em  ;
+                  height: 26em;
                   .cardContent{
                       .cardInfo{
                           .cardTitle{
@@ -90,8 +90,8 @@
     .inner{
         .ls{
             .card{
-                height: 22em;
                 .cardContent{
+                    height: 22em;
                     .cardInfo{
                         .cardTitle{
                             
@@ -109,8 +109,6 @@
             .card{
                 height: 22em;
                 width: 22em;
-                display: flex;
-                justify-content: space-between;
                 .cardContent{
                     .cardInfo{
                         .cardTitle{
