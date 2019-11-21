@@ -5,11 +5,13 @@ export const AppContext = React.createContext();
 class AppProvider extends React.Component {
     constructor(props) {
         super(props);
+        let user = JSON.parse(localStorage.getItem("ntnusertoken"));
         let cart = JSON.parse(localStorage.getItem("cart"));
+        user = user ? user : {};
         cart = cart ? cart : [];
 
         this.state = {
-            user: {},
+            user: user,
             cart: cart,
             updateCart: newCart => {
                 this.setState({ cart: newCart });
@@ -22,12 +24,20 @@ class AppProvider extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener("beforeunload", () => {
+            localStorage.setItem(
+                "ntnusertoken",
+                JSON.stringify(this.state.user)
+            );
             localStorage.setItem("cart", JSON.stringify(this.state.cart));
         });
     }
 
     componentDidMount() {
         window.addEventListener("beforeunload", () => {
+            localStorage.setItem(
+                "ntnusertoken",
+                JSON.stringify(this.state.user)
+            );
             localStorage.setItem("cart", JSON.stringify(this.state.cart));
         });
     }

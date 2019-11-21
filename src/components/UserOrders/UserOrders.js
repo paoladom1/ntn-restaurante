@@ -14,7 +14,7 @@ class UserOrders extends React.Component {
     getOrders = user => {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${user._id}/orders`, {
             method: "GET",
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${user.token}` }
         })
             .then(res => res.json())
             .then(res => {
