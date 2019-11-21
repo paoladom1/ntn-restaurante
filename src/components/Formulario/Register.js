@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Register.module.scss";
 import { Card, Form, Input, Button } from "antd";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import notification from "../Notification/Notification";

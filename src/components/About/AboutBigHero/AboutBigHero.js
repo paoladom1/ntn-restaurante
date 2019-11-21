@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Transformation } from "cloudinary-react";
+import { Image } from "cloudinary-react";
 import styles from "./AboutBigHero.module.scss";
 
 
