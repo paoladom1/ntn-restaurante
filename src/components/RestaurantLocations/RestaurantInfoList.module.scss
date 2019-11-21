@@ -1,14 +1,17 @@
 @import "../../_variables.scss";
 
-  .container{
-      h1{
-          font-size: 2em;
-          font-weight: 900;
-          margin-bottom: 10px;
-          text-align: center;
-      }
+.container {
+    padding-top: 40px;
+    padding-bottom: 40px;
 
-      .ls{
+    h1 {
+        font-size: 2em;
+        font-weight: 900;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .ls {
         padding-top: 25px;
         padding-bottom: 10px;
         width: 90%;
@@ -17,84 +20,63 @@
         font-size: 1em;
         font-weight: 600;
         letter-spacing: 0.25em;
-            .card{
-                border: $primary-color-light 10px groove;
-                font-size: 1em;
-                font-weight: 600;
-                letter-spacing: 0.25em;
-                .cardContent{
-                    background: white;
-                    .cardInfo{
-                        .cardTitle{
-                            
-                            h2{
-                                text-align: center;
-                                margin-bottom: 0px;
-                            }
 
-                        }
-                        .information{
+        .card {
+            border: $primary-color-light 10px groove;
+            height: 200px;
+            min-height: 100%;
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            .cardContent {
+                background: white;
+                .cardInfo {
+                    .cardTitle {
+                        h2 {
                             text-align: center;
-                            p{
-                                font-size: 11px;
-                                font-weight: 600;
-                                letter-spacing: 0.25em;
-                                padding-top: 5px;
-                                margin-bottom:10px;
+                            margin-bottom: 0px;
+                        }
+                    }
+                    .information {
+                        text-align: center;
+                        p {
+                            font-size: 11px;
+                            font-weight: 600;
+                            letter-spacing: 0.25em;
+                            padding-top: 5px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .img {
+                        margin-bottom: 0px;
+                        height: 170px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        .ls {
+            .card {
+                height: 250px;
+
+                .cardContent {
+                    .cardInfo {
+                        .cardTitle {
+                            h2 {
+                                text-align: center;
                             }
                         }
-                        .img{
-                            margin-bottom: 0px ;
-                            height: 170px;
-                        }
-                    }
-
-                }
-            }
-      }
-  }
-
-  @media only screen and (max-width: 768px){
-    .inner{
-        h1{
-        }
-        .ls{
-              .card{
-                  height: 26em;
-                  .cardContent{
-                      .cardInfo{
-                          .cardTitle{
-                              
-                              h2{
-                                  text-align: center;
-                              }
-                          }
-                          .information{
-                              p{
+                        .information {
+                            p {
                                 margin-bottom: 10px;
-                              }
-                          }
-                          .img{
-                              height: 110px;
-  
-                          }
-                      }
-  
-                  }
-              }
-        }
-    }
-  }
-
-@media only screen and (min-width: 1024px){
-    .inner{
-        .ls{
-            .card{
-                .cardContent{
-                    height: 22em;
-                    .cardInfo{
-                        .cardTitle{
-                            
+                            }
+                        }
+                        .img {
+                            height: 110px;
                         }
                     }
                 }
@@ -103,21 +85,26 @@
     }
 }
 
-@media only screen and (min-width: 1440px){
-    .inner{
-        .ls{
-            .card{
-                height: 22em;
-                width: 22em;
-                .cardContent{
-                    .cardInfo{
-                        .cardTitle{
-                            
-                        }
-                    }
+@media only screen and (min-width: 1024px) {
+    .inner {
+        .ls {
+            .card {
+                .cardContent {
+                    width: 30%;
+                    height: 250px;
                 }
             }
         }
     }
 }
 
+@media only screen and (min-width: 1440px) {
+    .inner {
+        .ls {
+            .card {
+                height: 250px;
+                width: 30%;
+            }
+        }
+    }
+}

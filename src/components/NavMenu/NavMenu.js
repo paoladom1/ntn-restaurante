@@ -83,6 +83,13 @@ class NavMenu extends React.Component {
                             >
                                 {Object.keys(user).length === 0 ? (
                                     <Menu.Item
+                                        style={{
+                                            width: "50%",
+                                            margin: "auto",
+                                            marginBottom: "50px",
+                                            border: "1px #ffc046 solid",
+                                            padding: "4px"
+                                        }}
                                         className={`${
                                             this.state.currentPage === "/signin"
                                                 ? styles.selected
@@ -111,7 +118,7 @@ class NavMenu extends React.Component {
                                     }`}
                                     key="/menu"
                                 >
-                                    <Link to="/menu">Menu</Link>
+                                    <Link to="/menu">Menú</Link>
                                 </Menu.Item>
                                 <Menu.Item
                                     className={`${
@@ -121,7 +128,7 @@ class NavMenu extends React.Component {
                                     }`}
                                     key="/about"
                                 >
-                                    <Link to="/about">About</Link>
+                                    <Link to="/about">Acerca de nosotros</Link>
                                 </Menu.Item>
                                 {Object.keys(user).length === 0 ? null : (
                                     <Menu.Item
@@ -132,7 +139,7 @@ class NavMenu extends React.Component {
                                         }`}
                                         key="/orders"
                                     >
-                                        <Link to="/orders">Orders</Link>
+                                        <Link to="/orders">Mis Ordenes</Link>
                                     </Menu.Item>
                                 )}
                             </Menu>

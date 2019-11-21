@@ -108,7 +108,7 @@ class CustomMenu extends React.Component {
                                                                     "Item agregado",
                                                                     food.description,
                                                                     "success",
-                                                                    3
+                                                                    2
                                                                 );
                                                             }}
                                                         />
