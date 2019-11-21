@@ -170,6 +170,25 @@
             left: 40px;
             top: 60px;
             background-color: $opaque-color;
+            h1 {
+                font-weight: 700;
+                font-size: 1.8em;
+                color: $surface-color;
+                border-bottom: 2px solid $surface-color;
+                margin-top: 0px;
+                margin-bottom: 30px;
+            }
+
+            > .content {
+                p {
+                    font-size: 1em;
+                    padding: 0;
+                    font-weight: 400;
+                    letter-spacing: 0.25em;
+                    color: $surface-color;
+                    text-align: justify;
+                }
+            }
 
             .restaurant {
                 display: none;
@@ -181,7 +200,7 @@
 @media only screen and (min-width: 1440px) {
     .big {
         .inner {
-            height: 50%;
+            height: 40%;
             max-height: 70%;
             h1 {
                 font-weight: 700;
@@ -201,22 +220,6 @@
                     color: $surface-color;
                     text-align: justify;
                 }
-            }
-        }
-    }
-}
-
-@media only screen and (min-width: 1440px) {
-    .big {
-        .inner {
-            height: 50%;
-            max-height: 70%;
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            > .content {
-                font-size: 1.2rem;
             }
         }
     }

@@ -1,6 +1,16 @@
 @import "./../../variables";
 
-.card {
+.list {
     width: 90%;
     margin: auto;
+
+    h2 {
+        margin-top: 50px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .card {
+        width: 90%;
+        margin: auto;
+    }
 }

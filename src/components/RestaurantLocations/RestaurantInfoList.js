@@ -1,20 +1,22 @@
 import React from "react";
-import { Card, Row, Col, List,} from "antd";
+import { Card, List } from "antd";
 import styles from "./RestaurantInfoList.module.scss";
 const data = [
     {
-        title: "Los Planes de Renderos",
-        info: "Carretera a Los Planes de Renderos Km 5 ½. Tel.: (503) 2270-0144 ",
+        title: "Planes de Renderos",
+        info: "Finca Santa Rosa, Calle a Planes de Renderos, San Salvador Km 5 ½. Tel.: (503) 2270-0144 ",
         img: "proyecto/home/img1"
     },
     {
         title: "Lago de Coatepeque",
-        info: "Calle Los Planes, Km 2, Lago de Coatepeque, El Congo, Santa Ana. Tel.: (503) 2455-9718",
+        info:
+            "Calle Los Planes, Km 2, Lago de Coatepeque, El Congo, Santa Ana. Tel.: (503) 2455-9718",
         img: "proyecto/home/img2"
     },
     {
         title: "Paseo Gral. Escalon",
-        info: "Paseo General Escalón, 1000 mts. arriba de Redondel Masferrer, San Salvador. Tel. 2264-0892",
+        info:
+            "Paseo Gral Escalón, 1 km. arriba de Redondel Masferrer, San Salvador. Tel. 2264-0892",
         img: "  "
     }
 ];
@@ -28,27 +30,18 @@ const ListInfo = () => {
                 grid={{
                     gutter: 16,
                     xs: 1,
-                    sm: 3,
+                    sm: 1,
                     md: 3,
                     lg: 3,
-                    xl: 6,
+                    xl: 3,
                     xxl: 3
                 }}
                 dataSource={data}
                 renderItem={item => (
                     <List.Item>
-                        <Card className={styles.card}>
-                            <Row className={styles.cardContent}>
-                                <Col className={styles.cardInfo}>
-                                    <div className={styles.cardTitle}>
-                                        <h2>{item.title}</h2>
-                                    </div>
-                                    <div className={styles.information}>
-                                        <p>{item.info}</p>
-                                    </div>
-                                </Col>
-                            </Row>
-                        </Card>
+                      <Card  className={styles.card} title={item.title}>
+                          {item.info}
+                      </Card>
                     </List.Item>
                 )}
             ></List>

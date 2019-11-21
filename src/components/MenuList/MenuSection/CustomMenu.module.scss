@@ -1,76 +1,84 @@
 @import "../../../variables.scss";
 
-.card {
-    width: 100%;
-    height: 100%;
+.wrapper {
+    padding-top: 50px;
+    .cardContent {
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        padding: 0;
+        background-color: $surface-color;
+        .cardMenu {
+            border: solid 2px $complementary-color;
+            .cardTitle {
+                background-color: $complementary-color;
+                border-bottom: $secondary-color-dark;
+                height: 45px;
 
-    @media only screen and (min-width: 1024px) {
-        padding: 40px;
-    }
-}
+                .title {
+                    padding-top: 8px;
+                    margin: auto 12px;
+                    color: $surface-color;
+                    font-size: 1.2rem;
+                    font-weight: bolder;
+                    text-transform: uppercase;
+                    display: inline-block;
+                }
+                .icon {
+                    margin-left: 30px;
+                    color: $surface-color;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+        .listContent {
+            margin: 15px 30px;
+            color: $complementary-color;
+            .foodName {
+                font-size: 1rem;
+                font-weight: bold;
+                text-decoration: underline;
+                text-transform: uppercase;
+                margin-bottom: 1px;
+            }
+            .foodDescription {
+                margin-bottom: 12px;
+                text-align: justify;
+                padding-right: 8px;
+            }
 
-.cardMenu {
-    border: solid 2px $complementary-color;
-}
-
-.cardContent {
-    .img {
-        margin-left: 50px;
-        margin-top: 10px;
-        max-width: 400px;
-        min-width: 400px;
-        height: auto;
-
-        @media only screen and (max-width: 1024px) {
-            display: none;
+            .addToCart {
+                &:hover {
+                    cursor: pointer;
+                }
+                .icon {
+                    font-size: 1.2rem;
+                    padding-top: 2px;
+                }
+            }
         }
     }
 }
 
-.listContent {
-    margin: 15px 30px;
-    color: $complementary-color;
-    .foodName {
-        font-size: 1rem;
-        font-weight: bold;
-        text-decoration: underline;
-        text-transform: uppercase;
-        margin-bottom: 1px;
-    }
-    .foodDescription {
-        margin-bottom: 12px;
-        text-align: justify;
-        padding-right: 8px;
-    }
-
-    .addToCart {
-        &:hover {
-            cursor: pointer;
-        }
-        .icon {
-            font-size: 1.2rem;
-            padding-top: 2px;
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        padding-top: 100px;
+        padding-bottom: 250px;
+        .cardContent {
+            width: 80%;
         }
     }
 }
 
-.cardTitle {
-    background-color: $complementary-color;
-    border-bottom: $secondary-color-dark;
-    height: 45px;
-
-    .title {
-        padding-top: 8px;
-        margin: auto 12px;
-        color: $surface-color;
-        font-size: 1.2rem;
-        font-weight: bolder;
-        text-transform: uppercase;
-        display: inline-block;
-    }
-    .icon {
-        margin-left: 30px;
-        color: $surface-color;
-        font-size: 1.2rem;
+@media only screen and (min-width: 1024px) {
+    .wrapper {
+        padding-top: 200px;
+        padding-bottom: 250px;
+        background-image: url("https://res.cloudinary.com/dw8gae3co/image/upload/e_blur:598/v1574349106/proyecto/flatlay-photography-of-strawberries-and-sliced-bread-1660030_hs0fiw.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        .cardContent {
+            width: 70%;
+        }
     }
 }

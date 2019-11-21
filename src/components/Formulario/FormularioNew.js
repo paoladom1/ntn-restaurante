@@ -103,7 +103,7 @@ const FormularioNew = () => {
                                 label="Email"
                                 className={styles.email}
                             >
-                                <a href="#">ntnrestaurant@gmail.com</a>
+                                <a href="mailto:reservaciones@ntnrestaurante.com?subject=Reservacion">ntnrestaurant@gmail.com</a>
                             </Descriptions.Item>
                         </Descriptions>
                     </div>

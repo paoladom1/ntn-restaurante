@@ -4,6 +4,7 @@ import OrderItem from "./OrderItem/OrderItem";
 import { AppContext } from "../../AppProvider";
 import notification from "../Notification/Notification";
 import { withRouter } from "react-router-dom";
+import styles from "./Order.module.scss";
 
 const placeOrder = (user, cart, updateCart) => {
     return fetch(
@@ -51,69 +52,72 @@ const OrderModal = ({ visible, handleCancel, history }) => (
 
             return (
                 <Modal
+                    className={styles.modal}
                     visible={visible}
                     title={`Orden - Total: $${total}`}
                     onOk={handleCancel}
                     onCancel={handleCancel}
                     centered
                     footer={[
-                        <Button
-                            key="clear"
-                            onClick={() => {
-                                updateCart([]);
-                            }}
-                        >
-                            Limpiar Carrito
-                        </Button>,
-                        <Button key="back" onClick={handleCancel}>
-                            Regresar
-                        </Button>,
-                        <Button
-                            key="submit"
-                            type="primary"
-                            onClick={e => {
-                                e.preventDefault();
+                        <div className={styles.footer}>
+                            <Button
+                                className={styles.clearBtn}
+                                key="clear"
+                                onClick={() => {
+                                    updateCart([]);
+                                }}
+                            >
+                                Limpiar Carrito
+                            </Button>
+                            ,
+                            <Button
+                                className={styles.submitBtn}
+                                key="submit"
+                                type="primary"
+                                onClick={e => {
+                                    e.preventDefault();
 
-                                if (cart.length === 0)
-                                    notification(
-                                        "ERROR",
-                                        "Necesitas agregar al menos un producto al carrito",
-                                        "error",
-                                        2
-                                    );
-                                else if (Object.keys(user).length === 0) {
-                                    notification(
-                                        "ERROR",
-                                        "necesitas estar loggeado para realizar una orden",
-                                        "error",
-                                        3
-                                    );
-                                    history.push("/signin");
-                                } else {
-                                    placeOrder(user, cart, updateCart).then(
-                                        res => {
-                                            if (res.status === "success")
-                                                notification(
-                                                    "Agregado",
-                                                    res.message,
-                                                    "success",
-                                                    2
-                                                );
-                                            else
-                                                notification(
-                                                    res.status,
-                                                    res.message,
-                                                    "error",
-                                                    3
-                                                );
-                                        }
-                                    );
-                                }
-                                handleCancel();
-                            }}
-                        >
-                            Ordenar
-                        </Button>
+                                    if (cart.length === 0)
+                                        notification(
+                                            "ERROR",
+                                            "Necesitas agregar al menos un producto al carrito",
+                                            "error",
+                                            2
+                                        );
+                                    else if (Object.keys(user).length === 0) {
+                                        notification(
+                                            "ERROR",
+                                            "necesitas estar loggeado para realizar una orden",
+                                            "error",
+                                            3
+                                        );
+                                        history.push("/signin");
+                                    } else {
+                                        placeOrder(user, cart, updateCart).then(
+                                            res => {
+                                                if (res.status === "success")
+                                                    notification(
+                                                        "Agregado",
+                                                        res.message,
+                                                        "success",
+                                                        2
+                                                    );
+                                                else
+                                                    notification(
+                                                        res.status,
+                                                        res.message,
+                                                        "error",
+                                                        3
+                                                    );
+                                            }
+                                        );
+                                    }
+                                    handleCancel();
+                                }}
+                            >
+                                Ordenar
+                            </Button>
+                        </div>
                     ]}
                 >
                     <List

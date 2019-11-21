@@ -15,7 +15,10 @@ class UserOrders extends React.Component {
         console.log(user);
         fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${user._id}/orders`, {
             method: "GET",
-            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${user.token}` }
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${user.token}`
+            }
         })
             .then(res => res.json())
             .then(res => {
@@ -43,37 +46,41 @@ class UserOrders extends React.Component {
         console.log(orders);
 
         return (
-            <List
-                itemLayout="horizontal"
-                dataSource={orders}
-                renderItem={item => (
-                    <List.Item>
-                        <Card title={item.status} className={styles.card}>
-                            {item.products.map((product, index) => (
-                                <div key={index}>
-                                    {`${product.name} - $${Number(
-                                        product.price
-                                    ).toFixed(2)}`}
+            <div className={styles.list}>
+                <h2>TUS ORDENES</h2>
+                <List
+                    itemLayout="horizontal"
+                    dataSource={orders}
+                    renderItem={item => (
+                        <List.Item>
+                            <Card title={item.status} className={styles.card}>
+                                {item.products.map((product, index) => (
+                                    <div key={index}>
+                                        {`${product.name} - $${Number(
+                                            product.price
+                                        ).toFixed(2)}`}
+                                    </div>
+                                ))}
+                                <Divider />
+                                <div className={styles.total}>
+                                    <div>
+                                        <strong>
+                                            Subtotal: $
+                                            {Number(item.subtotal).toFixed(2)}
+                                        </strong>
+                                    </div>
+                                    <div>
+                                        <strong>
+                                            Total: $
+                                            {Number(item.total).toFixed(2)}
+                                        </strong>
+                                    </div>
                                 </div>
-                            ))}
-                            <Divider />
-                            <div className={styles.total}>
-                                <div>
-                                    <strong>
-                                        Subtotal: $
-                                        {Number(item.subtotal).toFixed(2)}
-                                    </strong>
-                                </div>
-                                <div>
-                                    <strong>
-                                        Total: ${Number(item.total).toFixed(2)}
-                                    </strong>
-                                </div>
-                            </div>
-                        </Card>
-                    </List.Item>
-                )}
-            />
+                            </Card>
+                        </List.Item>
+                    )}
+                />
+            </div>
         );
     }
 }

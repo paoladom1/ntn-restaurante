@@ -1,3 +1,25 @@
+@import "./../../../variables";
+
 .card {
+    width: 100%;
     
+    .cardBody {
+        width: 100%;
+    }
+
+    .rmBtn {
+        font-size: 1.3rem;
+        border: 0;
+        color: $error-color;
+    }
+
+    .cardTitle {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .cardText {
+        font-size: 0.8rem;
+    }
+
 }
