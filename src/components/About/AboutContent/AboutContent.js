@@ -19,7 +19,7 @@ const AboutContent = () => {
                     <div className={styles.mision}>
                         <h2 className={styles.sobrenosotros}>Misión</h2>
                         <hr />
-                        <p>Dar a nuestros clientes la mejor experiencia al comer fuera, garantizando la calidad y el sabor único de La Pampa en un ambiente agradable y con el mejor servicio,
+                        <p>Dar a nuestros clientes la mejor experiencia al comer fuera, garantizando la calidad y el sabor único de La NTN en un ambiente agradable y con el mejor servicio,
                          buscando el desarrollo de nuestros colaboradores y generando valor para los accionistas de manera sostenible.</p>
                     </div>
                     <div className={styles.vision}>
