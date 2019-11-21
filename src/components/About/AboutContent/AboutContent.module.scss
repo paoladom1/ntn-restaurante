@@ -4,58 +4,63 @@
     position: relative;
 
     .acercade{  
-        background-color: #202224;
+        background-color: $about-first-color;
         .contenedor{
           padding: 2em;
           .sobrenosotros{
-              color: white;
+              color: $backgroud-color;
               text-align: right;
               margin-bottom: 0;
+              text-transform: uppercase;
           }
           hr{
-            color: white;
-            width: 50%;
+            color: $backgroud-color;
+            width: 80%;
             margin-top: 0;
             margin-right: 0;
           }
           p{
             padding: 0.5em;
             margin: 1em;
-            color: white;
+            color: $backgroud-color;
           }
         }
     }
     .acercadeother{
-        background-color: #282A2C;
+        background-color: $about-second-color;
         .sesgootro{
             z-index: 10;
             position: static;
             left: 0;
             border-width: 5vh 100vw 0 0;
             border-style: solid;
-            border-color:  #202224 transparent transparent  transparent;
+            border-color:  $about-first-color transparent transparent  transparent;
         }
         .contenedor{
             padding: 2em;
             .mision{
-
+              .sobrenosotros{
+                text-transform: uppercase;
+              }
             }
             .vision{
               text-align:left;
               .sobrenosotros{
                 text-align: left;
+                text-transform: uppercase;
               }
               hr{
                 margin-left: 0;
               }
             }
             .sobrenosotros{
-                color: white;
+                color: $backgroud-color;
                 text-align: right;
                 margin-bottom: 0;
+                text-transform: uppercase;
             }
             hr{
-              color: white;
+              color: $backgroud-color;
               width: 50%;
               margin-top: 0;
               margin-right: 0;
@@ -63,13 +68,13 @@
             p{
               padding: 0.5em;
               margin: 1em;
-              color: white;
+              color: $backgroud-color;
             }
           }
     }
 
     .acercaUs{
-        background-color: #343739;
+        background-color: $about-third-color;
         .sesgo{
             z-index: 10;
             position: static;
@@ -77,17 +82,18 @@
             left: 0;
             border-width: 5vh 100vw 0 0;
             border-style: solid;
-            border-color:  #282A2C transparent transparent transparent;
+            border-color:  $about-second-color transparent transparent transparent;
         }
         .contenedor{
             padding: 2em;
             .sobrenosotros{
-                color: white;
+                color: $backgroud-color;
                 text-align: right;
                 margin-bottom: 0;
+                text-transform: uppercase;
             }
             hr{
-              color: white;
+              color: $backgroud-color;
               width: 50%;
               margin-top: 0;
               margin-right: 0;
@@ -95,7 +101,7 @@
             p{
               padding: 0.5em;
               margin: 1em;
-              color: white;
+              color: $backgroud-color;
             }
           }
         }
@@ -111,12 +117,12 @@
           .contenedor{
               padding: 2em;
               .sobrenosotros{
-                  color: white;
+                  color: $backgroud-color;
                   text-align: right;
                   margin-bottom: 0;
               }
               hr{
-                color: white;
+                color: $backgroud-color;
                 width: 50%;
                 margin-top: 0;
                 margin-right: 0;
@@ -124,29 +130,29 @@
               p{
                 padding: 0.5em;
                 margin: 1em;
-                color: white;
+                color: $backgroud-color;
               }
             }
           }
           .informacion{
-            background-color: #f0f2f5;
+            background-color: $about-backgound-color;
             .sesguitoU{
                 z-index: 10;
                 position: static;
                 left: 0;
                 border-width: 5vh 100vw 0 0;
                 border-style: solid;
-                border-color:  #343739 transparent transparent transparent;
+                border-color:  $about-third-color transparent transparent transparent;
             }
             .contenedor{
                 padding: 2em;
                 .sobrenosotros{
-                    color: white;
+                    color: $backgroud-color;
                     text-align: right;
                     margin-bottom: 0;
                 }
                 hr{
-                  color: white;
+                  color: $backgroud-color;
                   width: 50%;
                   margin-top: 0;
                   margin-right: 0;
@@ -154,7 +160,7 @@
                 p{
                   padding: 0.5em;
                   margin: 1em;
-                  color: white;
+                  color: $backgroud-color;
                 }
               }
             }
@@ -209,7 +215,7 @@
             }
          }
         .informacion{
-          background-color: #f0f2f5;
+          background-color: $about-backgound-color;
         }
       }
 }
@@ -267,7 +273,7 @@
         }
      }
     .informacion{
-      background-color: #f0f2f5;
+      background-color: $about-backgound-color;
     }
   }
 }
