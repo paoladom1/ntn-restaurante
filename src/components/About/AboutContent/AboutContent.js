@@ -32,7 +32,7 @@ const AboutContent = () => {
             <section className={styles.acercaUs}>
                 <div className={styles.sesgo} />
                 <div className={styles.contenedor}>
-                    <h2 className={styles.sobrenosotros}>Welcome</h2>
+                    <h2 className={styles.sobrenosotros}>Bienvenido</h2>
                     <hr />
                     <p className={styles.parrafo}>Te damos la bienvenida a tu casa “NTN Restaurante”,conoce más acerca de nuestros platillos preparados con los mayores estándares de calidad.
                     Nuestro compromiso es suplir todas tus expectativas y hacer que en tu visita vivas la mejor experiencia.<br/>
