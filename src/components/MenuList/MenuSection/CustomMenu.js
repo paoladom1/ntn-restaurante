@@ -1,14 +1,7 @@
 import React from "react";
-<<<<<<< HEAD
 import { Row, Col, Icon } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-=======
-import { Card, Row, Col, Icon, Button } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Image, Transformation } from "cloudinary-react";
-import { withRouter } from "react-router-dom";
->>>>>>> d726291660e8cb9562d41a0cc43a57455712c615
 import notification from "./../../Notification/Notification";
 import styles from "./CustomMenu.module.scss";
 import { AppContext } from "../../../AppProvider";
@@ -159,8 +152,4 @@ class CustomMenu extends React.Component {
     }
 }
 
-<<<<<<< HEAD
-export default CustomMenu;
-=======
 export default withRouter(CustomMenu);
->>>>>>> d726291660e8cb9562d41a0cc43a57455712c615
