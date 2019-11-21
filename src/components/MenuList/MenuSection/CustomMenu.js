@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Row, Col, Icon } from "antd";
+import { Card, Row, Col, Icon, Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Image, Transformation } from "cloudinary-react";
-
+import { withRouter } from "react-router-dom";
 import notification from "./../../Notification/Notification";
 import styles from "./CustomMenu.module.scss";
 import { AppContext } from "../../../AppProvider";
@@ -34,11 +34,23 @@ class CustomMenu extends React.Component {
     }
 
     render() {
+        const { history, location } = this.props;
         return (
             <AppContext.Consumer>
                 {({ cart, updateCart }) => (
                     <Card className={styles.card}>
                         <Row className={styles.cardContent}>
+                        <div>
+                            <Button
+                                className={styles.goBack}
+                                onClick={() => {
+                                console.log(location);
+                                history.push("/menu");
+                            }} >
+                                 <FontAwesomeIcon
+                                     icon="arrow-left" className={styles.Icon}/>
+                            </Button>
+                        </div> 
                             <Col
                                 className={styles.cardMenu}
                                 xs={24}
@@ -137,8 +149,8 @@ class CustomMenu extends React.Component {
                     </Card>
                 )}
             </AppContext.Consumer>
-        );
+        )
     }
 }
 
-export default CustomMenu;
+export default withRouter(CustomMenu);
