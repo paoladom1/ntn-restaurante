@@ -12,6 +12,7 @@
     "babel-plugin-import": "^1.12.2",
     "cloudinary-react": "^1.2.1",
     "customize-cra": "^0.8.0",
+    "jwt-decode": "^2.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "node-sass": "^4.13.0",

@@ -68,7 +68,8 @@ class LoginForm extends React.Component {
                                                 ...res.data.user,
                                                 token: res.data.token
                                             });
-                                            history.push("/menu");
+                                            localStorage.setItem("ntnusertoken", res.data.token);
+                                            history.push("/");
                                         } else {
                                             notification(
                                                 "Usuario no valido",
