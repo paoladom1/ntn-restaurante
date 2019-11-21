@@ -39,7 +39,7 @@ class NavMenu extends React.Component {
     render() {
         return (
             <AppContext.Consumer>
-                {({ user }) => (
+                {({ user, updateUser }) => (
                     <div>
                         <Button
                             className={styles.shoppingCart}
@@ -140,6 +140,18 @@ class NavMenu extends React.Component {
                                         key="/orders"
                                     >
                                         <Link to="/orders">Mis Ordenes</Link>
+                                    </Menu.Item>
+                                )}
+                                {Object.keys(user).length === 0 ? null : (
+                                    <Menu.Item
+                                        className={`${
+                                            this.state.currentPage === "/signout"
+                                                ? styles.selected
+                                                : " "
+                                        }`}
+                                        key="/signout"
+                                    >
+                                        <Link to="/signout">Cerrar Sesión</Link>
                                     </Menu.Item>
                                 )}
                             </Menu>

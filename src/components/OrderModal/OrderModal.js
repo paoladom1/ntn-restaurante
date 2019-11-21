@@ -74,7 +74,14 @@ const OrderModal = ({ visible, handleCancel, history }) => (
                             onClick={e => {
                                 e.preventDefault();
 
-                                if (Object.keys(user).length === 0) {
+                                if (cart.length === 0)
+                                    notification(
+                                        "ERROR",
+                                        "Necesitas agregar al menos un producto al carrito",
+                                        "error",
+                                        2
+                                    );
+                                else if (Object.keys(user).length === 0) {
                                     notification(
                                         "ERROR",
                                         "necesitas estar loggeado para realizar una orden",

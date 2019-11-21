@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect
+} from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -30,6 +35,21 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => (
     </AppContext.Consumer>
 );
 
+export const Signout = ({ component: Component, ...rest }) => (
+    <AppContext.Consumer>
+        {({ user, updateUser }) => {
+            const isAuthenticated = Object.keys(user).length !== 0;
+
+            if (isAuthenticated) updateUser({});
+            localStorage.removeItem("ntnusertoken");
+
+            return (
+                <Route {...rest} render={props => <Component {...props} />} />
+            );
+        }}
+    </AppContext.Consumer>
+);
+
 export default function AppRouter() {
     return (
         <Router>
@@ -40,6 +60,7 @@ export default function AppRouter() {
                 <Route path="/signup" component={Register} />
                 <Route exact path="/signin" component={Login} />
                 <ProtectedRoute path="/orders" component={UserOrders} />
+                <Signout exact path="/signout" component={() => <Redirect to="/" />} />
             </Switch>
         </Router>
     );
