@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Menu, Button, Icon } from "antd";
 import styles from "./NavMenu.module.scss";
-import OrderModal from "../Order/OrderModal";
+import OrderModal from "../OrderModal/OrderModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AppContext } from "../../AppProvider";
 
@@ -81,6 +81,18 @@ class NavMenu extends React.Component {
                                 selectedKeys={[this.state.currentPage]}
                                 onClick={this.toggle}
                             >
+                                {Object.keys(user).length === 0 ? (
+                                    <Menu.Item
+                                        className={`${
+                                            this.state.currentPage === "/signin"
+                                                ? styles.selected
+                                                : " "
+                                        }`}
+                                        key="/signin"
+                                    >
+                                        <Link to="/signin">Iniciar Sesión</Link>
+                                    </Menu.Item>
+                                ) : null}
                                 <Menu.Item
                                     className={`${
                                         this.state.currentPage === "/"
@@ -111,18 +123,18 @@ class NavMenu extends React.Component {
                                 >
                                     <Link to="/about">About</Link>
                                 </Menu.Item>
-                                {Object.keys(user).length === 0 ? (
+                                {Object.keys(user).length === 0 ? null : (
                                     <Menu.Item
                                         className={`${
-                                            this.state.currentPage === "/signin"
+                                            this.state.currentPage === "/orders"
                                                 ? styles.selected
                                                 : " "
                                         }`}
-                                        key="/signin"
+                                        key="/orders"
                                     >
-                                        <Link to="/signin">Iniciar Sesión</Link>
+                                        <Link to="/orders">Orders</Link>
                                     </Menu.Item>
-                                ) : null}
+                                )}
                             </Menu>
                         </div>
                     </div>

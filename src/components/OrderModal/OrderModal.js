@@ -5,7 +5,6 @@ import { AppContext } from "../../AppProvider";
 import notification from "../Notification/Notification";
 
 const placeOrder = (user, cart, updateCart) => {
-    console.log(user);
     fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${user._id}/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
