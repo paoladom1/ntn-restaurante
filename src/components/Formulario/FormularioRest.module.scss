@@ -75,7 +75,7 @@
 
                     &:hover,
                     &:focus{
-                        color: $primary-color-dark;
+                        color: $primary-color-text;
                         background-color: $primary-color-light;
                     }
                 }
@@ -223,7 +223,8 @@
                   }
                   .figth{
                       text-align: center;
-                      margin-right: 40px;
+                      margin-left: 0px;
+                      margin-right: 30px;
                   }
               }
            }
