@@ -8,6 +8,14 @@
         margin: auto;
         padding: 0;
         background-color: $surface-color;
+        .goBack {
+            height: 5em;
+            border: 0;
+            .Icon {
+                height: 2em;
+                width: 2em;
+            }
+        }
         .cardMenu {
             border: solid 2px $complementary-color;
             .cardTitle {

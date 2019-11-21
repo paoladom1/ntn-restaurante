@@ -78,7 +78,7 @@ const FormularioNew = () => {
                             </div>
                             <div className={styles.figth}>
                                 <Button
-                                    type="primary"
+                                    type="dashed"
                                     htmlType="submit"
                                     className={styles.btn}
                                 >

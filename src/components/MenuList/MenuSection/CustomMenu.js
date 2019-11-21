@@ -1,7 +1,14 @@
 import React from "react";
+<<<<<<< HEAD
 import { Row, Col, Icon } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+=======
+import { Card, Row, Col, Icon, Button } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Image, Transformation } from "cloudinary-react";
+import { withRouter } from "react-router-dom";
+>>>>>>> d726291660e8cb9562d41a0cc43a57455712c615
 import notification from "./../../Notification/Notification";
 import styles from "./CustomMenu.module.scss";
 import { AppContext } from "../../../AppProvider";
@@ -33,11 +40,23 @@ class CustomMenu extends React.Component {
     }
 
     render() {
+        const { history, location } = this.props;
         return (
             <AppContext.Consumer>
                 {({ cart, updateCart }) => (
                     <div className={styles.wrapper}>
                             <Row className={styles.cardContent}>
+                            <div>
+                            <Button
+                                className={styles.goBack}
+                                onClick={() => {
+                                console.log(location);
+                                history.push("/menu");
+                            }} >
+                                 <FontAwesomeIcon
+                                     icon="arrow-left" className={styles.Icon}/>
+                            </Button>
+                        </div> 
                                 <Col
                                     className={styles.cardMenu}
                                     xs={24}
@@ -136,8 +155,12 @@ class CustomMenu extends React.Component {
                     </div>
                 )}
             </AppContext.Consumer>
-        );
+        )
     }
 }
 
+<<<<<<< HEAD
 export default CustomMenu;
+=======
+export default withRouter(CustomMenu);
+>>>>>>> d726291660e8cb9562d41a0cc43a57455712c615

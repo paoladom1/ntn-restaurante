@@ -22,6 +22,7 @@
        font-family: "Roboto Slab", serif;
        margin-bottom: 0px;
        padding-bottom: 0px;
+       text-transform: uppercase;
      }
      hr{
        width: 50%;
@@ -61,7 +62,7 @@
   left: 0;
   border-width: 0 0 5vh 100vw;
   border-style: solid;
-  border-color:  transparent transparent  #202224 transparent;
+  border-color:  transparent transparent  $about-first-color transparent;
  }
 }
 
@@ -72,8 +73,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
        .information{
-           .content{
-           }
          }
        .img{
          display: grid;
