@@ -11,7 +11,7 @@ const Layout = (props) => {
     return (
         <AntdLayout style={{minHeight: "100vh"}}>
             <Header />
-            <Content style={{paddingTop: 64}}>
+            <Content style={{paddingTop: 64, backgroundColor: "white"}}>
                 {children}
             </Content>
             <Footer />

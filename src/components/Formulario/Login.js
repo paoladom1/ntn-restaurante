@@ -43,23 +43,24 @@ class LoginForm extends React.Component {
 
         return (
             <AppContext.Consumer>
-                {({ user, updateUser }) => (
-                    <div className={styles.over}>
-                        <Card className={styles.pop}>
+                {({ updateUser }) => (
+                    <div className={styles.wrapper}>
+                        <Card className={styles.card}>
                             <Button
-                                className={styles.closeBtn}
+                                className={styles.goBack}
                                 onClick={() => {
                                     console.log(location);
                                     history.push("/");
                                 }}
                             >
-                                <div className={styles.icon}>
-                                    <FontAwesomeIcon icon="arrow-left" />
-                                </div>
+                                <FontAwesomeIcon
+                                    icon="arrow-left"
+                                />
                             </Button>
-                            <h3>Login</h3>
+                            <h3>Inicia Sesión</h3>
+                            <p>Inicia sesión para realizar una orden</p>
                             <Form
-                                className={styles.formPrincipal}
+                                className={styles.form}
                                 onSubmit={e => {
                                     this.handleSubmit(e).then(res => {
                                         if (res.status === "success") {
@@ -78,53 +79,47 @@ class LoginForm extends React.Component {
                                     });
                                 }}
                             >
-                                <div className={styles.fields}>
-                                    <Form.Item
-                                        label="Email"
-                                        className={styles.field}
-                                    >
-                                        <Input
-                                            type="text"
-                                            placeholder="Email"
-                                            onChange={this.handleChange}
-                                            value={this.state.email}
-                                            name="email"
-                                        />
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Password"
-                                        className={styles.field}
-                                    >
-                                        <Input
-                                            type="password"
-                                            placeholder="Password"
-                                            onChange={this.handleChange}
-                                            value={this.state.password}
-                                            name="password"
-                                        />
-                                    </Form.Item>
-                                </div>
-                                <div className={styles.btn}>
-                                    <Button
-                                        type="primary"
-                                        htmlType="submit"
-                                        className={styles.btn}
-                                    >
-                                        <strong>Login</strong>
-                                    </Button>
-                                    <Link
-                                        className={styles.Regist}
-                                        to="/signup"
-                                    >
-                                        <Button
-                                            type="secundary"
-                                            htmlType="submit"
-                                            className={styles.registerBtn}
-                                        >
-                                            Registrate!
-                                        </Button>
-                                    </Link>
-                                </div>
+                                <Form.Item
+                                    label="Email"
+                                    className={styles.label}
+                                >
+                                    <Input
+                                        type="text"
+                                        placeholder="Email"
+                                        onChange={this.handleChange}
+                                        value={this.state.email}
+                                        name="email"
+                                    />
+                                </Form.Item>
+                                <Form.Item
+                                    label="Password"
+                                    className={styles.label}
+                                >
+                                    <Input
+                                        type="password"
+                                        placeholder="Password"
+                                        onChange={this.handleChange}
+                                        value={this.state.password}
+                                        name="password"
+                                    />
+                                </Form.Item>
+                                <Button
+                                    type="primary"
+                                    htmlType="submit"
+                                    className={styles.loginBtn}
+                                >
+                                    <strong>Login</strong>
+                                </Button>
+                                <span className={styles.text}>
+                                    {" "}
+                                    Aún no tienes una cuenta?{" "}
+                                </span>
+                                <Link
+                                    className={styles.registerBtn}
+                                    to="/signup"
+                                >
+                                    Registrate!
+                                </Link>
                             </Form>
                         </Card>
                     </div>

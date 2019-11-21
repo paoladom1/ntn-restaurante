@@ -1,38 +1,84 @@
 @import "./../../variables.scss";
 
-.over {
+.wrapper {
     width: 100%;
+    min-height: 100%;
     height: 100%;
-    background-color: $surface-color;
+    background-image: none;
+    padding-top: 40px;
 
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .card {
+        border: 0px;
 
-    .pop {
-        width: 40%;
-        background-color: $surface-color;
-        border-color: $primary-color-text;
+        .goBack {
+            border: 0;
+        }
 
         h3 {
-            font-size: 2.5em;
+            font-size: 2rem;
             text-align: center;
         }
-        .formPrincipal {
-            width: 90%;
-            margin: auto;
-            .fields {
-                .field {
-                    input {
-                        width: 20em;
-                    }
-                }
+
+        p {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .form {
+            input {
+                height: $input-height;
+            }
+
+            .loginBtn {
+                display: block;
+                width: 100%;
+                height: $input-height;
+                margin-bottom: 16px;
+                font-size: 1rem;
+            }
+
+            .text {
+                display: block;
+                text-align: center;
+                font-size: 0.8rem;
+                margin-bottom: 10px;
+            }
+
+            .registerBtn {
+                display: block;
+                text-align: center;
+                font-size: 1.2rem;
             }
         }
-        .btn {
-            display: flex;
-            justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .wrapper {
+        background-image: url("https://res.cloudinary.com/dw8gae3co/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1574303437/proyecto/carrots-food-fresh-freshness-616401_s4d5g4.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: -64px;
+        padding-top: 200px;
+        padding-bottom: 450px;
+
+        .card {
+            display: block;
+            width: 50%;
+            height: 70%;
+            padding: 30px;
+            margin: 50px auto;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1440px) {
+    .wrapper {
+      padding-top: 100px;
+      padding-bottom: 150px;
+        .card {
+            width: 40%;
         }
     }
 }
