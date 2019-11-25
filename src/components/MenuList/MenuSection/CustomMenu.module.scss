@@ -1,20 +1,37 @@
 @import "../../../variables.scss";
 
 .wrapper {
-    padding-top: 50px;
+    padding-top: 20px;
+    .back {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: flex-start;
+
+        .goBack {
+            margin-bottom: 10px;
+            margin-left: 20px;
+            border: 0;
+            background-color: transparent;
+            .Icon {
+                font-size: 1.6rem;
+            }
+        }
+        h3 {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: $complementary-color;
+        }
+    }
     .cardContent {
-        width: 90%;
+        width: 80%;
         height: 100%;
         margin: auto;
         padding: 0;
+        border: 0;
         background-color: $surface-color;
-        .goBack {
-            height: 5em;
-            border: 0;
-            .Icon {
-                height: 2em;
-                width: 2em;
-            }
+        .img {
+            display: none;
         }
         .cardMenu {
             border: solid 2px $complementary-color;
@@ -70,9 +87,8 @@
 
 @media only screen and (min-width: 768px) {
     .wrapper {
-        padding-top: 100px;
-        padding-bottom: 250px;
         .cardContent {
+            border: 0;
             width: 80%;
         }
     }
@@ -80,13 +96,28 @@
 
 @media only screen and (min-width: 1024px) {
     .wrapper {
-        padding-top: 200px;
-        padding-bottom: 250px;
-        background-image: url("https://res.cloudinary.com/dw8gae3co/image/upload/e_blur:598/v1574349106/proyecto/flatlay-photography-of-strawberries-and-sliced-bread-1660030_hs0fiw.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        .cardContent {
-            width: 70%;
+        padding: 0 50px 80px 50px;
+
+        .back {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            .goBack {
+                margin-left: 0;
+            }
         }
+        .cardContent {
+            border: 0;
+            width: 100%;
+
+            .img {
+                display: flex;
+                justify-content: flex-end;
+                max-width: 90%;
+                max-height: 70%;
+                align-self: flex-end;
+            }
+        }
+
     }
 }
