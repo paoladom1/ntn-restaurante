@@ -1,20 +1,30 @@
 import React from "react";
 import styles from "./EventForm.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from "moment";
 import {
     Descriptions,
     Button,
     Form,
     Input,
     DatePicker,
-    TimePicker,
     Icon,
     Row,
-    Col
+    Col,
+    Divider
 } from "antd";
+import { withRouter } from "react-router-dom";
+
+import { AppContext } from "../../AppProvider";
+import notification from "../Notification/Notification";
 
 const InfoSection = () => (
-    <Col xs={24} lg={12} className={styles.infoSection}>
+    <Col
+        xs={24}
+        lg={14}
+        styles={{ borderLeft: "1px solid white" }}
+        className={styles.infoSection}
+    >
         <div className={styles.subsection}>
             <Icon type="mail" theme="filled" className={styles.icon} />
             <Descriptions label="Contact us" className={styles.label}>
@@ -67,98 +77,212 @@ const InfoSection = () => (
     </Col>
 );
 
-const FormularioNew = () => {
-    return (
-        <Row className={styles.container}>
-            <Col xs={24} lg={12} className={styles.eventSection}>
-                <h2>Reservas</h2>
-                <Form className={styles.eventForm}>
-                    <Row gutter={16} className={styles.fields}>
-                        <Col xs={24} lg={12}>
-                            <Form.Item label="Nombre Completo" className={styles.field}>
-                                <Input
-                                    className={styles.input}
-                                    type="text"
-                                    placeholder="Nombre Completo"
-                                />
-                            </Form.Item>
-                        </Col>
-                        <Col xs={24} lg={12}>
-                            <Form.Item
-                                label="DUI"
-                                className={styles.field}
-                            >
-                                <Input
-                                    className={styles.input}
-                                    type="text"
-                                    placeholder="00000000-0"
-                                />
-                            </Form.Item>
-                        </Col>
-                        <Col xs={24} lg={12}>
-                            <Form.Item label="Email" className={styles.field}>
-                                <Input
-                                    className={styles.input}
-                                    type="email"
-                                    placeholder="example@example.com"
-                                />
-                            </Form.Item>
-                        </Col>
-                        <Col xs={24} lg={12}>
-                            <Form.Item
-                                label="Telefono"
-                                className={styles.field}
-                            >
-                                <Input
-                                    className={styles.input}
-                                    type="tel"
-                                    vpattern="[0-9]"
-                                    placeholder="####-####"
-                                />
-                            </Form.Item>
-                        </Col>
-                        <Col xs={24} lg={12}>
-                            <Form.Item
-                                label="Cant. personas"
-                                className={styles.field}
-                            >
-                                <Input
-                                    className={styles.input}
-                                    type="number"
-                                    placeholder="#"
-                                />
-                            </Form.Item>
-                        </Col>
-                        <Col xs={24} lg={12}>
-                            <Form.Item
-                                label="Fecha reserva"
-                                style={{ marginBottom: 0 }}
-                                className={styles.field}
-                            >
-                                <Form.Item
-                                    style={{
-                                        display: "inline-block",
-                                        width: "100%"
-                                    }}
-                                >
-                                    <DatePicker
-                                        showTime
-                                        style={{ width: "100%" }}
-                                        className={styles.date}
-                                    />
-                                </Form.Item>
-                            </Form.Item>
-                        </Col>
-                        <Button htmlType="submit" className={styles.btn}>
-                            Reservar
-                        </Button>
-                    </Row>
-                </Form>
-            </Col>
-
-            <InfoSection />
-        </Row>
-    );
+const range = (start, end) => {
+    const result = [];
+    for (let i = start; i < end; i++) {
+        result.push(i);
+    }
+    return result;
 };
 
-export default FormularioNew;
+class FormularioNew extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            dui: "",
+            email: "",
+            phone: "",
+            amount_of_people: 0,
+            date: moment()
+        };
+    }
+
+    clearFields = () => {
+        this.setState({
+            name: "",
+            dui: "",
+            email: "",
+            phone: "",
+            amount_of_people: 0,
+            date: moment()
+        });
+    };
+
+    handleSubmit = (e, user) => {
+        e.preventDefault();
+        const { name, dui, email, phone, amount_of_people, date } = this.state;
+
+        if (Object.keys(user).length === 0) {
+            notification(
+                "ERROR",
+                "Debes iniciar sesión para realizar una reservación",
+                "error",
+                2
+            );
+            this.props.history.push("/signin");
+            return;
+        }
+
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${user.token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                dui,
+                email,
+                phone,
+                amount_of_people,
+                date
+            })
+        })
+            .then(res => res.json())
+            .then(res => {
+                notification(
+                    "Evento creado",
+                    "Se ha creado su evento exitosamente " + res.message,
+                    "success",
+                    2
+                );
+
+                this.clearFields();
+            })
+            .catch(error =>
+                notification(
+                    "Ha ocurrido un error",
+                    "Lo lamentamos, ha habido un error creando su evento" +
+                        error.message,
+                    "error",
+                    2
+                )
+            );
+    };
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    disabledDate = current => {
+        // Can not select days before today and today
+        return current && current < moment().endOf("day");
+    };
+
+    disabledDateTime = () => {
+        return {
+            disabledHours: () =>
+                range(0, 12)
+                    .splice(0, 8)
+                    .concat(range(13, 24).splice(8, 4))
+        };
+    };
+
+    render() {
+        return (
+            <AppContext.Consumer>
+                {({ user }) => (
+                    <Row className={styles.container}>
+                        <Col xs={24} lg={9} className={styles.eventSection}>
+                            <h2>Reservas</h2>
+                            <Form
+                                className={styles.eventForm}
+                                onSubmit={e => this.handleSubmit(e, user)}
+                            >
+                                <Row className={styles.fields}>
+                                    <Col xs={24}>
+                                        <Form.Item
+                                            label="Telefono"
+                                            className={styles.field}
+                                        >
+                                            <Input
+                                                name="phone"
+                                                value={this.state.phone}
+                                                onChange={this.handleChange}
+                                                className={styles.input}
+                                                type="tel"
+                                                vpattern="[0-9]"
+                                                placeholder="####-####"
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                    <Col xs={24}>
+                                        <Form.Item
+                                            label="Cant. personas"
+                                            className={styles.field}
+                                        >
+                                            <Input
+                                                name="amount_of_people"
+                                                value={
+                                                    this.state.amount_of_people
+                                                }
+                                                onChange={this.handleChange}
+                                                className={styles.input}
+                                                type="number"
+                                                placeholder="#"
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                    <Col xs={24}>
+                                        <Form.Item
+                                            label="Fecha reserva"
+                                            style={{ marginBottom: 0 }}
+                                            className={styles.field}
+                                        >
+                                            <Form.Item
+                                                style={{
+                                                    display: "inline-block",
+                                                    width: "100%"
+                                                }}
+                                            >
+                                                <DatePicker
+                                                    name="date"
+                                                    format="DD/MM/YYYY, hh:mm A"
+                                                    disabledDate={
+                                                        this.disabledDate
+                                                    }
+                                                    disabledTime={
+                                                        this.disabledDateTime
+                                                    }
+                                                    showTime={{
+                                                        hideDisabledOptions: true,
+                                                        use12Hours: true,
+                                                        minuteStep: 30,
+                                                        format: "HH:mm",
+                                                        defaultOpenValue: moment(
+                                                            "12:00"
+                                                        )
+                                                    }}
+                                                    style={{ width: "100%" }}
+                                                    className={styles.date}
+                                                />
+                                            </Form.Item>
+                                        </Form.Item>
+                                    </Col>
+                                    <Button
+                                        htmlType="submit"
+                                        className={styles.btn}
+                                    >
+                                        Reservar
+                                    </Button>
+                                </Row>
+                            </Form>
+                        </Col>
+                        <Col xs={0} lg={1}>
+                            <Divider
+                                style={{ color: "white", height: "475px" }}
+                                type="vertical"
+                            />
+                        </Col>
+                        <InfoSection />
+                    </Row>
+                )}
+            </AppContext.Consumer>
+        );
+    }
+}
+
+export default withRouter(FormularioNew);

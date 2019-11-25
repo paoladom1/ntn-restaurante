@@ -145,7 +145,20 @@ class NavMenu extends React.Component {
                                 {Object.keys(user).length === 0 ? null : (
                                     <Menu.Item
                                         className={`${
-                                            this.state.currentPage === "/signout"
+                                            this.state.currentPage === "/events"
+                                                ? styles.selected
+                                                : " "
+                                        }`}
+                                        key="/events"
+                                    >
+                                        <Link to="/events">Mis Eventos</Link>
+                                    </Menu.Item>
+                                )}
+                                {Object.keys(user).length === 0 ? null : (
+                                    <Menu.Item
+                                        className={`${
+                                            this.state.currentPage ===
+                                            "/signout"
                                                 ? styles.selected
                                                 : " "
                                         }`}

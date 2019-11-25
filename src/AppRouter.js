@@ -12,6 +12,7 @@ import Menu from "./pages/Menu/Menu";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import UserOrders from "./pages/Orders/Orders";
+import UserEvents from "./pages/Events/Events";
 import { AppContext } from "./AppProvider";
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => (
@@ -42,6 +43,7 @@ export const Signout = ({ component: Component, ...rest }) => (
 
             if (isAuthenticated) updateUser({});
             localStorage.removeItem("ntnusertoken");
+            localStorage.removeItem("cart");
 
             return (
                 <Route {...rest} render={props => <Component {...props} />} />
@@ -60,6 +62,7 @@ export default function AppRouter() {
                 <Route path="/signup" component={Register} />
                 <Route exact path="/signin" component={Login} />
                 <ProtectedRoute path="/orders" component={UserOrders} />
+                <ProtectedRoute path="/events" component={UserEvents} />
                 <Signout exact path="/signout" component={() => <Redirect to="/" />} />
             </Switch>
         </Router>
