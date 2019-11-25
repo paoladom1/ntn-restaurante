@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Login.module.scss";
+import styles from "./LoginForm.module.scss";
 import { Card, Form, Input, Button } from "antd";
 import { Link, withRouter } from "react-router-dom";
 import { AppContext } from "../../AppProvider";

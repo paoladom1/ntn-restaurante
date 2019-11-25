@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Register.module.scss";
+import styles from "./RegisterForm.module.scss";
 import { Card, Form, Input, Button } from "antd";
 import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
