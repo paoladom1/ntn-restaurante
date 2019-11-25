@@ -1,11 +1,12 @@
 import React from "react";
-import { Card, Row, Col, Icon } from "antd";
+import { Row, Col, Icon, Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Image, Transformation } from "cloudinary-react";
+import { Image } from "cloudinary-react";
 
 import notification from "./../../Notification/Notification";
 import styles from "./CustomMenu.module.scss";
 import { AppContext } from "../../../AppProvider";
+import { withRouter } from "react-router-dom";
 
 class CustomMenu extends React.Component {
     constructor(props) {
@@ -34,16 +35,32 @@ class CustomMenu extends React.Component {
     }
 
     render() {
+        const { history, location } = this.props;
         return (
             <AppContext.Consumer>
                 {({ cart, updateCart }) => (
-                    <Card className={styles.card}>
+                    <div className={styles.wrapper}>
+                        <div className={styles.back}>
+                            <Button
+                                className={styles.goBack}
+                                onClick={() => {
+                                    console.log(location);
+                                    history.push("/menu");
+                                }}
+                            >
+                                <FontAwesomeIcon
+                                    icon="arrow-left"
+                                    className={styles.Icon}
+                                />
+                            </Button>
+                            <h3>menu</h3>
+                        </div>
                         <Row className={styles.cardContent}>
                             <Col
                                 className={styles.cardMenu}
                                 xs={24}
                                 md={24}
-                                lg={13}
+                                lg={14}
                             >
                                 <div className={styles.cardTitle}>
                                     <FontAwesomeIcon
@@ -81,7 +98,10 @@ class CustomMenu extends React.Component {
                                                                 styles.foodPrice
                                                             }
                                                         >
-                                                            ${food.price}
+                                                            $
+                                                            {Number(
+                                                                food.price
+                                                            ).toFixed(2)}
                                                         </span>
                                                     </Col>
                                                     <Col
@@ -98,13 +118,17 @@ class CustomMenu extends React.Component {
                                                             type="plus-circle"
                                                             theme="filled"
                                                             onClick={() => {
-                                                                updateCart(cart.concat([food]));
-                                                                
+                                                                updateCart(
+                                                                    cart.concat(
+                                                                        [food]
+                                                                    )
+                                                                );
+
                                                                 notification(
                                                                     "Item agregado",
                                                                     food.description,
                                                                     "success",
-                                                                    3
+                                                                    2
                                                                 );
                                                             }}
                                                         />
@@ -115,26 +139,15 @@ class CustomMenu extends React.Component {
                                     })}
                                 </div>
                             </Col>
-                            <Col xs={24} md={24} lg={11}>
-                                <div>
-                                    <Image
-                                        publicId={this.props.image}
-                                        className={styles.img}
-                                    >
-                                        <Transformation
-                                            crop="fill"
-                                            quality="80"
-                                            fetchFormat="auto"
-                                        />
-                                    </Image>
-                                </div>
+                            <Col className={styles.img} xs={24} lg={10}>
+                                <Image publicId={this.props.image} className={styles.img} />
                             </Col>
                         </Row>
-                    </Card>
+                    </div>
                 )}
             </AppContext.Consumer>
         );
     }
 }
 
-export default CustomMenu;
+export default withRouter(CustomMenu);

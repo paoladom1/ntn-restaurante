@@ -1,0 +1,70 @@
+@import "./../../variables.scss";
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background-image: none;
+    padding-top: 40px;
+
+    .card {
+        border: 0px;
+
+        .goBack {
+          border: 0;
+        }
+
+        h3 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .form {
+            input {
+                height: $input-height;
+            }
+
+            .signupBtn {
+                display: block;
+                width: 100%;
+                height: $input-height;
+                margin-bottom: 16px;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .wrapper {
+        background-image: url("https://res.cloudinary.com/dw8gae3co/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1574303437/proyecto/carrots-food-fresh-freshness-616401_s4d5g4.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: -64px;
+        padding-top: 150px;
+        padding-bottom: 250px;
+
+        .card {
+            display: block;
+            width: 70%;
+            height: 80%;
+            padding: 30px;
+            margin: 50px auto;
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .wrapper {
+      padding-top: 80px;
+      padding-bottom: 80px;
+        .card {
+            width: 40%;
+        }
+    }
+}

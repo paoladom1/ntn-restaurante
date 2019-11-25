@@ -1,125 +1,47 @@
 @import "../../_variables.scss";
 
-  .container{
-      h1{
-          font-size: 2em;
-          font-weight: 900;
-          margin-bottom: 10px;
-          text-align: center;
-      }
+.container {
+    width: 90%;
+    margin: 40px auto;
 
-      .ls{
-        padding-top: 25px;
-        padding-bottom: 10px;
-        width: 90%;
-        height: 90%;
-        margin: auto;
-        font-size: 1em;
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.5rem;
         font-weight: 600;
-        letter-spacing: 0.25em;
-            .card{
-                border: $primary-color-light 10px groove;
-                font-size: 1em;
-                font-weight: 600;
-                letter-spacing: 0.25em;
-                .cardContent{
-                    background: white;
-                    .cardInfo{
-                        .cardTitle{
-                            
-                            h2{
-                                text-align: center;
-                                margin-bottom: 0px;
-                            }
+    }
 
-                        }
-                        .information{
-                            text-align: center;
-                            p{
-                                font-size: 11px;
-                                font-weight: 600;
-                                letter-spacing: 0.25em;
-                                padding-top: 5px;
-                                margin-bottom:10px;
-                            }
-                        }
-                        .img{
-                            margin-bottom: 0px ;
-                            height: 170px;
-                        }
-                    }
-
-                }
-            }
-      }
-  }
-
-  @media only screen and (max-width: 768px){
-    .inner{
-        h1{
-        }
-        .ls{
-              .card{
-                  height: 26em  ;
-                  .cardContent{
-                      .cardInfo{
-                          .cardTitle{
-                              
-                              h2{
-                                  text-align: center;
-                              }
-                          }
-                          .information{
-                              p{
-                                margin-bottom: 10px;
-                              }
-                          }
-                          .img{
-                              height: 110px;
-  
-                          }
-                      }
-  
-                  }
-              }
+    .ls {
+        .card {
+            height: 100%;
+            min-height: 100%;
+            border: $primary-color-light 10px groove;
+            text-align: left;
+            font-size: 0.8rem;
         }
     }
-  }
+}
 
-@media only screen and (min-width: 1024px){
-    .inner{
-        .ls{
-            .card{
-                height: 22em;
-                .cardContent{
-                    .cardInfo{
-                        .cardTitle{
-                            
-                        }
-                    }
-                }
+@media only screen and (min-width: 768px) {
+    .container {
+        .ls {
+            .card {
+                height: 210px;
+                min-height: 210px;
             }
         }
     }
 }
 
-@media only screen and (min-width: 1440px){
-    .inner{
-        .ls{
-            .card{
-                height: 22em;
-                width: 22em;
-                display: flex;
-                justify-content: space-between;
-                .cardContent{
-                    .cardInfo{
-                        .cardTitle{
-                            
-                        }
-                    }
-                }
+@media only screen and (min-width: 1024px) {
+    .container {
+        .ls {
+            display: flex;
+            align-content: space-between;
+            .card {
+                min-height: 200px;;
+                height: 200px;
             }
         }
     }
 }
-

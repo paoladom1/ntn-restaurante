@@ -1,5 +1,9 @@
 @import "./../../variables.scss";
 
+.signinItem {
+    margin-bottom: 24px;
+}
+
 .overlay {
     /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 0;
@@ -20,7 +24,11 @@
 .overlayContent {
     position: relative;
     top: 25%; /* 25% from the top */
-    width: 50%;
+    width: 80%;
+    @media only screen and (min-width: 1024px) {
+        width: 50%;
+    }
+
     text-align: center; /* Centered text/links */
     margin: auto;
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */

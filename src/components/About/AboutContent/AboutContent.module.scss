@@ -4,46 +4,63 @@
     position: relative;
 
     .acercade{  
-        background-color: $primary-color-dark;
+        background-color: $about-first-color;
         .contenedor{
           padding: 2em;
           .sobrenosotros{
-              color: white;
+              color: $backgroud-color;
               text-align: right;
               margin-bottom: 0;
+              text-transform: uppercase;
           }
           hr{
-            color: white;
-            width: 50%;
+            color: $backgroud-color;
+            width: 80%;
             margin-top: 0;
             margin-right: 0;
           }
           p{
             padding: 0.5em;
             margin: 1em;
-            color: white;
+            color: $backgroud-color;
           }
         }
     }
     .acercadeother{
-        background-color: blue;
+        background-color: $about-second-color;
         .sesgootro{
             z-index: 10;
             position: static;
             left: 0;
             border-width: 5vh 100vw 0 0;
             border-style: solid;
-            border-color:  $primary-color-dark transparent transparent  transparent;
+            border-color:  $about-first-color transparent transparent  transparent;
         }
         .contenedor{
             padding: 2em;
+            .mision{
+              .sobrenosotros{
+                text-transform: uppercase;
+              }
+            }
+            .vision{
+              text-align:left;
+              .sobrenosotros{
+                text-align: left;
+                text-transform: uppercase;
+              }
+              hr{
+                margin-left: 0;
+              }
+            }
             .sobrenosotros{
-                color: white;
+                color: $backgroud-color;
                 text-align: right;
                 margin-bottom: 0;
+                text-transform: uppercase;
             }
             hr{
-              color: white;
+              color: $backgroud-color;
               width: 50%;
               margin-top: 0;
               margin-right: 0;
@@ -51,13 +68,13 @@
             p{
               padding: 0.5em;
               margin: 1em;
-              color: white;
+              color: $backgroud-color;
             }
           }
     }
 
     .acercaUs{
-        background-color: coral;
+        background-color: $about-third-color;
         .sesgo{
             z-index: 10;
             position: static;
@@ -65,17 +82,18 @@
             left: 0;
             border-width: 5vh 100vw 0 0;
             border-style: solid;
-            border-color:  blue transparent transparent transparent;
+            border-color:  $about-second-color transparent transparent transparent;
         }
         .contenedor{
             padding: 2em;
             .sobrenosotros{
-                color: white;
+                color: $backgroud-color;
                 text-align: right;
                 margin-bottom: 0;
+                text-transform: uppercase;
             }
             hr{
-              color: white;
+              color: $backgroud-color;
               width: 50%;
               margin-top: 0;
               margin-right: 0;
@@ -83,30 +101,28 @@
             p{
               padding: 0.5em;
               margin: 1em;
-              color: white;
+              color: $backgroud-color;
             }
           }
         }
-
         .acerca{
-          background-color: saddlebrown;
           .sesguito{
               z-index: 10;
               position: static;
               left: 0;
               border-width: 5vh 100vw 0 0;
               border-style: solid;
-              border-color:  coral transparent transparent transparent;
+              border-color:  #4C6E8E transparent transparent transparent;
           }
           .contenedor{
               padding: 2em;
               .sobrenosotros{
-                  color: white;
+                  color: $backgroud-color;
                   text-align: right;
                   margin-bottom: 0;
               }
               hr{
-                color: white;
+                color: $backgroud-color;
                 width: 50%;
                 margin-top: 0;
                 margin-right: 0;
@@ -114,29 +130,29 @@
               p{
                 padding: 0.5em;
                 margin: 1em;
-                color: white;
+                color: $backgroud-color;
               }
             }
           }
           .informacion{
-            background-color: #f0f2f5;
+            background-color: $about-backgound-color;
             .sesguitoU{
                 z-index: 10;
                 position: static;
                 left: 0;
                 border-width: 5vh 100vw 0 0;
                 border-style: solid;
-                border-color:  saddlebrown transparent transparent transparent;
+                border-color:  $about-third-color transparent transparent transparent;
             }
             .contenedor{
                 padding: 2em;
                 .sobrenosotros{
-                    color: white;
+                    color: $backgroud-color;
                     text-align: right;
                     margin-bottom: 0;
                 }
                 hr{
-                  color: white;
+                  color: $backgroud-color;
                   width: 50%;
                   margin-top: 0;
                   margin-right: 0;
@@ -144,7 +160,7 @@
                 p{
                   padding: 0.5em;
                   margin: 1em;
-                  color: white;
+                  color: $backgroud-color;
                 }
               }
             }
@@ -154,23 +170,52 @@
       .wrapper{
         position: relative;
         .acercade{  
-            min-height: 35vh;
+            max-height: 35vh;
             padding: 0em 3em 3em 3em;
+            .contenedor{
+              .sobrenosotros{
+                text-transform: uppercase;
+              }
+            }
         }
         .acercadeother{
-            min-height: 35vh;
+            max-height: 40vh;
             padding: 0em 3em 3em 0em;
+            .contenedor{
+              display: grid;
+              grid-template-columns: 2fr 2fr;
+              margin: 20px  20px 20px 90px;
+              .mision{
+                .sobrenosotros{
+                  text-align: center;
+                  text-transform: uppercase;
+                }
+                hr{
+                  margin-left: 70px;
+                }
+              }
+              .vision{
+                .sobrenosotros{
+                  text-align: center;
+                  text-transform: uppercase;
+                }
+                hr{
+                  margin-left: 70px;
+                }
+              }
+            }
         }
         .acercaUs{
             min-height: 35vh;
             padding: 0em 3em 3em 0em;
+            .contenedor{
+              .sobrenosotros{
+                text-transform: uppercase;
+              }
+            }
          }
-        .acerca{
-          min-height: 30vh;
-          padding: 0em 3em 3em 0em;
-        }
         .informacion{
-          background-color: #f0f2f5;
+          background-color: $about-backgound-color;
         }
       }
 }
@@ -179,27 +224,122 @@
   .wrapper{
     position: relative;
     .acercade{  
-        min-height: 35vh;
+        max-height: 40vh;
         padding: 0em 3em 3em 3em;
+        .contenedor{
+          .sobrenosotros{
+            font-size: 2em;
+            text-transform: uppercase;
+          }
+          hr{
+            width: 30%;
+          }
+          p{
+            margin-left: 120px;
+            margin-right: 0px;
+            padding-right: 0px;
+            font-size: 1.5em;
+          }
+        }
     }
     .acercadeother{
-        min-height: 35vh;
+        min-height: 55vh;
         padding: 0em 3em 3em 0em;
+        .contenedor{
+          .mision{
+            .sobrenosotros{
+              font-size: 2em;
+            text-transform: uppercase;
+            }
+            hr{
+              width: 65%;
+            }
+          }
+          .vision{
+            .sobrenosotros{
+              font-size: 2em;
+              text-transform: uppercase;
+            }
+            hr{
+              width: 65%;
+            }
+          }
+          font-size: 1.40em;
+        }
     }
     .acercaUs{
-        min-height: 35vh;
+        min-height: 20vh;
         padding: 0em 3em 3em 0em;
+        .contenedor{
+          .sobrenosotros{
+            font-size: 2em;
+            text-transform: uppercase;
+          }
+          hr{
+            width: 37%;
+          }
+          p{
+            margin-left: 120px;
+            margin-right: 0px;
+            padding-right: 0px;
+            font-size: 1.5em;
+          }
+        }
      }
-    .acerca{
-      min-height: 30vh;
-      padding: 0em 3em 3em 0em;
-    }
     .informacion{
-      background-color: #f0f2f5;
+      background-color: $about-backgound-color;
     }
   }
 }
 
+@media only screen and (min-width: 1440px){
+  .wrapper{
+    .acercade{
+      max-height: 50vh;
+      .contenedor{
+        p{
+          padding-bottom: 20px;
+          padding-right: 0px;
+          padding-left: 90px;
+          padding-top: 20px;
+          border-left-width: 90px;
+          margin-right: 0px;
+          margin-left: 150px;
+        }
+      }
+    }
+    .acercadeother{
+      max-height: 20vh;
+      .contenedor{
+        .mision{
+          hr{
+            margin-left: 120px;
+          }
+        }
+        .vision{
+          hr{
+            margin-left: 120px;
+          }
+        }
+      }
+    }
+    .acercaUs{
+      max-height: 50vh;
+      .contenedor{
+        p{
+          padding-bottom: 20px;
+          padding-right: 0px;
+          padding-left: 90px;
+          padding-top: 20px;
+          border-left-width: 90px;
+          margin-right: 0px;
+          margin-left: 150px;
+        }
+      }
+    }
+
+  }
+}
 
 
 

@@ -1,13 +1,13 @@
 import React from "react";
-import LoginForm from "../../components/forms/LoginForm";
 import Layout from "../../components/Layout/Layout";
+import UserEvents from "../../components/UserEvents/UserEvents";
 
-const Login = () => {
+const Orders = () => {
     return (
         <Layout>
-            <LoginForm />
+            <UserEvents />
         </Layout>
     );
 };
 
-export default Login;
+export default Orders;

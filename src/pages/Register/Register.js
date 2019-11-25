@@ -1,13 +1,13 @@
-import React from 'react';
-import Layout from '../../components/Layout/Layout';
-import Regist from '../../components/Formulario/Register';
+import React from "react";
+import Layout from "../../components/Layout/Layout";
+import RegisterForm from "../../components/forms/RegisterForm";
 
 const Register = () => {
-    return(
-    <Layout>
-        <Regist/>
-    </Layout>
+    return (
+        <Layout>
+            <RegisterForm />
+        </Layout>
     );
-}
+};
 
 export default Register;

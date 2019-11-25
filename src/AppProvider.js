@@ -1,4 +1,5 @@
 import React from "react";
+import jwtDecode from "jwt-decode";
 
 export const AppContext = React.createContext();
 
@@ -27,6 +28,26 @@ class AppProvider extends React.Component {
     }
 
     componentDidMount() {
+        const token = localStorage.getItem("ntnusertoken");
+
+        if (token) {
+            const decoded = jwtDecode(token);
+
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${decoded._id}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    const { user } = res.data;
+                    this.setState({ user: {...user, token: token} });
+                })
+                .catch(error => console.log(error));
+        }
+
         window.addEventListener("beforeunload", () => {
             localStorage.setItem("cart", JSON.stringify(this.state.cart));
         });

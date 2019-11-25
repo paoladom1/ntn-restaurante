@@ -1,0 +1,171 @@
+@import "./../../variables";
+
+
+.hideMobile {
+    display: none;
+}
+
+.container {
+    background-color: $about-first-color;
+    padding: 24px;
+    .eventSection {
+        h2 {
+            color: $surface-color;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.1rem;
+        }
+        .eventForm {
+            .fields {
+                .field {
+                    letter-spacing: 0.1rem;
+                    font-size: 1rem;
+                    label {
+                        color: $surface-color;
+                        text-transform: uppercase;
+                        font-weight: 400;
+                    }
+                }
+
+                .btn {
+                    border: 0;
+                    text-transform: uppercase;
+                    color: $primary-color-text;
+                    font-weight: 600;
+                    width: 100%;
+                    background-color: $primary-color-dark;
+
+                    &:hover {
+                        background-color: $secondary-color-dark;
+                    }
+                }
+            }
+        }
+    }
+
+    .infoSection {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 1.8rem;
+        color: $surface-color;
+        border-top: solid 1px $surface-color;
+
+        .subsection {
+            padding: 18px 0 0;
+
+            .label {
+                .text {
+                    color: $surface-color;
+                    font-size: 0.9rem;
+                    a,
+                    span {
+                        color: $surface-color;
+                        font-size: 0.9rem;
+                    }
+                }
+                border-bottom: solid 1px $surface-color;
+            }
+
+            h3 {
+                padding-bottom: 16px;
+                color: $surface-color;
+                text-transform: uppercase;
+            }
+
+            .icon {
+                color: $surface-color;
+                font-size: 1.2rem;
+                margin: 0 6px;
+                &:hover {
+                    color: $secondary-color-dark;
+                }
+            }
+        }
+
+        .last {
+            .label {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        .eventForm {
+            padding: 0 32px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .hideMobile {
+        display: block;
+    }
+
+    .container {
+        .eventForm,
+        .infoSection {
+            padding: 8px 32px;
+            text-align: center;
+        }
+
+        .eventSection {
+            .eventForm {
+                width: 90%;
+                margin: auto;
+
+                .fields {
+                    .btn {
+                        width: 70%;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+        .infoSection {
+            border-top: none;
+            margin-top: 0;
+            .subsection {
+                .label {
+                    .icon {
+                        font-size: 1.8rem;
+                    }
+                }
+
+                .icon {
+                    font-size: 1.5rem;
+                    padding-bottom: 6px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .container {
+        .eventForm,
+        .infoSection {
+            padding: 0 80px;
+        }
+
+        .infoSection {
+            border-top: none;
+            margin-top: 0;
+            .subsection {
+                .label {
+                    .icon {
+                        font-size: 1.8rem;
+                    }
+                }
+
+                .icon {
+                    font-size: 1.8rem;
+                    padding-bottom: 6px;
+                }
+            }
+        }
+    }
+}
