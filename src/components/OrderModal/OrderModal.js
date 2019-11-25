@@ -8,7 +8,7 @@ import styles from "./Order.module.scss";
 
 const placeOrder = (user, cart, updateCart) => {
     return fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/users/${user._id}/orders`,
+        `${process.env.REACT_APP_BACKEND_URL}/me/orders`,
         {
             method: "POST",
             headers: {

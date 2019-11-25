@@ -13,7 +13,7 @@ class UserOrders extends React.Component {
 
     getOrders = user => {
         console.log(user);
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${user._id}/orders`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/me/orders`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
