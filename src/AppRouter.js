@@ -14,17 +14,25 @@ import Register from "./pages/Register/Register";
 import UserOrders from "./pages/Orders/Orders";
 import UserEvents from "./pages/Events/Events";
 import { AppContext } from "./AppProvider";
+import Admin from "./pages/Admin/Admin";
 
-export const ProtectedRoute = ({ component: Component, ...rest }) => (
+export const ProtectedRoute = ({
+    component: Component,
+    allowedRoles,
+    ...rest
+}) => (
     <AppContext.Consumer>
         {({ user }) => {
             const isAuthenticated = Object.keys(user).length !== 0;
+            const isAllowed = isAuthenticated && allowedRoles
+                ? user.roles.every(role => allowedRoles.indexOf(role) >= 0)
+                : true;
 
             return (
                 <Route
                     {...rest}
                     render={props =>
-                        isAuthenticated ? (
+                        isAuthenticated && isAllowed ? (
                             <Component {...props} />
                         ) : (
                             <Redirect to="/signin" />
@@ -38,13 +46,15 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => (
 
 export const Signout = ({ component: Component, ...rest }) => (
     <AppContext.Consumer>
-        {({ user, updateUser }) => {
+        {({ user, updateUser, updateCart }) => {
             const isAuthenticated = Object.keys(user).length !== 0;
 
-            if (isAuthenticated) updateUser({});
-            localStorage.removeItem("ntnusertoken");
-            localStorage.removeItem("cart");
-
+            if (isAuthenticated) {
+                updateUser({});
+                updateCart([]);
+                localStorage.removeItem("ntnusertoken");
+                localStorage.removeItem("cart");
+            }
             return (
                 <Route {...rest} render={props => <Component {...props} />} />
             );
@@ -63,7 +73,12 @@ export default function AppRouter() {
                 <Route exact path="/signin" component={Login} />
                 <ProtectedRoute path="/orders" component={UserOrders} />
                 <ProtectedRoute path="/events" component={UserEvents} />
-                <Signout exact path="/signout" component={() => <Redirect to="/" />} />
+                <ProtectedRoute path="/admin" allowedRoles={["ADMIN", "EMPLOYEE"]} component={Admin} />
+                <Signout
+                    exact
+                    path="/signout"
+                    component={() => <Redirect to="/" />}
+                />
             </Switch>
         </Router>
     );
