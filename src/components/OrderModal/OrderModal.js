@@ -24,7 +24,6 @@ const placeOrder = (user, cart, updateCart) => {
     )
         .then(res => res.json())
         .then(res => {
-            console.log(res);
             if (res.status === "success") {
                 updateCart([]);
             }
@@ -48,7 +47,6 @@ const OrderModal = ({ visible, handleCancel, history }) => (
                   )
                 : 0;
             total = Number(total).toFixed(2);
-            console.log(user);
 
             return (
                 <Modal

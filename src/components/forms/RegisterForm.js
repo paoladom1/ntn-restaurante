@@ -83,7 +83,7 @@ class RegisterForm extends React.Component {
                     </Button>
                     <h3>Registrate</h3>
                     <p>Registrate y ordena desde la comodidad de tu mesa</p>
-                    <Form className={styles.form} onSubmit={e => {}}>
+                    <Form className={styles.form} onSubmit={e => {this.handleSubmit(e, history)}}>
                         <Form.Item
                             label="Nombre Completo"
                             className={styles.label}
