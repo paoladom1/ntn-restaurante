@@ -17,6 +17,8 @@ import { withRouter } from "react-router-dom";
 
 import { AppContext } from "../../AppProvider";
 import notification from "../Notification/Notification";
+var expresionRegular1 = /^([0-9]+){8}$/;//<--- con esto vamos a validar el numero
+var expresionRegular2 = /\s/;//<--- con esto vamos a validar que no tenga espacios en blanco
 
 const InfoSection = () => (
     <Col
@@ -112,7 +114,6 @@ class FormularioNew extends React.Component {
     handleSubmit = (e, user) => {
         e.preventDefault();
         const { name, dui, email, phone, amount_of_people, date } = this.state;
-
         if (Object.keys(user).length === 0) {
             notification(
                 "ERROR",
@@ -123,42 +124,61 @@ class FormularioNew extends React.Component {
             this.props.history.push("/signin");
             return;
         }
+        if (expresionRegular1.test(phone)) {
+            if (amount_of_people > 3 && amount_of_people < 10) {
+                fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name,
+                        dui,
+                        email,
+                        phone,
+                        amount_of_people,
+                        date
+                    })
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                        notification(
+                            "Evento creado",
+                            "Se ha creado su evento exitosamente " + res.message,
+                            "success",
+                            2
+                        );
 
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${user.token}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name,
-                dui,
-                email,
-                phone,
-                amount_of_people,
-                date
-            })
-        })
-            .then(res => res.json())
-            .then(res => {
-                notification(
-                    "Evento creado",
-                    "Se ha creado su evento exitosamente " + res.message,
-                    "success",
-                    2
-                );
-
-                this.clearFields();
-            })
-            .catch(error =>
+                        this.clearFields();
+                    })
+                    .catch(error =>
+                        notification(
+                            "Ha ocurrido un error",
+                            "Lo lamentamos, ha habido un error creando su evento" +
+                            error.message,
+                            "error",
+                            2
+                        )
+                    );
+            } else {
                 notification(
                     "Ha ocurrido un error",
-                    "Lo lamentamos, ha habido un error creando su evento" +
-                        error.message,
+                    "minimo de personas 5",
                     "error",
                     2
                 )
-            );
+            }
+
+        } else {
+            notification(
+                "Ha ocurrido un error",
+                "ingrese numero telefonico",
+                "error",
+                2
+            )
+        }
+
     };
 
     handleChange = e => {
