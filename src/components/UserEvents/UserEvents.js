@@ -1,34 +1,34 @@
-import React from "react";
-import { List, Card, Divider } from "antd";
-import moment from "moment";
+import React from 'react';
+import { List, Card, Divider } from 'antd';
+import moment from 'moment';
 
-import { AppContext } from "./../../AppProvider";
-import styles from "../UserOrders/UserOrders.module.scss";
+import { AppContext } from './../../AppProvider';
+import styles from '../UserOrders/UserOrders.module.scss';
 
 class UserEvents extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            events: []
+            events: [],
         };
     }
 
     getEvents = user => {
         console.log(user);
         fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
-            method: "GET",
+            method: 'GET',
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`
-            }
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${user.token}`,
+            },
         })
             .then(res => res.json())
             .then(res => {
                 console.log(res.data);
                 const { events } = res.data;
-                if (res.status === "success") {
+                if (res.status === 'success') {
                     this.setState({
-                        events
+                        events,
                     });
                 }
             })
@@ -71,7 +71,7 @@ class UserEvents extends React.Component {
                                     <strong>
                                         {`Fecha de reserva: ${moment(
                                             item.date
-                                        ).format("DD MMM, YYYY, hh:mm A")}`}
+                                        ).format('DD MMM, YYYY, hh:mm A')}`}
                                     </strong>
                                 </div>
                             </Card>

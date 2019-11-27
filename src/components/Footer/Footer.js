@@ -1,6 +1,6 @@
-import React from "react";
-import { Icon, Layout } from "antd";
-import styles from "./Footer.module.scss";
+import React from 'react';
+import { Icon, Layout } from 'antd';
+import styles from './Footer.module.scss';
 
 const { Footer: AntFooter } = Layout;
 

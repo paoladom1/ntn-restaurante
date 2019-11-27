@@ -1,14 +1,14 @@
-import React from "react";
-import { Button, Row, Col } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./OrderItem.module.scss";
+import React from 'react';
+import { Button, Row, Col } from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './OrderItem.module.scss';
 
-import { AppContext } from "../../../AppProvider";
+import { AppContext } from '../../../AppProvider';
 
 const OrderItem = ({ name, price, index }) => (
     <AppContext.Consumer>
         {({ cart, updateCart }) => (
-            <div className={styles.card} style={{ marginBottom: "10px" }}>
+            <div className={styles.card} style={{ marginBottom: '10px' }}>
                 <Row gutter={24} className={styles.cardBody}>
                     <Col xs={21} md={22}>
                         <h4 className={styles.cardTitle}>{name}</h4>

@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./EventForm.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import moment from "moment";
+import React from 'react';
+import styles from './EventForm.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import moment from 'moment';
 import {
     Descriptions,
     Button,
@@ -11,19 +11,19 @@ import {
     Icon,
     Row,
     Col,
-    Divider
-} from "antd";
-import { withRouter } from "react-router-dom";
+    Divider,
+} from 'antd';
+import { withRouter } from 'react-router-dom';
 
-import { AppContext } from "../../AppProvider";
-import notification from "../Notification/Notification";
+import { AppContext } from '../../AppProvider';
+import notification from '../Notification/Notification';
 var expresionRegular1 = /^[0-9]{8}$/; //<--- con esto vamos a validar el numero
 
 const InfoSection = () => (
     <Col
         xs={24}
         lg={14}
-        styles={{ borderLeft: "1px solid white" }}
+        styles={{ borderLeft: '1px solid white' }}
         className={styles.infoSection}
     >
         <div className={styles.subsection}>
@@ -61,15 +61,15 @@ const InfoSection = () => (
                 <Descriptions.Item>
                     <h3>Siguenos</h3>
                     <FontAwesomeIcon
-                        icon={["fab", "facebook"]}
+                        icon={['fab', 'facebook']}
                         className={styles.icon}
                     />
                     <FontAwesomeIcon
-                        icon={["fab", "twitter"]}
+                        icon={['fab', 'twitter']}
                         className={styles.icon}
                     />
                     <FontAwesomeIcon
-                        icon={["fab", "instagram"]}
+                        icon={['fab', 'instagram']}
                         className={styles.icon}
                     />
                 </Descriptions.Item>
@@ -94,23 +94,23 @@ class FormularioNew extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
-            dui: "",
-            email: "",
-            phone: "",
+            name: '',
+            dui: '',
+            email: '',
+            phone: '',
             amount_of_people: 1,
-            date: roundMoment(moment(), moment.duration(30, "minutes"), "ceil")
+            date: roundMoment(moment(), moment.duration(30, 'minutes'), 'ceil'),
         };
     }
 
     clearFields = () => {
         this.setState({
-            name: "",
-            dui: "",
-            email: "",
-            phone: "",
+            name: '',
+            dui: '',
+            email: '',
+            phone: '',
             amount_of_people: 1,
-            date: moment().add(1, "days")
+            date: moment().add(1, 'days'),
         });
     };
 
@@ -119,22 +119,22 @@ class FormularioNew extends React.Component {
         const { name, dui, email, phone, amount_of_people, date } = this.state;
         if (Object.keys(user).length === 0) {
             notification(
-                "ERROR",
-                "Debes iniciar sesión para realizar una reservación",
-                "error",
+                'ERROR',
+                'Debes iniciar sesión para realizar una reservación',
+                'error',
                 2
             );
-            this.props.history.push("/signin");
+            this.props.history.push('/signin');
             return;
         }
 
         if (expresionRegular1.test(phone)) {
             if (amount_of_people >= 1 && amount_of_people < 10) {
                 fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
-                    method: "POST",
+                    method: 'POST',
                     headers: {
                         Authorization: `Bearer ${user.token}`,
-                        "Content-Type": "application/json"
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         name,
@@ -142,16 +142,16 @@ class FormularioNew extends React.Component {
                         email,
                         phone,
                         amount_of_people,
-                        date
-                    })
+                        date,
+                    }),
                 })
                     .then(res => res.json())
                     .then(res => {
                         notification(
-                            "Evento creado",
-                            "Se ha creado su evento exitosamente " +
+                            'Evento creado',
+                            'Se ha creado su evento exitosamente ' +
                                 res.message,
-                            "success",
+                            'success',
                             2
                         );
 
@@ -159,26 +159,26 @@ class FormularioNew extends React.Component {
                     })
                     .catch(error =>
                         notification(
-                            "Ha ocurrido un error",
-                            "Lo lamentamos, ha habido un error creando su evento" +
+                            'Ha ocurrido un error',
+                            'Lo lamentamos, ha habido un error creando su evento' +
                                 error.message,
-                            "error",
+                            'error',
                             2
                         )
                     );
             } else {
                 notification(
-                    "Ha ocurrido un error",
-                    "Minimo de personas: 1",
-                    "error",
+                    'Ha ocurrido un error',
+                    'Minimo de personas: 1',
+                    'error',
                     2
                 );
             }
         } else {
             notification(
-                "Ha ocurrido un error",
-                "Ingrese un numero telefonico valido",
-                "error",
+                'Ha ocurrido un error',
+                'Ingrese un numero telefonico valido',
+                'error',
                 2
             );
         }
@@ -186,7 +186,7 @@ class FormularioNew extends React.Component {
 
     handleChange = e => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         });
     };
 
@@ -197,7 +197,7 @@ class FormularioNew extends React.Component {
 
     disabledDate = current => {
         // Can not select days before today and today
-        return current && current < moment().endOf("day");
+        return current && current < moment().endOf('day');
     };
 
     disabledDateTime = () => {
@@ -205,7 +205,7 @@ class FormularioNew extends React.Component {
             disabledHours: () =>
                 range(0, 12)
                     .splice(0, 8)
-                    .concat(range(13, 24).splice(8, 4))
+                    .concat(range(13, 24).splice(8, 4)),
         };
     };
 
@@ -265,8 +265,8 @@ class FormularioNew extends React.Component {
                                         >
                                             <Form.Item
                                                 style={{
-                                                    display: "inline-block",
-                                                    width: "100%"
+                                                    display: 'inline-block',
+                                                    width: '100%',
                                                 }}
                                             >
                                                 <DatePicker
@@ -287,12 +287,12 @@ class FormularioNew extends React.Component {
                                                         hideDisabledOptions: true,
                                                         use12Hours: true,
                                                         minuteStep: 30,
-                                                        format: "HH:mm",
+                                                        format: 'HH:mm',
                                                         defaultOpenValue: moment(
-                                                            "12:00"
-                                                        )
+                                                            '12:00'
+                                                        ),
                                                     }}
-                                                    style={{ width: "100%" }}
+                                                    style={{ width: '100%' }}
                                                     className={styles.date}
                                                 />
                                             </Form.Item>
@@ -309,7 +309,7 @@ class FormularioNew extends React.Component {
                         </Col>
                         <Col xs={0} lg={1}>
                             <Divider
-                                style={{ color: "white", height: "475px" }}
+                                style={{ color: 'white', height: '475px' }}
                                 type="vertical"
                             />
                         </Col>

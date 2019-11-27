@@ -1,94 +1,94 @@
-import React from "react";
-import { Row, Col } from "antd";
-import styles from "./MenuList.module.scss";
-import { Link } from "react-router-dom";
-import { Image, Transformation } from "cloudinary-react";
+import React from 'react';
+import { Row, Col } from 'antd';
+import styles from './MenuList.module.scss';
+import { Link } from 'react-router-dom';
+import { Image, Transformation } from 'cloudinary-react';
 
 const menuListInfo = [
     {
-        name: "ENTRADAS",
-        link: "/menu/entradas",
+        name: 'ENTRADAS',
+        link: '/menu/entradas',
         grid: {
             xs: 24,
             md: 24,
-            lg: 13
+            lg: 13,
         },
-        image: "proyecto/entrees",
+        image: 'proyecto/entrees',
         transformations: {
-            crop: "fill",
-            fontSize: 120
-        }
+            crop: 'fill',
+            fontSize: 120,
+        },
     },
     {
-        name: "DESAYUNOS",
-        link: "/menu/desayunos",
+        name: 'DESAYUNOS',
+        link: '/menu/desayunos',
         grid: {
             xs: 24,
             md: 24,
-            lg: 11
+            lg: 11,
         },
-        image: "proyecto/breakfast",
+        image: 'proyecto/breakfast',
         transformations: {
-            crop: "fill",
-            fontSize: 120
-        }
+            crop: 'fill',
+            fontSize: 120,
+        },
     },
     {
-        name: "PRINCIPALES",
-        link: "/menu/principales",
+        name: 'PRINCIPALES',
+        link: '/menu/principales',
         grid: {
             xs: 24,
             md: 24,
-            lg: 11
+            lg: 11,
         },
-        image: "proyecto/main",
+        image: 'proyecto/main',
         transformations: {
-            crop: "fill",
-            fontSize: 75
-        }
+            crop: 'fill',
+            fontSize: 75,
+        },
     },
     {
-        name: "ANTOJITOS",
-        link: "/menu/antojitos",
+        name: 'ANTOJITOS',
+        link: '/menu/antojitos',
         grid: {
             xs: 24,
             md: 24,
-            lg: 13
+            lg: 13,
         },
-        image: "proyecto/snacks",
+        image: 'proyecto/snacks',
         transformations: {
-            crop: "fill",
-            fontSize: 120
-        }
+            crop: 'fill',
+            fontSize: 120,
+        },
     },
     {
-        name: "POSTRES",
-        link: "/menu/postres",
+        name: 'POSTRES',
+        link: '/menu/postres',
         grid: {
             xs: 24,
             md: 24,
-            lg: 13
+            lg: 13,
         },
-        image: "proyecto/dessert",
+        image: 'proyecto/dessert',
         transformations: {
-            crop: "fill",
-            fontSize: 120
-        }
+            crop: 'fill',
+            fontSize: 120,
+        },
     },
     {
-        name: "BEBIDAS",
-        link: "/menu/bebidas",
+        name: 'BEBIDAS',
+        link: '/menu/bebidas',
         grid: {
             xs: 24,
             md: 24,
-            lg: 11
+            lg: 11,
         },
-        image: "proyecto/beverages",
+        image: 'proyecto/beverages',
         transformations: {
-            crop: "fill",
-            fontSize: 120
-        }
-    }
+            crop: 'fill',
+            fontSize: 120,
+        },
+    },
 ];
 
 const MenuList = () => {
