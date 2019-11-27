@@ -1,32 +1,32 @@
-import React from "react";
-import { AppContext } from "./../../AppProvider";
-import { List, Card, Divider } from "antd";
-import styles from "./UserOrders.module.scss";
+import React from 'react';
+import { AppContext } from './../../AppProvider';
+import { List, Card, Divider } from 'antd';
+import styles from './UserOrders.module.scss';
 
 class UserOrders extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            orders: []
+            orders: [],
         };
     }
 
     getOrders = user => {
         console.log(user);
         fetch(`${process.env.REACT_APP_BACKEND_URL}/me/orders`, {
-            method: "GET",
+            method: 'GET',
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`
-            }
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${user.token}`,
+            },
         })
             .then(res => res.json())
             .then(res => {
                 console.log(res.data);
                 const { orders } = res.data;
-                if (res.status === "success") {
+                if (res.status === 'success') {
                     this.setState({
-                        orders
+                        orders,
                     });
                 }
             })

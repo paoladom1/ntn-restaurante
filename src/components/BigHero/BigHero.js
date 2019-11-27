@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./BigHero.module.scss";
-import { Image, Transformation } from "cloudinary-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { HashLink } from "react-router-hash-link";
+import React from 'react';
+import styles from './BigHero.module.scss';
+import { Image, Transformation } from 'cloudinary-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HashLink } from 'react-router-hash-link';
 
 const BigHero = () => {
     return (
         <section className={styles.big}>
             <Image
-                publicId={"/proyecto/big-hero-mobile"}
+                publicId={'/proyecto/big-hero-mobile'}
                 className={styles.imgHide}
             >
                 <Transformation
@@ -25,7 +25,7 @@ const BigHero = () => {
                 />
             </Image>
             <Image
-                publicId={"/proyecto/big-hero/big-hero"}
+                publicId={'/proyecto/big-hero/big-hero'}
                 className={styles.img}
             >
                 <Transformation
@@ -57,7 +57,7 @@ const BigHero = () => {
             <HashLink
                 to="/#locations"
                 scroll={el =>
-                    el.scrollIntoView({ behavior: "smooth", block: "center" })
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' })
                 }
             >
                 <FontAwesomeIcon className={styles.icon} icon="chevron-down" />

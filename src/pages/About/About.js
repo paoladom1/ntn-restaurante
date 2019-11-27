@@ -6,10 +6,10 @@ import AboutContent from '../../components/About/AboutContent/AboutContent';
 const About = () => {
     return (
         <Layout>
-            <AboutBigHero/>
-            <AboutContent/>
+            <AboutBigHero />
+            <AboutContent />
         </Layout>
     );
-}
+};
 
 export default About;

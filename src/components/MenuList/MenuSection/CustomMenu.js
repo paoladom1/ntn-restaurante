@@ -1,18 +1,18 @@
-import React from "react";
-import { Row, Col, Icon, Button } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Image } from "cloudinary-react";
+import React from 'react';
+import { Row, Col, Icon, Button } from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Image } from 'cloudinary-react';
 
-import notification from "./../../Notification/Notification";
-import styles from "./CustomMenu.module.scss";
-import { AppContext } from "../../../AppProvider";
-import { withRouter } from "react-router-dom";
+import notification from './../../Notification/Notification';
+import styles from './CustomMenu.module.scss';
+import { AppContext } from '../../../AppProvider';
+import { withRouter } from 'react-router-dom';
 
 class CustomMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            foodList: []
+            foodList: [],
         };
     }
 
@@ -20,8 +20,8 @@ class CustomMenu extends React.Component {
         fetch(
             `${process.env.REACT_APP_BACKEND_URL}/foods/${this.props.category}`,
             {
-                method: "GET",
-                headers: { "Content-Type": "application/json" }
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
             }
         )
             .then(res => res.json())
@@ -45,7 +45,7 @@ class CustomMenu extends React.Component {
                                 className={styles.goBack}
                                 onClick={() => {
                                     console.log(location);
-                                    history.push("/menu");
+                                    history.push('/menu');
                                 }}
                             >
                                 <FontAwesomeIcon
@@ -125,9 +125,9 @@ class CustomMenu extends React.Component {
                                                                 );
 
                                                                 notification(
-                                                                    "Item agregado",
+                                                                    'Item agregado',
                                                                     food.description,
-                                                                    "success",
+                                                                    'success',
                                                                     2
                                                                 );
                                                             }}
@@ -140,7 +140,10 @@ class CustomMenu extends React.Component {
                                 </div>
                             </Col>
                             <Col className={styles.img} xs={24} lg={8}>
-                                <Image publicId={this.props.image} className={styles.img} />
+                                <Image
+                                    publicId={this.props.image}
+                                    className={styles.img}
+                                />
                             </Col>
                         </Row>
                     </div>

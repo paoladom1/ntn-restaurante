@@ -1,6 +1,6 @@
-import React from "react";
-import Layout from "../../components/Layout/Layout";
-import UserEvents from "../../components/UserEvents/UserEvents";
+import React from 'react';
+import Layout from '../../components/Layout/Layout';
+import UserEvents from '../../components/UserEvents/UserEvents';
 
 const Orders = () => {
     return (

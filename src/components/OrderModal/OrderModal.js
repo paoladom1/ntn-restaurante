@@ -1,30 +1,27 @@
-import React from "react";
-import { Modal, Button, List } from "antd";
-import OrderItem from "./OrderItem/OrderItem";
-import { AppContext } from "../../AppProvider";
-import notification from "../Notification/Notification";
-import { withRouter } from "react-router-dom";
-import styles from "./Order.module.scss";
+import React from 'react';
+import { Modal, Button, List } from 'antd';
+import OrderItem from './OrderItem/OrderItem';
+import { AppContext } from '../../AppProvider';
+import notification from '../Notification/Notification';
+import { withRouter } from 'react-router-dom';
+import styles from './Order.module.scss';
 
 const placeOrder = (user, cart, updateCart) => {
-    return fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/me/orders`,
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`
-            },
-            body: JSON.stringify({
-                products: cart.reduce((accumulator, product) => {
-                    return accumulator.concat([product._id]);
-                }, [])
-            })
-        }
-    )
+    return fetch(`${process.env.REACT_APP_BACKEND_URL}/me/orders`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${user.token}`,
+        },
+        body: JSON.stringify({
+            products: cart.reduce((accumulator, product) => {
+                return accumulator.concat([product._id]);
+            }, []),
+        }),
+    })
         .then(res => res.json())
         .then(res => {
-            if (res.status === "success") {
+            if (res.status === 'success') {
                 updateCart([]);
             }
 
@@ -32,7 +29,7 @@ const placeOrder = (user, cart, updateCart) => {
         })
         .catch(error => {
             console.log(error);
-            notification("Ha ocurrido un error", error.toString(), "error", 3);
+            notification('Ha ocurrido un error', error.toString(), 'error', 3);
             return error;
         });
 };
@@ -77,34 +74,34 @@ const OrderModal = ({ visible, handleCancel, history }) => (
 
                                     if (cart.length === 0)
                                         notification(
-                                            "ERROR",
-                                            "Necesitas agregar al menos un producto al carrito",
-                                            "error",
+                                            'ERROR',
+                                            'Necesitas agregar al menos un producto al carrito',
+                                            'error',
                                             2
                                         );
                                     else if (Object.keys(user).length === 0) {
                                         notification(
-                                            "ERROR",
-                                            "necesitas estar loggeado para realizar una orden",
-                                            "error",
+                                            'ERROR',
+                                            'necesitas estar loggeado para realizar una orden',
+                                            'error',
                                             3
                                         );
-                                        history.push("/signin");
+                                        history.push('/signin');
                                     } else {
                                         placeOrder(user, cart, updateCart).then(
                                             res => {
-                                                if (res.status === "success")
+                                                if (res.status === 'success')
                                                     notification(
-                                                        "Agregado",
+                                                        'Agregado',
                                                         res.message,
-                                                        "success",
+                                                        'success',
                                                         2
                                                     );
                                                 else
                                                     notification(
                                                         res.status,
                                                         res.message,
-                                                        "error",
+                                                        'error',
                                                         3
                                                     );
                                             }
@@ -115,7 +112,7 @@ const OrderModal = ({ visible, handleCancel, history }) => (
                             >
                                 Ordenar
                             </Button>
-                        </div>
+                        </div>,
                     ]}
                 >
                     <List

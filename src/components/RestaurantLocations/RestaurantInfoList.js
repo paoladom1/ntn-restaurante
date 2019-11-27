@@ -1,12 +1,12 @@
-import React from "react";
-import { Card, List } from "antd";
-import styles from "./RestaurantInfoList.module.scss";
+import React from 'react';
+import { Card, List } from 'antd';
+import styles from './RestaurantInfoList.module.scss';
 
 class ListInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            locations: []
+            locations: [],
         };
     }
 
@@ -18,7 +18,7 @@ class ListInfo extends React.Component {
             .then(res => {
                 console.log(res);
                 this.setState({
-                    locations: res.data.locations
+                    locations: res.data.locations,
                 });
             });
     }
@@ -36,7 +36,7 @@ class ListInfo extends React.Component {
                         md: 3,
                         lg: 3,
                         xl: 3,
-                        xxl: 3
+                        xxl: 3,
                     }}
                     dataSource={this.state.locations}
                     renderItem={item => (

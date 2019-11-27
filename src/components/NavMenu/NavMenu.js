@@ -1,18 +1,18 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { Menu, Button, Icon } from "antd";
-import styles from "./NavMenu.module.scss";
-import OrderModal from "../OrderModal/OrderModal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AppContext } from "../../AppProvider";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { Menu, Button, Icon } from 'antd';
+import styles from './NavMenu.module.scss';
+import OrderModal from '../OrderModal/OrderModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AppContext } from '../../AppProvider';
 
 class NavMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             collapsed: true,
-            currentPage: "/",
-            modalVisible: false
+            currentPage: '/',
+            modalVisible: false,
         };
     }
 
@@ -26,13 +26,13 @@ class NavMenu extends React.Component {
 
     showModal = () => {
         this.setState({
-            modalVisible: true
+            modalVisible: true,
         });
     };
 
     handleCancelModal = () => {
         this.setState({
-            modalVisible: false
+            modalVisible: false,
         });
     };
 
@@ -85,17 +85,17 @@ class NavMenu extends React.Component {
                                     {Object.keys(user).length === 0 ? (
                                         <Menu.Item
                                             style={{
-                                                width: "50%",
-                                                margin: "auto",
-                                                marginBottom: "50px",
-                                                border: "1px #ffc046 solid",
-                                                padding: "4px"
+                                                width: '50%',
+                                                margin: 'auto',
+                                                marginBottom: '50px',
+                                                border: '1px #ffc046 solid',
+                                                padding: '4px',
                                             }}
                                             className={`${
                                                 this.state.currentPage ===
-                                                "/signin"
+                                                '/signin'
                                                     ? styles.selected
-                                                    : " "
+                                                    : ' '
                                             }`}
                                             key="/signin"
                                         >
@@ -106,9 +106,9 @@ class NavMenu extends React.Component {
                                     ) : null}
                                     <Menu.Item
                                         className={`${
-                                            this.state.currentPage === "/"
+                                            this.state.currentPage === '/'
                                                 ? styles.selected
-                                                : " "
+                                                : ' '
                                         }`}
                                         key="/"
                                     >
@@ -116,9 +116,9 @@ class NavMenu extends React.Component {
                                     </Menu.Item>
                                     <Menu.Item
                                         className={`${
-                                            this.state.currentPage === "/menu"
+                                            this.state.currentPage === '/menu'
                                                 ? styles.selected
-                                                : " "
+                                                : ' '
                                         }`}
                                         key="/menu"
                                     >
@@ -126,9 +126,9 @@ class NavMenu extends React.Component {
                                     </Menu.Item>
                                     <Menu.Item
                                         className={`${
-                                            this.state.currentPage === "/about"
+                                            this.state.currentPage === '/about'
                                                 ? styles.selected
-                                                : " "
+                                                : ' '
                                         }`}
                                         key="/about"
                                     >
@@ -138,14 +138,14 @@ class NavMenu extends React.Component {
                                     </Menu.Item>
                                     {Object.keys(user).length ===
                                     0 ? null : !user.roles.every(
-                                          role => ["CLIENT"].indexOf(role) >= 0
+                                          role => ['CLIENT'].indexOf(role) >= 0
                                       ) ? null : (
                                         <Menu.Item
                                             className={`${
                                                 this.state.currentPage ===
-                                                "/orders"
+                                                '/orders'
                                                     ? styles.selected
-                                                    : " "
+                                                    : ' '
                                             }`}
                                             key="/orders"
                                         >
@@ -156,14 +156,14 @@ class NavMenu extends React.Component {
                                     )}
                                     {Object.keys(user).length ===
                                     0 ? null : !user.roles.every(
-                                          role => ["CLIENT"].indexOf(role) >= 0
+                                          role => ['CLIENT'].indexOf(role) >= 0
                                       ) ? null : (
                                         <Menu.Item
                                             className={`${
                                                 this.state.currentPage ===
-                                                "/events"
+                                                '/events'
                                                     ? styles.selected
-                                                    : " "
+                                                    : ' '
                                             }`}
                                             key="/events"
                                         >
@@ -175,16 +175,16 @@ class NavMenu extends React.Component {
                                     {Object.keys(user).length ===
                                     0 ? null : !user.roles.every(
                                           role =>
-                                              ["ADMIN", "EMPLOYEE"].indexOf(
+                                              ['ADMIN', 'EMPLOYEE'].indexOf(
                                                   role
                                               ) >= 0
                                       ) ? null : (
                                         <Menu.Item
                                             className={`${
                                                 this.state.currentPage ===
-                                                "/admin"
+                                                '/admin'
                                                     ? styles.selected
-                                                    : " "
+                                                    : ' '
                                             }`}
                                             key="/admin"
                                         >
@@ -195,9 +195,9 @@ class NavMenu extends React.Component {
                                         <Menu.Item
                                             className={`${
                                                 this.state.currentPage ===
-                                                "/signout"
+                                                '/signout'
                                                     ? styles.selected
-                                                    : " "
+                                                    : ' '
                                             }`}
                                             key="/signout"
                                         >
@@ -208,15 +208,15 @@ class NavMenu extends React.Component {
                                     )}
                                     <div
                                         style={{
-                                            marginTop: "30px",
-                                            color: "white"
+                                            marginTop: '30px',
+                                            color: 'white',
                                         }}
                                     >
                                         <Icon
                                             type="user"
                                             style={{
-                                                marginRight: "10px",
-                                                fontSize: "1.5rem"
+                                                marginRight: '10px',
+                                                fontSize: '1.5rem',
                                             }}
                                         />
                                         {Object.keys(user).length !== 0 &&

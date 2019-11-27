@@ -1,15 +1,15 @@
-import React from "react";
-import { Layout } from "antd";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Layout } from 'antd';
+import { Link } from 'react-router-dom';
 
-import NavMenu from "../NavMenu/NavMenu";
-import styles from "./Header.module.scss";
+import NavMenu from '../NavMenu/NavMenu';
+import styles from './Header.module.scss';
 
 const { Header: AntdHeader } = Layout;
 
 const Header = () => (
     <AntdHeader
-        style={{ position: "fixed", zIndex: 1, width: "100%" }}
+        style={{ position: 'fixed', zIndex: 1, width: '100%' }}
         className={styles.header}
     >
         <Link className={styles.logo} to="/">

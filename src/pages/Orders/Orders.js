@@ -1,7 +1,6 @@
-import React from "react";
-import Layout from "../../components/Layout/Layout";
-import UserOrders from "../../components/UserOrders/UserOrders";
-
+import React from 'react';
+import Layout from '../../components/Layout/Layout';
+import UserOrders from '../../components/UserOrders/UserOrders';
 
 const Orders = () => {
     return (

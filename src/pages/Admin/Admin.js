@@ -1,6 +1,6 @@
-import React from "react";
-import Layout from "../../components/Layout/Layout";
-import AdminPanel from "../../components/AdminPanel/AdminPanel";
+import React from 'react';
+import Layout from '../../components/Layout/Layout';
+import AdminPanel from '../../components/AdminPanel/AdminPanel';
 const Orders = () => {
     return (
         <Layout>

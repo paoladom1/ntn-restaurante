@@ -1,23 +1,23 @@
-import React from "react";
-import styles from "./LoginForm.module.scss";
-import { Card, Form, Input, Button } from "antd";
-import { Link, withRouter } from "react-router-dom";
-import { AppContext } from "../../AppProvider";
-import notification from "../Notification/Notification";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import styles from './LoginForm.module.scss';
+import { Card, Form, Input, Button } from 'antd';
+import { Link, withRouter } from 'react-router-dom';
+import { AppContext } from '../../AppProvider';
+import notification from '../Notification/Notification';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
-            password: ""
+            email: '',
+            password: '',
         };
     }
 
     handleChange = e => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         });
     };
 
@@ -27,12 +27,12 @@ class LoginForm extends React.Component {
         const { email, password } = this.state;
 
         return fetch(`${process.env.REACT_APP_BACKEND_URL}/users/signin`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email,
-                password
-            })
+                password,
+            }),
         })
             .then(res => res.json())
             .catch(error => console.log(error));
@@ -50,12 +50,10 @@ class LoginForm extends React.Component {
                                 className={styles.goBack}
                                 onClick={() => {
                                     console.log(location);
-                                    history.push("/");
+                                    history.push('/');
                                 }}
                             >
-                                <FontAwesomeIcon
-                                    icon="arrow-left"
-                                />
+                                <FontAwesomeIcon icon="arrow-left" />
                             </Button>
                             <h3>Inicia Sesión</h3>
                             <p>Inicia sesión para realizar una orden</p>
@@ -63,18 +61,21 @@ class LoginForm extends React.Component {
                                 className={styles.form}
                                 onSubmit={e => {
                                     this.handleSubmit(e).then(res => {
-                                        if (res.status === "success") {
+                                        if (res.status === 'success') {
                                             updateUser({
                                                 ...res.data.user,
-                                                token: res.data.token
+                                                token: res.data.token,
                                             });
-                                            localStorage.setItem("ntnusertoken", res.data.token);
-                                            history.push("/");
+                                            localStorage.setItem(
+                                                'ntnusertoken',
+                                                res.data.token
+                                            );
+                                            history.push('/');
                                         } else {
                                             notification(
-                                                "Usuario no valido",
-                                                "Las credenciales dadas no son correctas",
-                                                "error"
+                                                'Usuario no valido',
+                                                'Las credenciales dadas no son correctas',
+                                                'error'
                                             );
                                         }
                                     });
@@ -112,8 +113,8 @@ class LoginForm extends React.Component {
                                     <strong>Login</strong>
                                 </Button>
                                 <span className={styles.text}>
-                                    {" "}
-                                    Aún no tienes una cuenta?{" "}
+                                    {' '}
+                                    Aún no tienes una cuenta?{' '}
                                 </span>
                                 <Link
                                     className={styles.registerBtn}
