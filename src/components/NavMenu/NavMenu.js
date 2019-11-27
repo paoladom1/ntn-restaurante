@@ -136,7 +136,10 @@ class NavMenu extends React.Component {
                                             Acerca de nosotros
                                         </Link>
                                     </Menu.Item>
-                                    {Object.keys(user).length === 0 ? null : (
+                                    {Object.keys(user).length ===
+                                    0 ? null : !user.roles.every(
+                                          role => ["CLIENT"].indexOf(role) >= 0
+                                      ) ? null : (
                                         <Menu.Item
                                             className={`${
                                                 this.state.currentPage ===
@@ -151,7 +154,10 @@ class NavMenu extends React.Component {
                                             </Link>
                                         </Menu.Item>
                                     )}
-                                    {Object.keys(user).length === 0 ? null : (
+                                    {Object.keys(user).length ===
+                                    0 ? null : !user.roles.every(
+                                          role => ["CLIENT"].indexOf(role) >= 0
+                                      ) ? null : (
                                         <Menu.Item
                                             className={`${
                                                 this.state.currentPage ===
@@ -168,7 +174,10 @@ class NavMenu extends React.Component {
                                     )}
                                     {Object.keys(user).length ===
                                     0 ? null : !user.roles.every(
-                                          role => ["ADMIN", "EMPLOYEE"].indexOf(role) >= 0
+                                          role =>
+                                              ["ADMIN", "EMPLOYEE"].indexOf(
+                                                  role
+                                              ) >= 0
                                       ) ? null : (
                                         <Menu.Item
                                             className={`${
@@ -203,7 +212,13 @@ class NavMenu extends React.Component {
                                             color: "white"
                                         }}
                                     >
-                                        <Icon type="user" style={{marginRight: "10px", fontSize: "1.5rem"}} />
+                                        <Icon
+                                            type="user"
+                                            style={{
+                                                marginRight: "10px",
+                                                fontSize: "1.5rem"
+                                            }}
+                                        />
                                         {Object.keys(user).length !== 0 &&
                                             user.email}
                                     </div>

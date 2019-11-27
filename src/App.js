@@ -32,10 +32,10 @@ library.add(
 
 export default function App() {
     return (
-        <CloudinaryContext cloudName="dw8gae3co">
-            <AppProvider>
+        <AppProvider>
+            <CloudinaryContext cloudName="dw8gae3co">
                 <AppRouter />
-            </AppProvider>
-        </CloudinaryContext>
+            </CloudinaryContext>
+        </AppProvider>
     );
 }

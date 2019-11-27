@@ -23,10 +23,12 @@ export const ProtectedRoute = ({
 }) => (
     <AppContext.Consumer>
         {({ user }) => {
+            console.log('protected route mounted...');
             const isAuthenticated = Object.keys(user).length !== 0;
-            const isAllowed = isAuthenticated && allowedRoles
-                ? user.roles.every(role => allowedRoles.indexOf(role) >= 0)
-                : true;
+            const isAllowed =
+                isAuthenticated && allowedRoles
+                    ? user.roles.every(role => allowedRoles.indexOf(role) >= 0)
+                    : true;
 
             return (
                 <Route
@@ -71,9 +73,21 @@ export default function AppRouter() {
                 <Route exact path="/" component={Home} />
                 <Route path="/signup" component={Register} />
                 <Route exact path="/signin" component={Login} />
-                <ProtectedRoute path="/orders" component={UserOrders} />
-                <ProtectedRoute path="/events" component={UserEvents} />
-                <ProtectedRoute path="/admin" allowedRoles={["ADMIN", "EMPLOYEE"]} component={Admin} />
+                <ProtectedRoute
+                    path="/orders"
+                    allowedRoles={["CLIENT"]}
+                    component={UserOrders}
+                />
+                <ProtectedRoute
+                    path="/events"
+                    allowedRoles={["CLIENT"]}
+                    component={UserEvents}
+                />
+                <ProtectedRoute
+                    path="/admin"
+                    allowedRoles={["ADMIN", "EMPLOYEE"]}
+                    component={Admin}
+                />
                 <Signout
                     exact
                     path="/signout"
