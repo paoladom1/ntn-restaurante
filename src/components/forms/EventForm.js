@@ -147,15 +147,23 @@ class FormularioNew extends React.Component {
                 })
                     .then(res => res.json())
                     .then(res => {
-                        notification(
-                            'Evento creado',
-                            'Se ha creado su evento exitosamente ' +
+                        if (res.status === 'success') {
+                            notification(
+                                'Evento creado',
                                 res.message,
-                            'success',
-                            2
-                        );
+                                'success',
+                                2
+                            );
 
-                        this.clearFields();
+                            this.clearFields();
+                        } else {
+                            notification(
+                                'No se pudo crear el evento',
+                                res.message,
+                                'error',
+                                3
+                            );
+                        }
                     })
                     .catch(error =>
                         notification(
