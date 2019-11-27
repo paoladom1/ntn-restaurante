@@ -94,14 +94,14 @@ class AdminPanel extends React.Component {
                 return "close-circle";
 
             default:
-                return "info-circle"
+                return "loading-3-quarters";
         }
     };
 
     render() {
         return (
             <Row>
-                <Col xs={24} lg={4}>
+                <Col xs={24}>
                     <List
                         bordered
                         itemLayout="horizontal"
@@ -109,7 +109,7 @@ class AdminPanel extends React.Component {
                         renderItem={item => <List.Item>{item}</List.Item>}
                     />
                 </Col>
-                <Col xs={24} lg={20}>
+                <Col xs={24}>
                     <List
                         bordered
                         itemLayout="horizontal"
@@ -168,7 +168,12 @@ class AdminPanel extends React.Component {
                                                             )
                                                         }
                                                     >
-                                                        <Icon type="check-circle" />
+                                                        <Icon
+                                                            style={{
+                                                                color: "blue"
+                                                            }}
+                                                            type="check-circle"
+                                                        />
                                                         ACEPTAR
                                                     </Button>
                                                 </Col>
@@ -184,7 +189,12 @@ class AdminPanel extends React.Component {
                                                             )
                                                         }
                                                     >
-                                                        <Icon type="info-circle" />
+                                                        <Icon
+                                                            style={{
+                                                                color: "grey"
+                                                            }}
+                                                            type="loading-3-quarters"
+                                                        />
                                                         EN PROCESO
                                                     </Button>
                                                 </Col>
@@ -200,7 +210,12 @@ class AdminPanel extends React.Component {
                                                             )
                                                         }
                                                     >
-                                                        <Icon type="file-done" />
+                                                        <Icon
+                                                            style={{
+                                                                color: "green"
+                                                            }}
+                                                            type="file-done"
+                                                        />
                                                         ENTREGADA
                                                     </Button>
                                                 </Col>
@@ -216,7 +231,12 @@ class AdminPanel extends React.Component {
                                                             )
                                                         }
                                                     >
-                                                        <Icon type="close-circle" />
+                                                        <Icon
+                                                            style={{
+                                                                color: "red"
+                                                            }}
+                                                            type="close-circle"
+                                                        />
                                                         CANCELADA
                                                     </Button>
                                                 </Col>
