@@ -1,0 +1,7 @@
+.statusButton {
+    width: 80%;
+
+    @media only screen and (min-width: 720px){
+        width: 150px;
+    }
+}

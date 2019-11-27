@@ -1,8 +1,9 @@
 import React from "react";
-import { Badge, List, Row, Col, Card, Divider, Icon, Button } from "antd";
+import { List, Row, Col, Card, Divider, Icon, Button } from "antd";
 
 import notification from "../Notification/Notification";
 import { AppContext } from "../../AppProvider";
+import myStyles from "./AdminPanel.module.scss";
 import styles from "../UserOrders/UserOrders.module.scss";
 
 const data = ["Ordenes"];
@@ -85,19 +86,15 @@ class AdminPanel extends React.Component {
         switch (status) {
             case "ACCEPTED":
                 return "check-circle";
-                break;
-
-            case "IN PROGRESS":
-                return "info-circle";
-                break;
 
             case "DELIVERED":
                 return "file-done";
-                break;
 
             case "CANCELED":
                 return "close-circle";
-                break;
+
+            default:
+                return "info-circle"
         }
     };
 
@@ -132,7 +129,7 @@ class AdminPanel extends React.Component {
                                                 type={this.badgeStatus(
                                                     item.status
                                                 )}
-                                                style={{marginRight: "12px"}}
+                                                style={{ marginRight: "12px" }}
                                             />
                                             {`${item.status} - ${item.client.name}`}
                                         </span>
@@ -154,10 +151,16 @@ class AdminPanel extends React.Component {
                                                 {Number(item.total).toFixed(2)}
                                             </strong>
                                         </Col>
-                                        <Col xs={16}>
-                                            <Row gutter={8}>
-                                                <Col xs={6}>
+                                        <Col
+                                            xs={16}
+                                            style={{ textAlign: "right" }}
+                                        >
+                                            <Row gutter={24}>
+                                                <Col xs={24} lg={6}>
                                                     <Button
+                                                        className={
+                                                            myStyles.statusButton
+                                                        }
                                                         onClick={() =>
                                                             this.handleOrderUpdate(
                                                                 "ACCEPTED",
@@ -169,8 +172,11 @@ class AdminPanel extends React.Component {
                                                         ACEPTAR
                                                     </Button>
                                                 </Col>
-                                                <Col xs={6}>
+                                                <Col xs={24} lg={6}>
                                                     <Button
+                                                        className={
+                                                            myStyles.statusButton
+                                                        }
                                                         onClick={() =>
                                                             this.handleOrderUpdate(
                                                                 "IN PROGRESS",
@@ -182,8 +188,11 @@ class AdminPanel extends React.Component {
                                                         EN PROCESO
                                                     </Button>
                                                 </Col>
-                                                <Col xs={6}>
+                                                <Col xs={24} lg={6}>
                                                     <Button
+                                                        className={
+                                                            myStyles.statusButton
+                                                        }
                                                         onClick={() =>
                                                             this.handleOrderUpdate(
                                                                 "DELIVERED",
@@ -195,8 +204,11 @@ class AdminPanel extends React.Component {
                                                         ENTREGADA
                                                     </Button>
                                                 </Col>
-                                                <Col xs={6}>
+                                                <Col xs={24} lg={6}>
                                                     <Button
+                                                        className={
+                                                            myStyles.statusButton
+                                                        }
                                                         onClick={() =>
                                                             this.handleOrderUpdate(
                                                                 "CANCELED",
