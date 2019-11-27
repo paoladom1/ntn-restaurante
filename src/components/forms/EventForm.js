@@ -17,6 +17,7 @@ import { withRouter } from "react-router-dom";
 
 import { AppContext } from "../../AppProvider";
 import notification from "../Notification/Notification";
+var expresionRegular1 = /^[0-9]{8}$/; //<--- con esto vamos a validar el numero
 
 const InfoSection = () => (
     <Col
@@ -85,6 +86,10 @@ const range = (start, end) => {
     return result;
 };
 
+const roundMoment = (date, duration, method) => {
+    return moment(Math[method](+date / +duration) * +duration);
+};
+
 class FormularioNew extends React.Component {
     constructor(props) {
         super(props);
@@ -93,8 +98,8 @@ class FormularioNew extends React.Component {
             dui: "",
             email: "",
             phone: "",
-            amount_of_people: 0,
-            date: moment()
+            amount_of_people: 1,
+            date: roundMoment(moment(), moment.duration(30, "minutes"), "ceil")
         };
     }
 
@@ -104,15 +109,14 @@ class FormularioNew extends React.Component {
             dui: "",
             email: "",
             phone: "",
-            amount_of_people: 0,
-            date: moment()
+            amount_of_people: 1,
+            date: moment().add(1, "days")
         });
     };
 
     handleSubmit = (e, user) => {
         e.preventDefault();
         const { name, dui, email, phone, amount_of_people, date } = this.state;
-
         if (Object.keys(user).length === 0) {
             notification(
                 "ERROR",
@@ -124,47 +128,71 @@ class FormularioNew extends React.Component {
             return;
         }
 
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${user.token}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name,
-                dui,
-                email,
-                phone,
-                amount_of_people,
-                date
-            })
-        })
-            .then(res => res.json())
-            .then(res => {
-                notification(
-                    "Evento creado",
-                    "Se ha creado su evento exitosamente " + res.message,
-                    "success",
-                    2
-                );
+        if (expresionRegular1.test(phone)) {
+            if (amount_of_people >= 1 && amount_of_people < 10) {
+                fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name,
+                        dui,
+                        email,
+                        phone,
+                        amount_of_people,
+                        date
+                    })
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                        notification(
+                            "Evento creado",
+                            "Se ha creado su evento exitosamente " +
+                                res.message,
+                            "success",
+                            2
+                        );
 
-                this.clearFields();
-            })
-            .catch(error =>
+                        this.clearFields();
+                    })
+                    .catch(error =>
+                        notification(
+                            "Ha ocurrido un error",
+                            "Lo lamentamos, ha habido un error creando su evento" +
+                                error.message,
+                            "error",
+                            2
+                        )
+                    );
+            } else {
                 notification(
                     "Ha ocurrido un error",
-                    "Lo lamentamos, ha habido un error creando su evento" +
-                        error.message,
+                    "Minimo de personas: 1",
                     "error",
                     2
-                )
+                );
+            }
+        } else {
+            notification(
+                "Ha ocurrido un error",
+                "Ingrese un numero telefonico valido",
+                "error",
+                2
             );
+        }
     };
 
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         });
+    };
+
+    handleDateChange = e => {
+        console.log(e);
+        this.setState({ date: e });
     };
 
     disabledDate = current => {
@@ -197,6 +225,7 @@ class FormularioNew extends React.Component {
                                         <Form.Item
                                             label="Telefono"
                                             className={styles.field}
+                                            required
                                         >
                                             <Input
                                                 name="phone"
@@ -205,7 +234,7 @@ class FormularioNew extends React.Component {
                                                 className={styles.input}
                                                 type="tel"
                                                 vpattern="[0-9]"
-                                                placeholder="####-####"
+                                                placeholder="########"
                                             />
                                         </Form.Item>
                                     </Col>
@@ -213,6 +242,7 @@ class FormularioNew extends React.Component {
                                         <Form.Item
                                             label="Cant. personas"
                                             className={styles.field}
+                                            required
                                         >
                                             <Input
                                                 name="amount_of_people"
@@ -231,6 +261,7 @@ class FormularioNew extends React.Component {
                                             label="Fecha reserva"
                                             style={{ marginBottom: 0 }}
                                             className={styles.field}
+                                            required
                                         >
                                             <Form.Item
                                                 style={{
@@ -241,6 +272,11 @@ class FormularioNew extends React.Component {
                                                 <DatePicker
                                                     name="date"
                                                     format="DD/MM/YYYY, hh:mm A"
+                                                    onChange={
+                                                        this.handleDateChange
+                                                    }
+                                                    value={this.state.date}
+                                                    showToday={false}
                                                     disabledDate={
                                                         this.disabledDate
                                                     }

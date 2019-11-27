@@ -60,7 +60,7 @@ class CustomMenu extends React.Component {
                                 className={styles.cardMenu}
                                 xs={24}
                                 md={24}
-                                lg={14}
+                                lg={16}
                             >
                                 <div className={styles.cardTitle}>
                                     <FontAwesomeIcon
@@ -139,7 +139,7 @@ class CustomMenu extends React.Component {
                                     })}
                                 </div>
                             </Col>
-                            <Col className={styles.img} xs={24} lg={10}>
+                            <Col className={styles.img} xs={24} lg={8}>
                                 <Image publicId={this.props.image} className={styles.img} />
                             </Col>
                         </Row>

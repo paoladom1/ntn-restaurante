@@ -107,15 +107,16 @@
             }
         }
         .cardContent {
+            display: flex;
+            align-items: center;
             border: 0;
+            max-width: 100%;
             width: 100%;
 
             .img {
-                display: flex;
-                justify-content: flex-end;
-                max-width: 90%;
-                max-height: 70%;
-                align-self: flex-end;
+                display: block;
+                margin-left: 30px;
+                max-width: 60%;
             }
         }
 

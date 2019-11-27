@@ -9,37 +9,37 @@ const list = [
         name: "Entradas",
         route: "/entradas",
         category: "entrees",
-        image: "proyecto/entreesCollage"
+        image: "proyecto/entradas"
     },
     {
         name: "Desayunos",
         route: "/desayunos",
         category: "breakfast",
-        image: "proyecto/breakfastCollage"
+        image: "proyecto/desayunos"
     },
     {
         name: "Platos Fuertes",
         route: "/principales",
         category: "main",
-        image: "proyecto/mainCollage"
+        image: "proyecto/almuerzos"
     },
     {
         name: "Antojitos",
         route: "/antojitos",
         category: "snacks",
-        image: "proyecto/snacksCollage.png"
+        image: "proyecto/antojitos"
     },
     {
         name: "Postres",
         route: "/postres",
         category: "dessert",
-        image: "proyecto/dessertsCollage"
+        image: "proyecto/postres"
     },
     {
         name: "Bebidas",
         route: "/bebidas",
         category: "beverage",
-        image: "proyecto/drinksCollage"
+        image: "proyecto/drinks"
     }
 ];
 

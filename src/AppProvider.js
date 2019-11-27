@@ -29,6 +29,7 @@ class AppProvider extends React.Component {
 
     componentDidMount() {
         const token = localStorage.getItem("ntnusertoken");
+        console.log("context mounted");
 
         if (token) {
             const decoded = jwtDecode(token);
