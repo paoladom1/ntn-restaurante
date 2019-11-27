@@ -1,12 +1,12 @@
-import React from "react";
-import jwtDecode from "jwt-decode";
+import React from 'react';
+import jwtDecode from 'jwt-decode';
 
 export const AppContext = React.createContext();
 
 class AppProvider extends React.Component {
     constructor(props) {
         super(props);
-        let cart = JSON.parse(localStorage.getItem("cart"));
+        let cart = JSON.parse(localStorage.getItem('cart'));
         cart = cart ? cart : [];
 
         this.state = {
@@ -17,40 +17,40 @@ class AppProvider extends React.Component {
             },
             updateUser: newUser => {
                 this.setState({ user: newUser });
-            }
+            },
         };
     }
 
     componentWillUnmount() {
-        window.removeEventListener("beforeunload", () => {
-            localStorage.setItem("cart", JSON.stringify(this.state.cart));
+        window.removeEventListener('beforeunload', () => {
+            localStorage.setItem('cart', JSON.stringify(this.state.cart));
         });
     }
 
     componentDidMount() {
-        const token = localStorage.getItem("ntnusertoken");
-        console.log("context mounted");
+        const token = localStorage.getItem('ntnusertoken');
+        console.log('context mounted');
 
         if (token) {
             const decoded = jwtDecode(token);
 
             fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${decoded._id}`, {
-                method: "GET",
+                method: 'GET',
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
             })
                 .then(res => res.json())
                 .then(res => {
                     const { user } = res.data;
-                    this.setState({ user: {...user, token: token} });
+                    this.setState({ user: { ...user, token: token } });
                 })
                 .catch(error => console.log(error));
         }
 
-        window.addEventListener("beforeunload", () => {
-            localStorage.setItem("cart", JSON.stringify(this.state.cart));
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('cart', JSON.stringify(this.state.cart));
         });
     }
 

@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect
-} from "react-router-dom";
+    Redirect,
+} from 'react-router-dom';
 
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Menu from "./pages/Menu/Menu";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
-import UserOrders from "./pages/Orders/Orders";
-import UserEvents from "./pages/Events/Events";
-import { AppContext } from "./AppProvider";
-import Admin from "./pages/Admin/Admin";
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Menu from './pages/Menu/Menu';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import UserOrders from './pages/Orders/Orders';
+import UserEvents from './pages/Events/Events';
+import { AppContext } from './AppProvider';
+import Admin from './pages/Admin/Admin';
 
 export const ProtectedRoute = ({
     component: Component,
@@ -54,8 +54,8 @@ export const Signout = ({ component: Component, ...rest }) => (
             if (isAuthenticated) {
                 updateUser({});
                 updateCart([]);
-                localStorage.removeItem("ntnusertoken");
-                localStorage.removeItem("cart");
+                localStorage.removeItem('ntnusertoken');
+                localStorage.removeItem('cart');
             }
             return (
                 <Route {...rest} render={props => <Component {...props} />} />
@@ -75,17 +75,17 @@ export default function AppRouter() {
                 <Route exact path="/signin" component={Login} />
                 <ProtectedRoute
                     path="/orders"
-                    allowedRoles={["CLIENT"]}
+                    allowedRoles={['CLIENT']}
                     component={UserOrders}
                 />
                 <ProtectedRoute
                     path="/events"
-                    allowedRoles={["CLIENT"]}
+                    allowedRoles={['CLIENT']}
                     component={UserEvents}
                 />
                 <ProtectedRoute
                     path="/admin"
-                    allowedRoles={["ADMIN", "EMPLOYEE"]}
+                    allowedRoles={['ADMIN', 'EMPLOYEE']}
                     component={Admin}
                 />
                 <Signout
