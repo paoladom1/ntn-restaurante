@@ -124,8 +124,9 @@ class FormularioNew extends React.Component {
             this.props.history.push("/signin");
             return;
         }
+
         if (expresionRegular1.test(phone)) {
-            if (amount_of_people > 3 && amount_of_people < 10) {
+            if (amount_of_people > 1 && amount_of_people < 10) {
                 fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
                     method: "POST",
                     headers: {
@@ -164,7 +165,7 @@ class FormularioNew extends React.Component {
             } else {
                 notification(
                     "Ha ocurrido un error",
-                    "minimo de personas 5",
+                    "minimo de personas: 1",
                     "error",
                     2
                 )
