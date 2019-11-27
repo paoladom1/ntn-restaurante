@@ -1,22 +1,22 @@
-import React from "react";
-import AppRouter from "./AppRouter";
-import { CloudinaryContext } from "cloudinary-react";
+import React from 'react';
+import AppRouter from './AppRouter';
+import { CloudinaryContext } from 'cloudinary-react';
 
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     fab,
     faFacebook,
     faTwitter,
-    faInstagram
-} from "@fortawesome/free-brands-svg-icons";
+    faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 import {
     faShoppingCart,
     faUtensils,
     faChevronDown,
     faMinusCircle,
-    faArrowLeft
-} from "@fortawesome/free-solid-svg-icons";
-import AppProvider from "./AppProvider";
+    faArrowLeft,
+} from '@fortawesome/free-solid-svg-icons';
+import AppProvider from './AppProvider';
 
 library.add(
     fab,
