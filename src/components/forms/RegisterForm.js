@@ -5,9 +5,12 @@ import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import notification from "../Notification/Notification";
-var expNombre = /^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-var expRegCorreo = /^\w+@(\w+\.)+\w{2,4}$/;
-var expDUI = /^\d{8}-\d$/;
+
+
+const expNombre = /^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+const expRegCorreo = /^\w+@(\w+\.)+\w{2,4}$/;
+const expDUI = /^\d{8}-\d$/;
+
 class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
@@ -114,6 +117,7 @@ class RegisterForm extends React.Component {
                         <Form.Item
                             label="Nombre Completo"
                             className={styles.label}
+                            required
                         >
                             <Input
                                 type="text"
@@ -130,6 +134,7 @@ class RegisterForm extends React.Component {
                                 onChange={this.handleChange}
                                 value={email}
                                 name="email"
+                                required
                             />
                         </Form.Item>
                         <Form.Item label="DUI" className={styles.label}>
@@ -139,6 +144,7 @@ class RegisterForm extends React.Component {
                                 onChange={this.handleChange}
                                 value={dui}
                                 name="dui"
+                                required
                             />
                         </Form.Item>
                         <Form.Item label="Contraseña" className={styles.label}>
@@ -148,6 +154,7 @@ class RegisterForm extends React.Component {
                                 onChange={this.handleChange}
                                 value={password}
                                 name="password"
+                                required
                             />
                         </Form.Item>
                         <Form.Item label="Confirme su contraseña" className={styles.label}>
@@ -157,6 +164,7 @@ class RegisterForm extends React.Component {
                                 onChange={this.handleChange}
                                 value={password2}
                                 name="password2"
+                                required
                             />
                         </Form.Item>
                         <Button
