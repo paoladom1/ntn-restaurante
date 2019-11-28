@@ -118,39 +118,49 @@ class RegisterForm extends React.Component {
                                 name="name"
                             />
                         </Form.Item>
-                        <Form.Item label="Email" className={styles.label}>
+                        <Form.Item
+                            label="Email"
+                            className={styles.label}
+                            required
+                        >
                             <Input
                                 type="email"
                                 placeholder="Email"
                                 onChange={this.handleChange}
                                 value={email}
                                 name="email"
-                                required
                             />
                         </Form.Item>
-                        <Form.Item label="DUI" className={styles.label}>
+                        <Form.Item
+                            label="DUI"
+                            className={styles.label}
+                            required
+                        >
                             <Input
                                 type="text"
                                 placeholder="DUI"
                                 onChange={this.handleChange}
                                 value={dui}
                                 name="dui"
-                                required
                             />
                         </Form.Item>
-                        <Form.Item label="Contraseña" className={styles.label}>
+                        <Form.Item
+                            label="Contraseña"
+                            className={styles.label}
+                            required
+                        >
                             <Input
                                 type="password"
                                 placeholder="Contraseña"
                                 onChange={this.handleChange}
                                 value={password}
                                 name="password"
-                                required
                             />
                         </Form.Item>
                         <Form.Item
                             label="Confirme su contraseña"
                             className={styles.label}
+                            required
                         >
                             <Input
                                 type="password"
@@ -158,7 +168,6 @@ class RegisterForm extends React.Component {
                                 onChange={this.handleChange}
                                 value={password2}
                                 name="password2"
-                                required
                             />
                         </Form.Item>
                         <Button

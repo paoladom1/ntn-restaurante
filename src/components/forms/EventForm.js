@@ -129,51 +129,58 @@ class FormularioNew extends React.Component {
         }
 
         if (expresionRegular1.test(phone)) {
-            if (amount_of_people >= 1 && amount_of_people < 10) {
-                fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
-                    method: 'POST',
-                    headers: {
-                        Authorization: `Bearer ${user.token}`,
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name,
-                        dui,
-                        email,
-                        phone,
-                        amount_of_people,
-                        date,
-                    }),
-                })
-                    .then(res => res.json())
-                    .then(res => {
-                        if (res.status === 'success') {
-                            notification(
-                                'Evento creado',
-                                res.message,
-                                'success',
-                                2
-                            );
-
-                            this.clearFields();
-                        } else {
-                            notification(
-                                'No se pudo crear el evento',
-                                res.message,
-                                'error',
-                                3
-                            );
-                        }
+            if (amount_of_people >= 1) {
+                if (amount_of_people <= 9) {
+                    fetch(`${process.env.REACT_APP_BACKEND_URL}/me/events`, {
+                        method: 'POST',
+                        headers: {
+                            Authorization: `Bearer ${user.token}`,
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name,
+                            dui,
+                            email,
+                            phone,
+                            amount_of_people,
+                            date,
+                        }),
                     })
-                    .catch(error =>
-                        notification(
-                            'Ha ocurrido un error',
-                            'Lo lamentamos, ha habido un error creando su evento' +
-                                error.message,
-                            'error',
-                            2
-                        )
+                        .then(res => res.json())
+                        .then(res => {
+                            if (res.status === 'success') {
+                                notification(
+                                    'Evento creado',
+                                    res.message,
+                                    'success',
+                                    2
+                                );
+
+                                this.clearFields();
+                            } else {
+                                notification(
+                                    'No se pudo crear el evento',
+                                    res.message,
+                                    'error',
+                                    3
+                                );
+                            }
+                        })
+                        .catch(error =>
+                            notification(
+                                'Ha ocurrido un error',
+                                'Lo lamentamos, ha habido un error creando su evento' +
+                                    error.message,
+                                'error',
+                                2
+                            )
+                        );
+                } else {
+                    notification(
+                        'Ha ocurrido un error',
+                        'El numero máximo de personas por reserva es de 9'
                     );
+                }
             } else {
                 notification(
                     'Ha ocurrido un error',
